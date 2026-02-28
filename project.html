@@ -3,132 +3,206 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects Portfolio</title>
+    <title>Godwin Samraj | AI & Software Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* --- CSS Variables & Reset (Light Theme) --- */
+        :root {
+            --bg-body: #f8fafc;       /* Slate 50 (Very Light Gray) */
+            --bg-card: #ffffff;       /* Pure White */
+            --bg-card-hover: #ffffff;
+            
+            --primary: #2563eb;       /* Blue 600 */
+            --primary-light: #eff6ff; /* Blue 50 */
+            --primary-hover: #1d4ed8; /* Blue 700 */
+            
+            --text-main: #0f172a;     /* Slate 900 */
+            --text-muted: #64748b;    /* Slate 500 */
+            
+            --border: #e2e8f0;        /* Slate 200 */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            
+            --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        :root {
-            --primary-color: #2563eb;
-            --secondary-color: #3b82f6;
-            --accent-color: #60a5fa;
-            --text-primary: #1f2937;
-            --text-secondary: #6b7280;
-            --background: #ffffff;
-            --card-bg: #ffffff;
-            --border-color: #e5e7eb;
-            --header-bg: #f9fafb;
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--background);
-            color: var(--text-primary);
+            font-family: var(--font-main);
+            background-color: var(--bg-body);
+            color: var(--text-main);
             line-height: 1.6;
-            min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        /* Header */
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* --- Animations --- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- Header / Navbar --- */
         header {
-            background: var(--header-bg);
-            border-bottom: 1px solid var(--border-color);
-            padding: 20px 0;
-            position: sticky;
+            position: fixed;
             top: 0;
-            z-index: 100;
-            backdrop-filter: blur(10px);
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            transition: var(--transition);
         }
 
         .header-content {
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 1rem 1.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--primary-color);
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-main);
             display: flex;
             align-items: center;
             gap: 10px;
+            letter-spacing: -0.5px;
         }
+
+        .logo i { color: var(--primary); }
 
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 2rem;
             align-items: center;
         }
 
         .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
+            font-size: 0.95rem;
             font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-
-        /* Main Container */
-        .main-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
-
-        /* Section Title */
-        .section-title {
-            font-size: 48px;
-            font-weight: 800;
-            color: var(--text-primary);
-            margin-bottom: 20px;
+            color: var(--text-muted);
+            transition: var(--transition);
             position: relative;
-            display: inline-block;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after { width: 100%; }
+
+        .github-btn {
+            background: var(--bg-body);
+            color: var(--text-main);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .github-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* --- Main Layout --- */
+        .main-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 140px 1.5rem 80px;
+        }
+
+        .hero-text {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 80px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+            letter-spacing: -1px;
         }
 
         .section-subtitle {
-            font-size: 18px;
-            color: var(--text-secondary);
-            margin-bottom: 60px;
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        /* Projects Grid */
+        /* --- Project Grid --- */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 2rem;
         }
 
-        /* Project Card */
+        /* --- Project Card --- */
         .project-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
+            background: var(--bg-card);
             border-radius: 16px;
             overflow: hidden;
-            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+            transition: var(--transition);
             position: relative;
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--shadow-sm);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .project-card.visible {
+            animation: fadeInUp 0.6s ease-out forwards;
         }
 
         .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border-color: var(--primary-color);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--primary-light);
         }
 
-        /* Project Image Container */
+        /* Icon/Image Area */
         .project-image {
             height: 200px;
-            background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -136,243 +210,257 @@
             overflow: hidden;
         }
 
-        .project-image i {
-            font-size: 60px;
-            color: var(--primary-color);
+        .project-image::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at center, rgba(37, 99, 235, 0.05) 0%, transparent 70%);
+            opacity: 0;
+            transition: var(--transition);
         }
 
-        /* Project Content */
+        .project-card:hover .project-image::before { opacity: 1; }
+
+        .project-image i {
+            font-size: 4rem;
+            color: #cbd5e1; /* Light Slate Icon */
+            transition: var(--transition);
+            z-index: 1;
+        }
+
+        .project-card:hover .project-image i {
+            color: var(--primary);
+            transform: scale(1.1);
+        }
+
+        /* Content Area */
         .project-content {
-            padding: 30px;
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-title {
-            font-size: 24px;
+            font-size: 1.5rem;
             font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 15px;
+            margin-bottom: 0.75rem;
+            color: var(--text-main);
         }
 
-        /* Tech Badges */
         .project-tech {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin: 20px 0;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
         }
 
         .tech-badge {
-            background: #f3f4f6;
-            color: var(--text-secondary);
-            padding: 6px 12px;
-            border-radius: 8px;
-            font-size: 13px;
-            font-weight: 500;
-            border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--primary);
+            background: var(--primary-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            transition: var(--transition);
         }
 
-        .tech-badge:hover {
-            background: var(--primary-color);
-            color: white;
-            transform: translateY(-2px);
+        .project-card:hover .tech-badge {
+            background: white;
+            border-color: var(--primary);
+            color: var(--primary-hover);
         }
 
-        /* Project Description */
         .project-description {
-            color: var(--text-secondary);
-            line-height: 1.6;
-            margin: 20px 0;
-            font-size: 15px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
         }
 
-        /* Project Links */
+        /* Action Links */
         .project-links {
             display: flex;
-            gap: 15px;
-            margin-top: 25px;
+            gap: 1rem;
+            margin-top: auto;
+            border-top: 1px solid var(--border);
+            padding-top: 1.5rem;
+            transform: translateY(10px);
+            opacity: 0.9;
+            transition: var(--transition);
+        }
+
+        .project-card:hover .project-links {
+            transform: translateY(0);
+            opacity: 1;
         }
 
         .project-link {
+            flex: 1;
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 8px;
-            color: var(--primary-color);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 600;
-            padding: 10px 20px;
-            border: 2px solid var(--primary-color);
+            padding: 0.75rem;
             border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .project-link:hover {
-            background: var(--primary-color);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--header-bg);
-            border-top: 1px solid var(--border-color);
-            padding: 40px 20px;
-            margin-top: 80px;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: var(--transition);
             text-align: center;
+        }
+
+        .link-demo {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+        }
+
+        .link-demo:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+        }
+
+        .link-code {
+            background: white;
+            border: 1px solid var(--border);
+            color: var(--text-main);
+        }
+
+        .link-code:hover {
+            border-color: var(--text-main);
+            background: var(--bg-body);
+        }
+
+        /* --- Footer --- */
+        footer {
+            margin-top: 6rem;
+            padding: 3rem 1.5rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-muted);
+            background: white;
         }
 
         .footer-links {
             display: flex;
             justify-content: center;
-            gap: 30px;
-            margin-top: 20px;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
         }
 
-        .footer-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
+        .footer-links a:hover { color: var(--primary); }
 
-        .footer-links a:hover {
-            color: var(--primary-color);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .section-title {
-                font-size: 32px;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .header-content {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .nav-links {
-                gap: 20px;
-            }
-
-            .project-links {
-                flex-direction: column;
-            }
-
-            .project-link {
-                width: 100%;
-                justify-content: center;
-            }
-        }
-
-        /* Loading Animation */
-        .loading {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-            animation: loading 2s ease-in-out infinite;
-            z-index: 1000;
-        }
-
-        @keyframes loading {
-            0% {
-                transform: translateX(-100%);
-            }
-            100% {
-                transform: translateX(100%);
-            }
-        }
-
-        /* Fade in animation */
-        .fade-in {
-            animation: fadeIn 0.6s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Scroll to top button */
+        /* --- Scroll Top Button --- */
         .scroll-top {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background: var(--primary-color);
-            color: white;
             width: 50px;
             height: 50px;
+            background: var(--text-main);
+            color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
+            box-shadow: var(--shadow-lg);
             opacity: 0;
             visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 100;
+            transform: translateY(20px);
+            transition: var(--transition);
+            z-index: 900;
+            border: none;
         }
 
-        .scroll-top.visible {
+        .scroll-top.show {
             opacity: 1;
             visibility: visible;
+            transform: translateY(0);
         }
 
         .scroll-top:hover {
-            background: var(--secondary-color);
+            background: var(--primary);
             transform: translateY(-5px);
+        }
+
+        /* --- Mobile Responsiveness --- */
+        @media (max-width: 768px) {
+            .section-title { font-size: 2.5rem; }
+            .header-content { padding: 1rem; }
+            .nav-links { display: none; }
+            
+            /* Basic Mobile Menu */
+            .nav-links.mobile-active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: white;
+                padding: 2rem;
+                border-bottom: 1px solid var(--border);
+                box-shadow: var(--shadow-lg);
+            }
+            
+            .mobile-toggle {
+                display: block;
+                font-size: 1.5rem;
+                color: var(--text-main);
+                cursor: pointer;
+            }
+
+            .projects-grid { grid-template-columns: 1fr; }
+            .project-links { flex-direction: column; }
+        }
+
+        @media (min-width: 769px) {
+            .mobile-toggle { display: none; }
         }
     </style>
 </head>
 <body>
-    <!-- Loading Bar -->
-    <div class="loading" id="loadingBar"></div>
 
     <!-- Header -->
     <header>
         <div class="header-content">
-            <div class="logo">
-                <i class="fas fa-code"></i>
-                <span>Portfolio</span>
+            <a href="#" class="logo">
+                <i class="fas fa-layer-group"></i> Godwin.Dev
+            </a>
+            
+            <div class="mobile-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
             </div>
-            <nav class="nav-links">
+
+            <nav class="nav-links" id="navLinks">
                 <a href="#projects">Projects</a>
                 <a href="#about">About</a>
                 <a href="#contact">Contact</a>
-                <a href="https://github.com" target="_blank">
-                    <i class="fab fa-github"></i>
+                <a href="https://github.com" target="_blank" class="github-btn">
+                    <i class="fab fa-github"></i> &nbsp;GitHub
                 </a>
             </nav>
         </div>
     </header>
 
-    <!-- Main Container -->
+    <!-- Main Content -->
     <main class="main-container">
-        <h1 class="section-title fade-in">My Projects</h1>
-        <p class="section-subtitle fade-in">A collection of my work and experiments</p>
+        
+        <!-- Hero Section -->
+        <div class="hero-text">
+            <h1 class="section-title">Featured Projects</h1>
+            <p class="section-subtitle">A curated collection of AI-driven applications, full-stack systems, and experimental software.</p>
+        </div>
 
         <!-- Projects Grid -->
         <div class="projects-grid" id="projects">
-            <!-- Stroke Prediction App -->
-            <div class="project-card fade-in">
+            
+            <!-- Project 1: Stroke Prediction -->
+            <div class="project-card">
                 <div class="project-image">
                     <i class="fas fa-brain"></i>
                 </div>
@@ -381,196 +469,199 @@
                     <div class="project-tech">
                         <span class="tech-badge">Python</span>
                         <span class="tech-badge">Streamlit</span>
-                        <span class="tech-badge">Random Forest</span>
                         <span class="tech-badge">Machine Learning</span>
                     </div>
                     <p class="project-description">
-                        Healthcare-focused machine learning application that predicts stroke probability using health metrics such as age, BMI, glucose level, and heart disease history. Built with Random Forest classifier and deployed using Streamlit.
+                        Healthcare-focused ML application predicting stroke probability using Random Forest classifiers based on health metrics.
                     </p>
                     <div class="project-links">
-                        <a href="https://strokeprediction-amrhvyqse9ni86rntyyffk.streamlit.app/" 
-                           target="_blank" 
-                           class="project-link">
+                        <a href="https://strokeprediction-amrhvyqse9ni86rntyyffk.streamlit.app/" target="_blank" class="project-link link-demo">
                             <i class="fas fa-external-link-alt"></i> Live Demo
                         </a>
-                        <a href="#" class="project-link">
-                            <i class="fab fa-github"></i> Code
+                        <a href="#" class="project-link link-code">
+                            <i class="fab fa-github"></i> View Code
                         </a>
                     </div>
                 </div>
             </div>
 
-            <!-- CityScope AI -->
-            <div class="project-card fade-in">
+            <!-- Project 2: CityScope AI -->
+            <div class="project-card">
                 <div class="project-image">
                     <i class="fas fa-city"></i>
                 </div>
                 <div class="project-content">
-                    <h3 class="project-title">CityScope AI – District Intelligence</h3>
+                    <h3 class="project-title">CityScope AI</h3>
                     <div class="project-tech">
                         <span class="tech-badge">Python</span>
-                        <span class="tech-badge">Streamlit</span>
-                        <span class="tech-badge">TF-IDF</span>
+                        <span class="tech-badge">NLP</span>
                         <span class="tech-badge">K-Means</span>
-                        <span class="tech-badge">Machine Learning</span>
                     </div>
                     <p class="project-description">
-                        Intelligent chatbot trained using TF-IDF vectorization and clustering algorithms to answer queries about Tamil Nadu districts. Lightweight, offline-friendly system with real-time semantic similarity retrieval.
+                        Intelligent chatbot trained using TF-IDF vectorization and clustering to answer queries about Tamil Nadu districts efficiently.
                     </p>
                     <div class="project-links">
-                        <a href="https://cityscopeai-bg5nlpwgfwagazxiownnpf.streamlit.app/" 
-                           target="_blank" 
-                           class="project-link">
+                        <a href="https://cityscopeai-bg5nlpwgfwagazxiownnpf.streamlit.app/" target="_blank" class="project-link link-demo">
                             <i class="fas fa-external-link-alt"></i> Live Demo
                         </a>
-                        <a href="#" class="project-link">
-                            <i class="fab fa-github"></i> Code
+                        <a href="#" class="project-link link-code">
+                            <i class="fab fa-github"></i> View Code
                         </a>
                     </div>
                 </div>
             </div>
 
-            <!-- Mr.Strict -->
-            <div class="project-card fade-in">
+            <!-- Project 3: Mr.Strict -->
+            <div class="project-card">
                 <div class="project-image">
                     <i class="fas fa-robot"></i>
                 </div>
                 <div class="project-content">
-                    <h3 class="project-title">Mr.Strict - Automated Evaluator</h3>
+                    <h3 class="project-title">Mr. Strict Evaluator</h3>
                     <div class="project-tech">
                         <span class="tech-badge">Python</span>
                         <span class="tech-badge">BERT</span>
-                        <span class="tech-badge">NLP</span>
                         <span class="tech-badge">FastAPI</span>
                     </div>
                     <p class="project-description">
                         AI-powered grading system leveraging BERT for semantic evaluation, achieving 92% accuracy and reducing grading time by 85%.
                     </p>
                     <div class="project-links">
-                        <a href="#" class="project-link">
+                        <a href="#" class="project-link link-demo">
                             <i class="fas fa-external-link-alt"></i> Live Demo
                         </a>
-                        <a href="#" class="project-link">
-                            <i class="fab fa-github"></i> Code
+                        <a href="#" class="project-link link-code">
+                            <i class="fab fa-github"></i> View Code
                         </a>
                     </div>
                 </div>
             </div>
 
-            <!-- Humanless Exam Monitoring -->
-            <div class="project-card fade-in">
+            <!-- Project 4: Exam Monitoring -->
+            <div class="project-card">
                 <div class="project-image">
                     <i class="fas fa-video"></i>
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Humanless Exam Monitoring</h3>
                     <div class="project-tech">
-                        <span class="tech-badge">Python</span>
                         <span class="tech-badge">OpenCV</span>
                         <span class="tech-badge">Computer Vision</span>
                         <span class="tech-badge">Jetson Nano</span>
                     </div>
                     <p class="project-description">
-                        Real-time AI proctoring system with facial recognition and head pose estimation, deployed on Jetson Nano at 30 FPS.
+                        Real-time AI proctoring system with facial recognition and head pose estimation, deployed on edge devices at 30 FPS.
                     </p>
                     <div class="project-links">
-                        <a href="#" class="project-link">
+                        <a href="#" class="project-link link-demo">
                             <i class="fas fa-external-link-alt"></i> Live Demo
                         </a>
-                        <a href="#" class="project-link">
-                            <i class="fab fa-github"></i> Code
+                        <a href="#" class="project-link link-code">
+                            <i class="fab fa-github"></i> View Code
                         </a>
                     </div>
                 </div>
             </div>
 
-            <!-- Hospital Token Booking -->
-            <div class="project-card fade-in">
+            <!-- Project 5: Hospital Token -->
+            <div class="project-card">
                 <div class="project-image">
-                    <i class="fas fa-hospital"></i>
+                    <i class="fas fa-hospital-user"></i>
                 </div>
                 <div class="project-content">
                     <h3 class="project-title">Hospital Token Booking</h3>
                     <div class="project-tech">
                         <span class="tech-badge">MERN Stack</span>
-                        <span class="tech-badge">JWT</span>
+                        <span class="tech-badge">JWT Auth</span>
                         <span class="tech-badge">MongoDB</span>
                     </div>
                     <p class="project-description">
-                        Full-stack token booking platform with user/admin roles, JWT authentication, and comprehensive token management dashboard.
+                        Full-stack token booking platform featuring role-based access control and a comprehensive admin dashboard.
                     </p>
                     <div class="project-links">
-                        <a href="#" class="project-link">
+                        <a href="#" class="project-link link-demo">
                             <i class="fas fa-external-link-alt"></i> Live Demo
                         </a>
-                        <a href="#" class="project-link">
-                            <i class="fab fa-github"></i> Code
+                        <a href="#" class="project-link link-code">
+                            <i class="fab fa-github"></i> View Code
                         </a>
                     </div>
                 </div>
             </div>
 
-            <!-- MindOracle -->
-            <div class="project-card fade-in">
+            <!-- Project 6: MindOracle -->
+            <div class="project-card">
                 <div class="project-image">
                     <i class="fas fa-magic"></i>
                 </div>
                 <div class="project-content">
-                    <h3 class="project-title">MindOracle - Mathematical Prediction</h3>
+                    <h3 class="project-title">MindOracle</h3>
                     <div class="project-tech">
                         <span class="tech-badge">JavaScript</span>
                         <span class="tech-badge">Algebraic Logic</span>
-                        <span class="tech-badge">Interactive UI</span>
+                        <span class="tech-badge">Web App</span>
                     </div>
                     <p class="project-description">
-                        Interactive mathematical illusion system that simulates mind reading using algebraic cancellation logic to generate guaranteed deterministic outputs.
+                        Interactive mathematical illusion system simulating mind reading using algebraic cancellation logic for deterministic outputs.
                     </p>
                     <div class="project-links">
-                        <a href="#" class="project-link">
+                        <a href="#" class="project-link link-demo">
                             <i class="fas fa-external-link-alt"></i> Live Demo
                         </a>
-                        <a href="#" class="project-link">
-                            <i class="fab fa-github"></i> Code
+                        <a href="#" class="project-link link-code">
+                            <i class="fab fa-github"></i> View Code
                         </a>
                     </div>
                 </div>
             </div>
+
         </div>
     </main>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <p>&copy; 2024 Portfolio. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">Contact</a>
-            </div>
+        <p>&copy; <span id="year"></span> Godwin Samraj. Built with <i class="fas fa-heart" style="color: var(--primary)"></i> and Code.</p>
+        <div class="footer-links">
+            <a href="#">LinkedIn</a>
+            <a href="#">Twitter</a>
+            <a href="#">Email</a>
         </div>
     </footer>
 
-    <!-- Scroll to Top Button -->
-    <div class="scroll-top" id="scrollTop">
+    <!-- Scroll to Top -->
+    <button class="scroll-top" id="scrollTop">
         <i class="fas fa-arrow-up"></i>
-    </div>
+    </button>
 
+    <!-- JavaScript -->
     <script>
-        // Remove loading bar after page loads
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.getElementById('loadingBar').style.display = 'none';
-            }, 1000);
+        // --- 1. Dynamic Year ---
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // --- 2. Mobile Menu Toggle ---
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('mobile-active');
+            const icon = mobileToggle.querySelector('i');
+            if (navLinks.classList.contains('mobile-active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
         });
 
-        // Scroll to top functionality
+        // --- 3. Scroll To Top Button ---
         const scrollTopBtn = document.getElementById('scrollTop');
-        
+
         window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                scrollTopBtn.classList.add('visible');
+            if (window.scrollY > 400) {
+                scrollTopBtn.classList.add('show');
             } else {
-                scrollTopBtn.classList.remove('visible');
+                scrollTopBtn.classList.remove('show');
             }
         });
 
@@ -581,61 +672,46 @@
             });
         });
 
-        // Smooth scroll for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Add fade-in animation on scroll
+        // --- 4. Intersection Observer for Scroll Animations ---
         const observerOptions = {
             threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            rootMargin: "0px 0px -50px 0px"
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
-        // Observe all fade-in elements
-        document.querySelectorAll('.fade-in').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
+        document.querySelectorAll('.project-card').forEach((card, index) => {
+            card.style.animationDelay = `${index * 100}ms`;
+            observer.observe(card);
         });
 
-        // Add hover effect to project cards
-        document.querySelectorAll('.project-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-5px) scale(1.02)';
+        // --- 5. Smooth Scrolling for Anchors ---
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                navLinks.classList.remove('mobile-active');
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    const headerOffset = 80;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
             });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-
-        // Dynamic year in footer
-        document.addEventListener('DOMContentLoaded', () => {
-            const year = new Date().getFullYear();
-            const footerText = document.querySelector('.footer-content p');
-            if (footerText) {
-                footerText.innerHTML = `&copy; ${year} Portfolio. All rights reserved.`;
-            }
         });
     </script>
 </body>
