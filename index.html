@@ -3,902 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Godwin Samraj - Creative Developer Portfolio">
-    <title>Godwin Samraj | Full Stack & AI Engineer</title>
-    
-    <!-- Fonts: JetBrains Mono for the 'Code' look, Inter for readability -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    <title>Godwin Samraj | Futuristic Portfolio</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
     <style>
-        /* --- CSS VARIABLES & RESET --- */
-        :root {
-            /* Professional Dark Palette */
-            --bg-body: #09090b;       /* Zinc 950 */
-            --bg-card: #18181b;       /* Zinc 900 */
-            --bg-card-hover: #27272a; /* Zinc 800 */
-            
-            --border: #27272a;
-            --border-light: #3f3f46;
-            
-            --text-main: #f4f4f5;     /* Zinc 100 */
-            --text-muted: #a1a1aa;    /* Zinc 400 */
-            
-            /* Accents (Monochromatic Green/Blue for tech feel) */
-            --primary: #10b981;       /* Emerald 500 */
-            --primary-glow: rgba(16, 185, 129, 0.2);
-            --accent: #3b82f6;        /* Blue 500 */
-            
-            --font-main: 'Inter', sans-serif;
-            --font-code: 'JetBrains Mono', monospace;
-            
-            --radius: 8px;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background-color: var(--bg-body);
-            color: var(--text-main);
-            font-family: var(--font-main);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        a { text-decoration: none; color: inherit; transition: var(--transition); }
-        ul { list-style: none; }
-        img { max-width: 100%; display: block; }
-
-        /* --- UTILITIES --- */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        .section-padding {
-            padding: 6rem 0;
-        }
-
-        .text-gradient {
-            background: linear-gradient(90deg, #fff, var(--text-muted));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .code-font {
-            font-family: var(--font-code);
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            border-radius: var(--radius);
-            font-weight: 600;
-            font-size: 0.95rem;
-            cursor: pointer;
-            border: 1px solid transparent;
-            transition: var(--transition);
-        }
-
-        .btn-primary {
-            background-color: var(--text-main);
-            color: var(--bg-body);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
-        }
-
-        .btn-outline {
-            background: transparent;
-            border-color: var(--border-light);
-            color: var(--text-main);
-        }
-
-        .btn-outline:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-        }
-
-        .section-header {
-            margin-bottom: 3rem;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .section-title {
-            font-size: 2rem;
-            font-weight: 700;
-        }
-
-        .section-line {
-            height: 1px;
-            background: var(--border);
-            flex-grow: 1;
-            margin-left: 2rem;
-            max-width: 200px;
-        }
-
-        /* --- NAVIGATION --- */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(9, 9, 11, 0.85);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 70px;
-        }
-
-        .logo {
-            font-family: var(--font-code);
-            font-weight: 700;
-            font-size: 1.2rem;
-            color: var(--primary);
-        }
-
-        .logo span { color: var(--text-main); }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            font-weight: 500;
-        }
-
-        .nav-links a:hover, .nav-links a.active {
-            color: var(--text-main);
-        }
-
-        .nav-links a::before {
-            content: '< ';
-            color: var(--primary);
-            opacity: 0;
-            transition: var(--transition);
-            font-family: var(--font-code);
-        }
-        
-        .nav-links a:hover::before { opacity: 1; }
-        .nav-links a::after {
-            content: ' />';
-            color: var(--primary);
-            opacity: 0;
-            transition: var(--transition);
-            font-family: var(--font-code);
-        }
-        .nav-links a:hover::after { opacity: 1; }
-
-        /* --- HERO SECTION --- */
         .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding-top: 70px;
-            position: relative;
-        }
-
-        /* Abstract Grid Background */
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 40px 40px;
-            z-index: -1;
-            mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            letter-spacing: -1px;
-        }
-
-        .hero-tagline {
-            font-family: var(--font-code);
-            color: var(--primary);
-            margin-bottom: 1rem;
-            display: inline-block;
-            background: rgba(16, 185, 129, 0.1);
-            padding: 0.25rem 0.75rem;
-            border-radius: 4px;
-            font-size: 0.9rem;
-        }
-
-        .hero-desc {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            max-width: 500px;
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: 2rem;
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border);
-        }
-
-        .stat-item h4 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-main);
-        }
-
-        .stat-item p {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            font-family: var(--font-code);
-        }
-
-        /* Code Terminal Visual */
-        .hero-visual {
-            position: relative;
-        }
-
-        .terminal-window {
-            background: #1e1e1e;
-            border-radius: 12px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            border: 1px solid var(--border);
-            overflow: hidden;
-            font-family: var(--font-code);
-            font-size: 0.9rem;
-            transform: perspective(1000px) rotateY(-5deg) rotateX(2deg);
-            transition: transform 0.5s ease;
-        }
-        
-        .hero-visual:hover .terminal-window {
-            transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
-        }
-
-        .terminal-header {
-            background: #2d2d2d;
-            padding: 0.75rem 1rem;
-            display: flex;
-            gap: 0.5rem;
-            border-bottom: 1px solid #333;
-        }
-
-        .dot { width: 12px; height: 12px; border-radius: 50%; }
-        .red { background: #ff5f56; }
-        .yellow { background: #ffbd2e; }
-        .green { background: #27c93f; }
-
-        .terminal-body {
-            padding: 1.5rem;
-            color: #d4d4d4;
-        }
-        
-        .code-line { display: block; margin-bottom: 0.5rem; }
-        .keyword { color: #569cd6; }
-        .string { color: #ce9178; }
-        .function { color: #dcdcaa; }
-        .comment { color: #6a9955; }
-        .cursor {
-            display: inline-block;
-            width: 8px;
-            height: 15px;
-            background: #d4d4d4;
-            animation: blink 1s infinite;
-            vertical-align: middle;
-        }
-
-        @keyframes blink { 50% { opacity: 0; } }
-
-        /* --- SKILLS / TECH STACK --- */
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .tech-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            padding: 1.5rem;
-            border-radius: var(--radius);
-            text-align: center;
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .tech-card:hover {
-            border-color: var(--primary);
-            transform: translateY(-5px);
-            background: var(--bg-card-hover);
-        }
-
-        .tech-icon {
-            font-size: 2rem;
-            color: var(--text-muted);
-        }
-        
-        .tech-card:hover .tech-icon { color: var(--text-main); }
-
-        .tech-name {
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        /* --- SERVICES (Bento Grid) --- */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .service-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            padding: 2rem;
-            border-radius: var(--radius);
-            position: relative;
-            overflow: hidden;
-            transition: var(--transition);
-        }
-
-        .service-card:hover {
-            border-color: var(--text-muted);
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 4px; height: 100%;
-            background: var(--primary);
-            opacity: 0;
-            transition: var(--transition);
-        }
-
-        .service-card:hover::before { opacity: 1; }
-
-        .service-icon {
-            font-size: 1.5rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            background: rgba(16, 185, 129, 0.1);
-            width: 50px;
-            height: 50px;
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 8px;
+            text-align: center;
         }
-
-        .service-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.75rem;
+        
+        .hero-content {
+            z-index: 10;
         }
-
-        .service-card p {
+        
+        .hero h1 {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
             color: var(--text-muted);
-            font-size: 0.95rem;
+            margin-bottom: 3rem;
+            font-family: var(--font-code);
         }
-
-        /* --- PROJECTS --- */
-        .projects-wrapper {
+        
+        .cta-container {
             display: flex;
-            flex-direction: column;
             gap: 2rem;
+            justify-content: center;
         }
 
-        .project-row {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr;
-            gap: 2rem;
-            align-items: center;
-            padding: 2rem;
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            background: var(--bg-card);
-            transition: var(--transition);
+        .profile-img-container {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 2rem;
+            border-radius: 50%;
+            padding: 5px;
+            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.4);
+            animation: float 6s ease-in-out infinite;
         }
 
-        .project-row:hover {
-            border-color: var(--border-light);
-            transform: translateX(10px);
-        }
-        
-        .project-row:nth-child(even) {
-            direction: rtl; /* Switch layout for even items */
-        }
-        .project-row:nth-child(even) .project-content {
-            direction: ltr; /* Reset text direction */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
         }
 
-        .project-image {
-            border-radius: 4px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-            height: 250px;
-        }
-        
-        .project-image img {
+        .profile-img-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .project-row:hover .project-image img {
-            transform: scale(1.05);
-        }
-
-        .project-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-content p {
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .tag {
-            font-family: var(--font-code);
-            font-size: 0.75rem;
-            color: var(--primary);
-            background: rgba(16, 185, 129, 0.1);
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-        }
-
-        /* --- CONTACT --- */
-        .contact-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-        }
-
-        .contact-info p {
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-        }
-
-        .contact-methods {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .method {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            font-family: var(--font-code);
-            color: var(--text-main);
-        }
-        
-        .method i { color: var(--primary); }
-
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .form-group {
-            position: relative;
-        }
-
-        .form-input {
-            width: 100%;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            padding: 1rem;
-            color: var(--text-main);
-            border-radius: var(--radius);
-            font-family: var(--font-code);
-            transition: var(--transition);
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: var(--primary);
-            background: var(--bg-card-hover);
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            border-top: 1px solid var(--border);
-            padding: 2rem 0;
-            margin-top: 4rem;
-            text-align: center;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            font-family: var(--font-code);
-        }
-
-        /* --- RESPONSIVE --- */
-        @media (max-width: 968px) {
-            .hero-grid, .contact-layout, .project-row {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-grid { gap: 3rem; }
-            .hero-content { text-align: center; }
-            .hero-content h1 { font-size: 2.5rem; }
-            .hero-desc { margin: 0 auto 2rem; }
-            .hero-stats { justify-content: center; }
-            .terminal-window { display: none; /* Hide complex visual on mobile */ }
-            
-            .project-row:nth-child(even) { direction: ltr; }
-            .nav-links { display: none; } /* Simplified for this demo, usually would be a burger menu */
+            border-radius: 50%;
+            border: 4px solid var(--bg-dark);
         }
     </style>
 </head>
 <body>
 
-    <!-- NAV -->
+    <!-- Canvas Background -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Navigation -->
     <nav>
         <div class="container nav-container">
-            <a href="#" class="logo">Godwin<span>.dev</span></a>
-            <ul class="nav-links">
-                <li><a href="#about"><span class="code-font">01.</span> About</a></li>
-                <li><a href="#skills"><span class="code-font">02.</span> Skills</a></li>
-                <li><a href="#projects"><span class="code-font">03.</span> Work</a></li>
-                <li><a href="#contact"><span class="code-font">04.</span> Contact</a></li>
-            </ul>
+            <a href="index.html" class="logo">Godwin<span>.dev</span></a>
+            <div class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="project.html">Projects</a>
+                <a href="contact.html">Contact</a>
+            </div>
         </div>
     </nav>
 
-    <!-- HERO -->
-    <section class="hero" id="about">
-        <div class="container hero-grid">
-            <div class="hero-content">
-                <span class="hero-tagline">Hello, World!</span>
-                <h1>I build digital <br><span class="text-gradient">solutions</span> that scale.</h1>
-                <p class="hero-desc">
-                    I'm Godwin Samraj, a Creative Developer specializing in Full Stack Engineering and AI integration. I bridge the gap between complex backend logic and clean, intuitive user interfaces.
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="profile-img-container">
+                <img src="1-godwin-samraj-profile.jpg" alt="Godwin Samraj">
+            </div>
+            <h1 class="glitch" data-text="GODWIN SAMRAJ">GODWIN SAMRAJ</h1>
+            <p class="hero-subtitle">> System Architect_ & Creative Developer_</p>
+            
+            <div class="cta-container">
+                <a href="project.html" class="btn btn-neon">Initialize Projects <i class="fas fa-chevron-right"></i></a>
+                <a href="contact.html" class="btn btn-purple">Open Comms</a>
+                <a href="godwin_resume.pdf" download="Godwin_Samraj_Resume.pdf" class="btn btn-neon" style="border-color: #fff; color: #fff;"><i class="fas fa-file-download"></i> Download Resume</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section-padding" id="about">
+        <div class="container">
+            <div class="page-header" style="text-align: left;">
+                <h2 class="page-title" style="font-size: 2.5rem;">System Overview</h2>
+                <p class="hero-subtitle" style="font-size: 1rem;">> Initializing user profile...</p>
+            </div>
+            
+            <div class="glass-card tilt-card" style="margin-bottom: 4rem;">
+                <p style="font-size: 1.1rem; margin-bottom: 1rem; color: var(--text-main);">
+                    Welcome to my digital space. I am a passionate System Architect and Creative Developer who bridges the gap between high-performance backends and stunning, futuristic frontends.
                 </p>
-                <div class="cta-group">
-                    <a href="#projects" class="btn btn-primary">View Projects <i class="fas fa-arrow-right"></i></a>
-                    <a href="#contact" class="btn btn-outline" style="margin-left: 1rem;">Contact Me</a>
+                <p style="font-size: 1.1rem; color: var(--text-muted);">
+                    With deep expertise in scalable architecture and modern web technologies, I build solutions that don't just work—they leave a lasting impact. Let's create something extraordinary.
+                </p>
+            </div>
+            
+            <div class="page-header" style="text-align: left;">
+                <h2 class="page-title" style="font-size: 2.5rem;">Core Modules</h2>
+                <p class="hero-subtitle" style="font-size: 1rem;">> Loading skills...</p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.5rem;">
+                <div class="glass-card tilt-card" style="text-align: center; padding: 1.5rem;">
+                    <i class="fab fa-js" style="font-size: 3rem; color: #F7DF1E; margin-bottom: 1rem;"></i>
+                    <h4 style="font-family: var(--font-code);">JavaScript</h4>
                 </div>
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <h4>3+</h4>
-                        <p>Years Exp.</p>
-                    </div>
-                    <div class="stat-item">
-                        <h4>50+</h4>
-                        <p>Projects</p>
-                    </div>
-                    <div class="stat-item">
-                        <h4>100%</h4>
-                        <p>Commitment</p>
-                    </div>
+                <div class="glass-card tilt-card" style="text-align: center; padding: 1.5rem;">
+                    <i class="fab fa-react" style="font-size: 3rem; color: #61DAFB; margin-bottom: 1rem;"></i>
+                    <h4 style="font-family: var(--font-code);">React</h4>
+                </div>
+                <div class="glass-card tilt-card" style="text-align: center; padding: 1.5rem;">
+                    <i class="fab fa-node" style="font-size: 3rem; color: #339933; margin-bottom: 1rem;"></i>
+                    <h4 style="font-family: var(--font-code);">Node.js</h4>
+                </div>
+                <div class="glass-card tilt-card" style="text-align: center; padding: 1.5rem;">
+                    <i class="fab fa-python" style="font-size: 3rem; color: #3776AB; margin-bottom: 1rem;"></i>
+                    <h4 style="font-family: var(--font-code);">Python</h4>
                 </div>
             </div>
             
-            <div class="hero-visual">
-                <div class="terminal-window">
-                    <div class="terminal-header">
-                        <div class="dot red"></div>
-                        <div class="dot yellow"></div>
-                        <div class="dot green"></div>
-                    </div>
-                    <div class="terminal-body">
-                        <span class="code-line"><span class="keyword">const</span> <span class="function">developer</span> = {</span>
-                        <span class="code-line">&nbsp;&nbsp;name: <span class="string">"Godwin Samraj"</span>,</span>
-                        <span class="code-line">&nbsp;&nbsp;skills: [<span class="string">"React"</span>, <span class="string">"Node.js"</span>, <span class="string">"Python"</span>],</span>
-                        <span class="code-line">&nbsp;&nbsp;hardWorker: <span class="keyword">true</span>,</span>
-                        <span class="code-line">&nbsp;&nbsp;hireable: <span class="keyword">function</span>() {</span>
-                        <span class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="keyword">this</span>.hardWorker ? <span class="string">"Yes"</span> : <span class="string">"No"</span>;</span>
-                        <span class="code-line">&nbsp;&nbsp;}</span>
-                        <span class="code-line">};</span>
-                        <span class="code-line"><br></span>
-                        <span class="code-line"><span class="comment">// Initiating connection...</span></span>
-                        <span class="code-line">developer.<span class="function">hireable</span>(); <span class="cursor"></span></span>
-                    </div>
-                </div>
+            <div style="text-align: center; margin-top: 5rem;">
+                <a href="project.html" class="btn btn-neon">View Full Project Archive <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </section>
 
-    <!-- SKILLS -->
-    <section id="skills" class="section-padding">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Technical Arsenal</h2>
-                <div class="section-line"></div>
-            </div>
-            
-            <div class="tech-grid">
-                <!-- Frontend -->
-                <div class="tech-card">
-                    <i class="fab fa-react tech-icon"></i>
-                    <span class="tech-name">React.js</span>
-                </div>
-                <div class="tech-card">
-                    <i class="fab fa-js tech-icon"></i>
-                    <span class="tech-name">JavaScript</span>
-                </div>
-                <div class="tech-card">
-                    <i class="fab fa-html5 tech-icon"></i>
-                    <span class="tech-name">HTML5/CSS3</span>
-                </div>
-                <div class="tech-card">
-                    <i class="fab fa-bootstrap tech-icon"></i>
-                    <span class="tech-name">Tailwind</span>
-                </div>
-
-                <!-- Backend -->
-                <div class="tech-card">
-                    <i class="fab fa-node tech-icon"></i>
-                    <span class="tech-name">Node.js</span>
-                </div>
-                <div class="tech-card">
-                    <i class="fab fa-python tech-icon"></i>
-                    <span class="tech-name">Python</span>
-                </div>
-                <div class="tech-card">
-                    <i class="fas fa-database tech-icon"></i>
-                    <span class="tech-name">PostgreSQL</span>
-                </div>
-
-                <!-- AI/ML -->
-                <div class="tech-card">
-                    <i class="fas fa-brain tech-icon"></i>
-                    <span class="tech-name">TensorFlow</span>
-                </div>
-                <div class="tech-card">
-                    <i class="fas fa-eye tech-icon"></i>
-                    <span class="tech-name">OpenCV</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SERVICES -->
-    <section class="section-padding" style="background: #0c0c0e;">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">What I Do</h2>
-                <div class="section-line"></div>
-            </div>
-
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-code"></i></div>
-                    <h3>Full Stack Development</h3>
-                    <p>End-to-end web application development using modern MERN stack technologies. scalable architecture and clean code.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-robot"></i></div>
-                    <h3>AI & Machine Learning</h3>
-                    <p>Integrating intelligent models into web apps. From predictive analytics to computer vision using Python and TensorFlow.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-server"></i></div>
-                    <h3>System Architecture</h3>
-                    <p>Designing robust backend systems and database schemas that ensure high availability and performance under load.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects" class="section-padding">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Featured Work</h2>
-                <div class="section-line"></div>
-            </div>
-
-            <div class="projects-wrapper">
-                <!-- Project 1 -->
-                <div class="project-row">
-                    <div class="project-image">
-                        <!-- Placeholder using a techy abstract image -->
-                        <img src="https://picsum.photos/seed/exammonitor/600/400" alt="Exam Monitor AI">
-                    </div>
-                    <div class="project-content">
-                        <h3>Exam Monitor AI</h3>
-                        <div class="project-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">OpenCV</span>
-                            <span class="tag">React</span>
-                        </div>
-                        <p>An automated proctoring system that uses computer vision to detect anomalies and ensure exam integrity in real-time.</p>
-                        <a href="#" class="btn btn-outline" style="font-size: 0.8rem;">View Case Study</a>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="project-row">
-                    <div class="project-image">
-                        <img src="https://picsum.photos/seed/mrstrict/600/400" alt="Mr Strict App">
-                    </div>
-                    <div class="project-content">
-                        <h3>Mr. Strict</h3>
-                        <div class="project-tags">
-                            <span class="tag">Node.js</span>
-                            <span class="tag">MongoDB</span>
-                            <span class="tag">Socket.io</span>
-                        </div>
-                        <p>A high-performance productivity application focusing on strict time management and task scheduling for remote teams.</p>
-                        <a href="#" class="btn btn-outline" style="font-size: 0.8rem;">View Case Study</a>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="project-row">
-                    <div class="project-image">
-                        <img src="https://picsum.photos/seed/chatbot/600/400" alt="NLP Chatbot">
-                    </div>
-                    <div class="project-content">
-                        <h3>NLP Customer Support</h3>
-                        <div class="project-tags">
-                            <span class="tag">NLP</span>
-                            <span class="tag">TensorFlow</span>
-                            <span class="tag">FastAPI</span>
-                        </div>
-                        <p>An intelligent chatbot capable of handling complex customer queries with 90% accuracy, reducing support load significantly.</p>
-                        <a href="#" class="btn btn-outline" style="font-size: 0.8rem;">View Case Study</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TIMELINE -->
-    <section class="section-padding" style="background: #0c0c0e;">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Experience</h2>
-                <div class="section-line"></div>
-            </div>
-            
-            <div style="border-left: 2px solid var(--border); padding-left: 2rem; display: flex; flex-direction: column; gap: 2rem;">
-                <div class="timeline-item">
-                    <span class="code-font" style="color: var(--primary); font-size: 0.9rem;">2023 - Present</span>
-                    <h3 style="margin-top: 0.5rem;">Senior Software Developer</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem;">TechCorp Solutions</p>
-                    <p style="margin-top: 0.5rem;">Leading the AI integration team and overseeing the migration of legacy systems to microservices architecture.</p>
-                </div>
-                <div class="timeline-item">
-                    <span class="code-font" style="color: var(--primary); font-size: 0.9rem;">2021 - 2023</span>
-                    <h3 style="margin-top: 0.5rem;">Frontend Engineer</h3>
-                    <p style="color: var(--text-muted); font-size: 0.95rem;">Innovate Startup</p>
-                    <p style="margin-top: 0.5rem;">Specialized in React.js performance optimization and building accessible UI components.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section-padding">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Get In Touch</h2>
-                <div class="section-line"></div>
-            </div>
-
-            <div class="contact-layout">
-                <div class="contact-info">
-                    <h3 style="font-size: 2rem; margin-bottom: 1rem;">Let's work together.</h3>
-                    <p>I'm currently available for freelance projects and open to full-time opportunities. If you have a project that needs some creative touch and technical depth, drop me a message.</p>
-                    
-                    <div class="contact-methods">
-                        <div class="method">
-                            <i class="fas fa-envelope"></i>
-                            <span>hello@godwinsamraj.dev</span>
-                        </div>
-                        <div class="method">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Remote / Worldwide</span>
-                        </div>
-                    </div>
-
-                    <div style="margin-top: 2rem;">
-                        <a href="#" class="btn btn-outline" style="border-radius: 50%; width: 45px; height: 45px; padding: 0; display: inline-flex; justify-content: center;"><i class="fab fa-github"></i></a>
-                        <a href="#" class="btn btn-outline" style="border-radius: 50%; width: 45px; height: 45px; padding: 0; display: inline-flex; justify-content: center; margin-left: 1rem;"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="btn btn-outline" style="border-radius: 50%; width: 45px; height: 45px; padding: 0; display: inline-flex; justify-content: center; margin-left: 1rem;"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-
-                <div class="contact-form">
-                    <form onsubmit="event.preventDefault(); alert('Thank you! This is a demo form.');">
-                        <div class="form-group">
-                            <input type="text" class="form-input" placeholder="Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" class="form-input" placeholder="Email" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea class="form-input" rows="5" placeholder="Message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    <!-- Footer -->
     <footer>
         <div class="container">
-            <p>Designed & Built by Godwin Samraj.</p>
-            <p style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.5;">&copy; 2023 All rights reserved.</p>
+            <p>System Online. Designed by Godwin Samraj.</p>
         </div>
     </footer>
 
-    <!-- Minimal Scripts for Interaction -->
-    <script>
-        // Simple Reveal Animation on Scroll
-        const observerOptions = {
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = "1";
-                    entry.target.style.transform = "translateY(0)";
-                }
-            });
-        }, observerOptions);
-
-        // Apply fade-in to sections
-        document.querySelectorAll('section').forEach(section => {
-            section.style.opacity = "0";
-            section.style.transform = "translateY(20px)";
-            section.style.transition = "all 0.6s ease-out";
-            observer.observe(section);
-        });
-    </script>
+    <!-- Scripts -->
+    <!-- Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>
