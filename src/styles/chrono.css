@@ -341,3 +341,29 @@
   .chrono__title, .chrono__rail, .chrono__hint, .chrono__note,
   .yr, .yr__frame, .yr__img { transition-duration: .01ms !important; }
 }
+
+.chrono__explore {
+  position: absolute;
+  bottom: 5vh;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff4e4;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  padding: 10px 24px;
+  border: 1px solid rgba(255, 170, 90, 0.4);
+  border-radius: 30px;
+  background: rgba(48, 26, 18, 0.4);
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
+  z-index: 100;
+  pointer-events: auto;
+}
+.chrono__explore:hover {
+  background: rgba(255, 170, 90, 0.15);
+  border-color: rgba(255, 170, 90, 0.8);
+  box-shadow: 0 0 15px rgba(255, 170, 90, 0.3);
+}
