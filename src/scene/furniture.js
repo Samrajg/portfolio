@@ -14,9 +14,7 @@ export class Furniture {
   constructor(root = document) {
     this.root = document.documentElement;
     this.welcome = root.getElementById('welcome');
-    this.chipArtist = root.getElementById('chipArtist');
-    this.chipLegend = root.getElementById('chipLegend');
-    this.arrowsL = root.getElementById('arrowsL');
+            this.arrowsL = root.getElementById('arrowsL');
     this.arrowsR = root.getElementById('arrowsR');
     this.dotsBR = root.getElementById('dotsBR');
     this.rule = root.getElementById('hdrRule');
@@ -62,14 +60,8 @@ export class Furniture {
 
     const chip = clampPx(word.capH * (portrait ? 0.11 : 0.075), 9.5, 18);
     s.setProperty('--chip-size', `${chip}px`);
-    s.setProperty('--artist-x', `${L.artist.x}px`);
-    s.setProperty('--artist-y', `${L.artist.y}px`);
     // the LEGEND chip hangs off the right edge on a phone, so it is anchored by
     // its own measured width rather than by a guessed percentage
-    const legendW = this.chipLegend.getBoundingClientRect().width || 0;
-    const lx = L.legend.alignRight ? L.legend.x - legendW : L.legend.x;
-    s.setProperty('--legend-x', `${lx}px`);
-    s.setProperty('--legend-y', `${L.legend.y}px`);
     this.root.classList.toggle('is-portrait', !!portrait);
 
     s.setProperty('--arrow-l', `${w * REF.arrows.left}px`);
@@ -118,3 +110,4 @@ export class Furniture {
 function clampPx(v, lo, hi) {
   return Math.round(Math.min(hi, Math.max(lo, v)) * 100) / 100;
 }
+

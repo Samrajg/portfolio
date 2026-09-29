@@ -7,7 +7,7 @@
 //
 //   0.0  black
 //   0.3  the figure condenses out of the dark and walks in
-//   2.1  GIREESH materialises, centre letters first, so the type grows around him
+//   2.1  GODWIN materialises, centre letters first, so the type grows around him
 //   2.9  WELCOME TO MY WORLD drops from above and overshoots
 //   3.2  the chips arrive from the left and the right
 //   3.5  arrows and the corner dot grid tick into place
@@ -26,8 +26,6 @@ export const T = {
   letterDur: 1.65,
   ember: 2.45,
   welcome: 2.90,
-  artist: 3.18,
-  legend: 3.32,
   arrows: 3.46,
   dots: 3.62,
   header: 4.45,
@@ -96,10 +94,9 @@ function bell(p) {
 /** DOM cues: [time, name]. main.js flips a class on each. */
 export const CUES = [
   [T.welcome, 'welcome'],
-  [T.artist, 'artist'],
-  [T.legend, 'legend'],
   [T.arrows, 'arrows'],
   [T.dots, 'dots'],
   [T.header, 'header'],
   [T.settled, 'settled'],
 ];
+

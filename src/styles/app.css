@@ -1,5 +1,5 @@
 /* ==========================================================================
-   GIREESH — hero
+   GODWIN — hero
    The artwork itself (background, wordmark, the three people) is drawn on the
    WebGL canvas. Everything in this file is the furniture layered over it:
    header, welcome strip, chips, arrows, dot grids.
@@ -312,22 +312,9 @@ html.is-booting .hdr { opacity: 0; }
   white-space: nowrap;
   opacity: 0;
 }
-.chip--artist {
-  left: var(--artist-x, 1.5%);
-  top: var(--artist-y, 68.8%);
-  transform: translateX(-118%);
-}
-.chip--legend {
-  left: var(--legend-x, 88.1%);
-  top: var(--legend-y, 26.8%);
-  transform: translateX(118%);
-}
-.is-artist .chip--artist,
-.is-legend .chip--legend {
-  opacity: 1;
-  transform: translateX(0);
-  transition: transform .78s var(--ease-out), opacity .3s linear;
-}
+
+
+
 
 /* --- edge arrows -------------------------------------------------------- */
 .arrows {
@@ -531,3 +518,5 @@ html.is-booting .hdr { opacity: 0; }
     transition-delay: 0ms !important;
   }
 }
+
+

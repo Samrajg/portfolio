@@ -2,7 +2,7 @@
 //
 // Every constant here was measured off the supplied hero artwork rather than
 // eyeballed, so the live page keeps the reference's proportions exactly:
-//   GIREESH ink box   x 3.31% .. 96.75%,  cap top 27.00%, baseline 80.22%
+//   GODWIN ink box   x 3.31% .. 96.75%,  cap top 27.00%, baseline 80.22%
 //   WELCOME strip     centred, y 20.44%
 //   LEGEND chip       x 88.12%, y 26.78%, 10.38% x 4.22%
 //   ARTIST chip       x  1.50%, y 68.78%, 15.00% x 3.67%
@@ -15,8 +15,6 @@ export const REF = {
   wordWidth: 0.9344,     // fraction of viewport width
   capHeight: 0.5320,     // fraction of viewport height
   vCentre: 0.5361,       // vertical centre of the cap box
-  legend: { x: 0.8812, y: 0.2678, h: 0.0422 },
-  artist: { x: 0.0150, y: 0.6878, h: 0.0367 },
   dotsBR: { x: 0.9844, y: 0.9500 },
   arrows: { left: 0.0181, right: 0.9750, top: 0.345, bottom: 0.625, count: 5 },
 };
@@ -76,11 +74,9 @@ export function computeLayout(w, h) {
     // clear of the header band and clear of his head; it renders in front of
     // the typography, so it stays readable wherever it lands
     welcomeY: portrait ? (feet - heroH) - h * 0.075 : h * 0.175,
-    legend: portrait
       ? { x: w * 0.955, y: capTop - h * 0.052, h: 20, alignRight: true }
       : { x: w * REF.legend.x, y: h * REF.legend.y,
           h: Math.max(18, h * REF.legend.h) },
-    artist: portrait
       ? { x: w * 0.045, y: baseline + h * 0.055, h: 19 }
       : { x: w * REF.artist.x, y: h * REF.artist.y,
           h: Math.max(16, h * REF.artist.h) },
@@ -110,3 +106,4 @@ export function fitSubject(track, frameAspect, opts) {
     h: quadH,
   };
 }
+
