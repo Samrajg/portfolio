@@ -321,3 +321,23 @@ window.__shot = async (name = 'shot', at = null) => {
 window.__tune = (k, v) => { app.stage[k] = v; return app.stage[k]; };
 
 main().catch((e) => degrade(e.message));
+
+// Navigation active state tracking
+const navLinks = document.querySelectorAll('a[data-nav]');
+const sections = Array.from(navLinks).map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+if (sections.length > 0) {
+  window.addEventListener('scroll', () => {
+    let current = sections[0];
+    for (const section of sections) {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= window.innerHeight / 3) {
+        current = section;
+      }
+    }
+    if (current) {
+      navLinks.forEach(a => {
+        a.classList.toggle('is-active', a.getAttribute('href') === '#' + current.id);
+      });
+    }
+  }, { passive: true });
+}

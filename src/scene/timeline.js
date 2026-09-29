@@ -26,8 +26,6 @@ export const T = {
   letterDur: 1.65,
   ember: 2.45,
   welcome: 2.90,
-  artist: 3.18,
-  legend: 3.32,
   arrows: 3.46,
   dots: 3.62,
   header: 4.45,
@@ -96,10 +94,9 @@ function bell(p) {
 /** DOM cues: [time, name]. main.js flips a class on each. */
 export const CUES = [
   [T.welcome, 'welcome'],
-  [T.artist, 'artist'],
-  [T.legend, 'legend'],
   [T.arrows, 'arrows'],
   [T.dots, 'dots'],
   [T.header, 'header'],
   [T.settled, 'settled'],
 ];
+
