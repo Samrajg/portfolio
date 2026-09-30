@@ -74,12 +74,6 @@ export function computeLayout(w, h) {
     // clear of the header band and clear of his head; it renders in front of
     // the typography, so it stays readable wherever it lands
     welcomeY: portrait ? (feet - heroH) - h * 0.075 : h * 0.175,
-      ? { x: w * 0.955, y: capTop - h * 0.052, h: 20, alignRight: true }
-      : { x: w * REF.legend.x, y: h * REF.legend.y,
-          h: Math.max(18, h * REF.legend.h) },
-      ? { x: w * 0.045, y: baseline + h * 0.055, h: 19 }
-      : { x: w * REF.artist.x, y: h * REF.artist.y,
-          h: Math.max(16, h * REF.artist.h) },
     ember: { x: 0.5, y: vCentre / h },
   };
 }
@@ -106,4 +100,5 @@ export function fitSubject(track, frameAspect, opts) {
     h: quadH,
   };
 }
+
 
