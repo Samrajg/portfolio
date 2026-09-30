@@ -223,3 +223,20 @@
 @media (prefers-reduced-motion: reduce) {
   .f-cap, .fin__bar { transition-duration: 0.01ms; transition-delay: 0s; }
 }
+.fin__soc a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  transition: opacity 0.3s ease, transform 0.3s ease, color 0.3s ease;
+}
+.fin__soc a:hover {
+  opacity: 0.8;
+  transform: translateY(-2px);
+  color: var(--amber, #ffaa5a);
+}
+.fin__soc a svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
