@@ -45,8 +45,10 @@ export class Clip {
   whenReady() {
     if (this.el.readyState >= 3) return Promise.resolve(this);
     return new Promise((res) => {
+      let timer;
       const done = () => { cleanup(); res(this); };
       const cleanup = () => {
+        clearTimeout(timer);
         this.el.removeEventListener('canplaythrough', done);
         this.el.removeEventListener('canplay', done);
         this.el.removeEventListener('error', done);
@@ -54,6 +56,7 @@ export class Clip {
       this.el.addEventListener('canplaythrough', done, { once: true });
       this.el.addEventListener('canplay', done, { once: true });
       this.el.addEventListener('error', done, { once: true });
+      timer = setTimeout(done, 2000); // 2s timeout fallback
     });
   }
 
@@ -98,3 +101,4 @@ export class Clip {
     return 1;
   }
 }
+

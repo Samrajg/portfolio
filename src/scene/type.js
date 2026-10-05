@@ -137,13 +137,17 @@ export function buildWord(capHeightPx, maxTexture = 4096) {
 }
 
 export async function fontsReady() {
-  if (!document.fonts) return;
-  try {
-    await Promise.all([
-      document.fonts.load('400 200px Anton'),
-      document.fonts.load('700 40px Oswald'),
-      document.fonts.load('400 40px Oswald'),
-    ]);
-    await document.fonts.ready;
+    if (!document.fonts) return;
+    try {
+      await Promise.race([
+        Promise.all([
+          document.fonts.load('400 200px Anton'),
+          document.fonts.load('700 40px Oswald'),
+          document.fonts.load('400 40px Oswald'),
+        ]).then(() => document.fonts.ready),
+        new Promise(r => setTimeout(r, 2000))
+      ]);
+    } catch { /* fall back to the stack in the font shorthand */ }
   } catch { /* fall back to the stack in the font shorthand */ }
 }
+
