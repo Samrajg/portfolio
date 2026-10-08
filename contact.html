@@ -1,133 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | Godwin Samraj</title>
+    <title>Contact Hub | Godwin Samraj G</title>
     <!-- Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600&family=JetBrains+Mono&display=swap"
-        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Orbitron:wght@500;700;900&family=Syne:wght@600;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        .contact-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .contact-info p {
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-        }
-
-        .contact-methods {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .method {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            font-family: var(--font-code);
-            color: var(--text-main);
-            background: rgba(0, 240, 255, 0.05);
-            padding: 1rem;
-            border-radius: 8px;
-            border-left: 3px solid var(--neon-cyan);
-        }
-
-        .method i {
-            color: var(--neon-cyan);
-            font-size: 1.2rem;
-        }
-
-        .form-group {
-            position: relative;
-            margin-bottom: 2rem;
-        }
-
-        .form-input {
-            width: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            border: 1px solid var(--neon-purple);
-            padding: 1.25rem;
-            color: var(--text-main);
-            border-radius: 4px;
-            font-family: var(--font-code);
-            transition: var(--transition);
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: var(--neon-cyan);
-            box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
-            background: rgba(0, 240, 255, 0.05);
-        }
-
-        .form-input::placeholder {
-            color: var(--text-muted);
-            opacity: 0.5;
-        }
-
-        .terminal-header {
-            display: flex;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
-
-        .red {
-            background: #ff5f56;
-            box-shadow: 0 0 5px #ff5f56;
-        }
-
-        .yellow {
-            background: #ffbd2e;
-            box-shadow: 0 0 5px #ffbd2e;
-        }
-
-        .green {
-            background: #27c93f;
-            box-shadow: 0 0 5px #27c93f;
-        }
-
-        @media (max-width: 968px) {
-            .contact-layout {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 </head>
-
 <body>
 
-    <!-- Canvas Background -->
+    <!-- 3D WebGL Canvas Background -->
     <canvas id="bg-canvas"></canvas>
 
-    <!-- Navigation -->
+    <!-- Glassmorphic Navigation -->
     <nav>
         <div class="container nav-container">
-            <a href="index.html" class="logo">Godwin<span>.dev</span></a>
+            <a href="index.html" class="logo">
+                <i class="fas fa-cube text-cyan"></i> Godwin<span>.dev</span>
+            </a>
+            
             <div class="nav-links">
-                <a href="index.html">Home</a>
+                <a href="index.html#hero">Home</a>
+                <a href="index.html#about">Experience</a>
+                <a href="index.html#skills">Skills</a>
                 <a href="project.html">Projects</a>
+                <a href="index.html#achievements">Achievements</a>
                 <a href="contact.html" class="active">Contact</a>
+                <button id="audio-toggle" class="audio-btn">
+                    <i class="fas fa-volume-xmark"></i> Sound Off
+                </button>
             </div>
+
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </nav>
 
@@ -135,67 +47,98 @@
     <section class="section-padding">
         <div class="container">
             <div class="page-header">
-                <h1 class="page-title">Initiate Contact</h1>
-                <p class="hero-subtitle">> Awaiting your signal...</p>
+                <h1 class="page-title text-gradient">Initiate Contact</h1>
+                <p class="section-subtitle">> Channels open. Send transmission or schedule a call...</p>
             </div>
 
-            <div class="contact-layout">
+            <div class="contact-grid">
                 <!-- Info -->
-                <div class="contact-info glass-card tilt-card" style="padding: 3rem;">
-                    <h3 style="font-size: 2rem; margin-bottom: 1rem; color: var(--neon-cyan);">Establish Connection</h3>
-                    <p>My communication channels are open. Whether you have a project in mind, a question, or just want
-                        to say hi, my inbox is always ready to receive data.</p>
+                <div>
+                    <h3 style="font-size: 1.8rem; color: var(--neon-cyan); margin-bottom: 1.5rem;">
+                        Direct Channels
+                    </h3>
+                    <p style="color: var(--text-muted); margin-bottom: 2rem; font-size: 1.05rem;">
+                        Whether you are looking to collaborate on high-scale systems, AI/ML models, or full-stack web applications, feel free to reach out.
+                    </p>
 
-                    <div class="contact-methods">
-                        <div class="method">
+                    <div class="contact-method-card">
+                        <div class="contact-icon-box">
                             <i class="fas fa-envelope"></i>
-                            <span>godwinsamraj16@gmail.com</span>
                         </div>
-                        <a href="https://wa.me/916379244349" target="_blank" class="method" style="text-decoration: none;">
-                            <i class="fab fa-whatsapp" style="color: #25D366; font-size: 1.2rem;"></i>
-                            <span>+91 6379244349</span>
-                        </a>
-                        <div class="method">
-                            <i class="fas fa-globe"></i>
-                            <span>Earth / Global Network</span>
+                        <div>
+                            <div class="contact-detail-title">EMAIL ADDRESS</div>
+                            <div class="contact-detail-value">godwinsamraj16@gmail.com</div>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/916379244349" target="_blank" class="contact-method-card" style="text-decoration: none;">
+                        <div class="contact-icon-box" style="color: #25D366; background: rgba(37, 211, 102, 0.15);">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div>
+                            <div class="contact-detail-title">WHATSAPP / CALL</div>
+                            <div class="contact-detail-value">+91 63792-44349</div>
+                        </div>
+                    </a>
+
+                    <div class="contact-method-card">
+                        <div class="contact-icon-box" style="color: var(--neon-purple); background: rgba(138, 43, 226, 0.15);">
+                            <i class="fas fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <div class="contact-detail-title">LOCATION</div>
+                            <div class="contact-detail-value">Virudhunagar / Madurai, Tamil Nadu, India</div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Form -->
-                <div class="glass-card tilt-card" style="padding: 3rem;">
+                <!-- Terminal Form -->
+                <div class="terminal-box">
                     <div class="terminal-header">
-                        <div class="dot red"></div>
-                        <div class="dot yellow"></div>
-                        <div class="dot green"></div>
+                        <div class="terminal-dots">
+                            <div class="dot dot-red"></div>
+                            <div class="dot dot-yellow"></div>
+                            <div class="dot dot-green"></div>
+                        </div>
+                        <div class="terminal-title">bash -- godwin@system:~/contact</div>
                     </div>
-                    <form onsubmit="event.preventDefault(); alert('Transmission Sent. (Demo)');">
+
+                    <form id="contact-form">
                         <div class="form-group">
-                            <input type="text" class="form-input" placeholder="> Enter Designation (Name)" required>
+                            <label class="form-label">> Sender Name</label>
+                            <input type="text" class="form-input" placeholder="e.g. Elon Musk" required>
                         </div>
+
                         <div class="form-group">
-                            <input type="email" class="form-input" placeholder="> Enter Return Address (Email)"
-                                required>
+                            <label class="form-label">> Return Email Address</label>
+                            <input type="email" class="form-input" placeholder="name@company.com" required>
                         </div>
+
                         <div class="form-group">
-                            <textarea class="form-input" rows="5" placeholder="> Input Data Stream (Message)"
-                                required></textarea>
+                            <label class="form-label">> Encrypted Message Stream</label>
+                            <textarea class="form-input" placeholder="State your requirements or collaboration idea..." required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-neon" style="width: 100%;">Transmit Data</button>
+
+                        <button type="submit" class="btn btn-neon" style="width: 100%;">
+                            <i class="fas fa-paper-plane"></i> Transmit Signal
+                        </button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer>
         <div class="container">
-            <p>System Online. Designed by Godwin Samraj.</p>
+            <p style="font-family: var(--font-code); color: var(--text-muted);">
+                System Status: <span class="text-cyan">ONLINE 100%</span> | Designed & Built by <strong>Godwin Samraj G</strong>
+            </p>
         </div>
     </footer>
 
     <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="js/app.js"></script>
 </body>
-
 </html>

@@ -3,166 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects | Godwin Samraj</title>
+    <title>Projects Archive | Godwin Samraj G</title>
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Orbitron:wght@500;700;900&family=Syne:wght@600;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .project-card {
-            padding: 0; /* Override glass-card padding for image */
-            display: flex;
-            flex-direction: column;
-            cursor: pointer;
-        }
-
-        .project-img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            border-bottom: var(--glass-border);
-            opacity: 0.8;
-            transition: var(--transition);
-        }
-
-        .project-card:hover .project-img {
-            opacity: 1;
-        }
-
-        .project-info {
-            padding: 2rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-title {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--neon-cyan);
-            text-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
-        }
-
-        .project-tech {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            margin-bottom: 1.5rem;
-        }
-
-        .tech-badge {
-            background: rgba(138, 43, 226, 0.15);
-            color: var(--text-main);
-            padding: 0.35rem 0.85rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-family: var(--font-code);
-            border: 1px solid rgba(138, 43, 226, 0.4);
-            letter-spacing: 0.5px;
-        }
-
-        .project-desc {
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-            flex-grow: 1;
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-
-        .desc-label {
-            color: var(--neon-cyan);
-            font-family: var(--font-code);
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            display: block;
-            margin-top: 0.8rem;
-            margin-bottom: 0.2rem;
-        }
-
-        @media (max-width: 768px) {
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 </head>
 <body>
 
-    <!-- Canvas Background -->
+    <!-- 3D WebGL Canvas Background -->
     <canvas id="bg-canvas"></canvas>
 
-    <!-- Navigation -->
+    <!-- Glassmorphic Navigation -->
     <nav>
         <div class="container nav-container">
-            <a href="index.html" class="logo">Godwin<span>.dev</span></a>
+            <a href="index.html" class="logo">
+                <i class="fas fa-cube text-cyan"></i> Godwin<span>.dev</span>
+            </a>
+            
             <div class="nav-links">
-                <a href="index.html">Home</a>
+                <a href="index.html#hero">Home</a>
+                <a href="index.html#about">Experience</a>
+                <a href="index.html#skills">Skills</a>
                 <a href="project.html" class="active">Projects</a>
+                <a href="index.html#achievements">Achievements</a>
                 <a href="contact.html">Contact</a>
+                <button id="audio-toggle" class="audio-btn">
+                    <i class="fas fa-volume-xmark"></i> Sound Off
+                </button>
             </div>
+
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </nav>
 
-    <!-- Projects Section -->
+    <!-- Projects Archive Section -->
     <section class="section-padding">
         <div class="container">
             <div class="page-header">
-                <h1 class="page-title">Project Archive</h1>
-                <p class="hero-subtitle">> Analyzing 14 deployed systems and designs...</p>
+                <h1 class="page-title text-gradient">Complete System Archive</h1>
+                <p class="section-subtitle">> 14 Production-Ready & Prototype Applications Deployed...</p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="filter-container">
+                <button class="filter-btn active" data-filter="all">All Systems (14)</button>
+                <button class="filter-btn" data-filter="ai">AI / ML & Vision</button>
+                <button class="filter-btn" data-filter="fullstack">Full-Stack Systems</button>
+                <button class="filter-btn" data-filter="uiux">UI / UX Designs</button>
             </div>
 
             <div class="projects-grid">
-                
-                <!-- Project 1 -->
-                <div class="glass-card project-card tilt-card">
-                    <img src="https://picsum.photos/seed/treetocli/600/400" alt="TreeToCLI" class="project-img">
-                    <div class="project-info">
-                        <h3 class="project-title">TreeToCLI</h3>
-                        <div class="project-tech">
-                            <span class="tech-badge">HTML/CSS</span>
-                            <span class="tech-badge">JavaScript</span>
-                            <span class="tech-badge">LocalStorage</span>
-                        </div>
-                        <div class="project-desc">
-                            <span class="desc-label">Problem:</span> Developers waste time manually recreating folder structures across OS environments.
-                            <span class="desc-label">Solution:</span> Web tool converting folder trees into ready-to-run commands for Linux, macOS, CMD, and PowerShell. Features drag-and-drop and script export.
-                            <span class="desc-label">Impact:</span> Reduced project setup time and significantly improved workflow efficiency.
-                        </div>
-                        <a href="https://samrajg.github.io/treetocli/" target="_blank" class="btn btn-neon" style="font-size: 0.8rem; padding: 0.75rem 1rem;">View Core</a>
+                <!-- Project 1: Mr. Strict -->
+                <div class="glass-card project-card tilt-card" data-category="ai">
+                    <div class="project-img-wrapper">
+                        <img src="https://picsum.photos/seed/mrstrict/600/400" alt="Mr. Strict" class="project-img">
+                        <div class="project-overlay"></div>
                     </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="glass-card project-card tilt-card">
-                    <img src="https://picsum.photos/seed/mrstrict/600/400" alt="Mr. Strict" class="project-img">
                     <div class="project-info">
-                        <h3 class="project-title">Mr. Strict</h3>
+                        <h3 class="project-title">Mr. Strict — AI Assignment Evaluator</h3>
                         <div class="project-tech">
                             <span class="tech-badge">Python</span>
-                            <span class="tech-badge">NLP</span>
+                            <span class="tech-badge">BERT NLP</span>
                             <span class="tech-badge">FastAPI</span>
                             <span class="tech-badge">Docker</span>
                         </div>
-                        <div class="project-desc">
-                            <span class="desc-label">Problem:</span> Manual grading is slow and inconsistent for large batches.
-                            <span class="desc-label">Solution:</span> Automated assignment and exam evaluator using NLP techniques to evaluate answers and generate scores accurately.
-                            <span class="desc-label">Impact:</span> Reduced grading effort and enabled scalable evaluation through containerized deployment.
+                        <p class="project-desc">
+                            Automated evaluation system using <span class="highlight">BERT</span>. Achieved 92% grading accuracy, cut grading time by 85%, and handles 500 concurrent submissions via Docker.
+                        </p>
+                        <div class="project-actions">
+                            <a href="https://github.com/Samrajg" target="_blank" class="btn btn-neon" style="font-size: 0.75rem; padding: 0.6rem 1rem;">
+                                <i class="fab fa-github"></i> View Repository
+                            </a>
                         </div>
-                        <a href="#" class="btn btn-neon" style="font-size: 0.8rem; padding: 0.75rem 1rem;">View Core</a>
                     </div>
                 </div>
 
-                <!-- Project 3 -->
-                <div class="glass-card project-card tilt-card">
-                    <img src="https://picsum.photos/seed/exammonitor/600/400" alt="Autonomous Exam Monitoring" class="project-img">
+                <!-- Project 2: Autonomous Exam Monitor -->
+                <div class="glass-card project-card tilt-card" data-category="ai">
+                    <div class="project-img-wrapper">
+                        <img src="https://picsum.photos/seed/exammonitor/600/400" alt="Autonomous Exam Monitor" class="project-img">
+                        <div class="project-overlay"></div>
+                    </div>
                     <div class="project-info">
                         <h3 class="project-title">Autonomous Exam Monitor</h3>
                         <div class="project-tech">
@@ -170,37 +98,47 @@
                             <span class="tech-badge">OpenCV</span>
                             <span class="tech-badge">Jetson Nano</span>
                         </div>
-                        <div class="project-desc">
-                            <span class="desc-label">Problem:</span> Manual exam monitoring is resource-intensive and prone to fatigue errors.
-                            <span class="desc-label">Solution:</span> Real-time proctoring system detecting facial, eye, and behavioral anomalies via Computer Vision.
-                            <span class="desc-label">Impact:</span> Improved exam integrity and dramatically reduced manual monitoring workload.
+                        <p class="project-desc">
+                            Real-time AI proctoring system running at <span class="highlight">30 FPS on Jetson Nano</span>. Detects facial, eye, and behavioral anomalies, reducing proctoring workload by 70%.
+                        </p>
+                        <div class="project-actions">
+                            <a href="https://github.com/Samrajg" target="_blank" class="btn btn-neon" style="font-size: 0.75rem; padding: 0.6rem 1rem;">
+                                <i class="fab fa-github"></i> View Repository
+                            </a>
                         </div>
-                        <a href="#" class="btn btn-neon" style="font-size: 0.8rem; padding: 0.75rem 1rem;">View Core</a>
                     </div>
                 </div>
 
-                <!-- Project 4 -->
-                <div class="glass-card project-card tilt-card">
-                    <img src="https://picsum.photos/seed/hospitaltoken/600/400" alt="Hospital Token Booking" class="project-img">
+                <!-- Project 3: Hospital Token Booking -->
+                <div class="glass-card project-card tilt-card" data-category="fullstack">
+                    <div class="project-img-wrapper">
+                        <img src="https://picsum.photos/seed/hospitaltoken/600/400" alt="Hospital Token Booking" class="project-img">
+                        <div class="project-overlay"></div>
+                    </div>
                     <div class="project-info">
-                        <h3 class="project-title">Hospital Token Booking</h3>
+                        <h3 class="project-title">Hospital Token Booking System</h3>
                         <div class="project-tech">
                             <span class="tech-badge">MERN Stack</span>
                             <span class="tech-badge">JWT</span>
                             <span class="tech-badge">MongoDB</span>
                         </div>
-                        <div class="project-desc">
-                            <span class="desc-label">Problem:</span> Long waiting times due to inefficient manual token systems.
-                            <span class="desc-label">Solution:</span> Full-stack booking platform featuring secure authentication and real-time queue handling.
-                            <span class="desc-label">Impact:</span> Improved patient flow, transparency, and severely reduced hospital waiting times.
+                        <p class="project-desc">
+                            Full-stack token platform. Optimized MongoDB queries reducing page load by 60% and queue resolution time by 40%.
+                        </p>
+                        <div class="project-actions">
+                            <a href="https://github.com/Samrajg" target="_blank" class="btn btn-neon" style="font-size: 0.75rem; padding: 0.6rem 1rem;">
+                                <i class="fab fa-github"></i> View Repository
+                            </a>
                         </div>
-                        <a href="#" class="btn btn-neon" style="font-size: 0.8rem; padding: 0.75rem 1rem;">View Core</a>
                     </div>
                 </div>
 
-                <!-- Project 5 -->
-                <div class="glass-card project-card tilt-card">
-                    <img src="https://picsum.photos/seed/securityrounds/600/400" alt="Security Rounds Verifier" class="project-img">
+                <!-- Project 4: Security Rounds Verifier -->
+                <div class="glass-card project-card tilt-card" data-category="fullstack">
+                    <div class="project-img-wrapper">
+                        <img src="https://picsum.photos/seed/securityrounds/600/400" alt="Security Rounds Verifier" class="project-img">
+                        <div class="project-overlay"></div>
+                    </div>
                     <div class="project-info">
                         <h3 class="project-title">Security Rounds Verifier</h3>
                         <div class="project-tech">
@@ -208,56 +146,93 @@
                             <span class="tech-badge">Next.js</span>
                             <span class="tech-badge">PostgreSQL</span>
                         </div>
-                        <div class="project-desc">
-                            <span class="desc-label">Problem:</span> Manual security logs lack transparency and can be manipulated easily.
-                            <span class="desc-label">Solution:</span> Secure digital verification system complete with audit logging and JWT authentication.
-                            <span class="desc-label">Impact:</span> Improved accountability and allowed for much faster security verification.
+                        <p class="project-desc">
+                            Verifiable digital security system with audit logging and JWT auth. Optimized PostgreSQL queries cutting API response time by 40%.
+                        </p>
+                        <div class="project-actions">
+                            <a href="https://github.com/Samrajg" target="_blank" class="btn btn-neon" style="font-size: 0.75rem; padding: 0.6rem 1rem;">
+                                <i class="fab fa-github"></i> View Repository
+                            </a>
                         </div>
-                        <a href="#" class="btn btn-neon" style="font-size: 0.8rem; padding: 0.75rem 1rem;">View Core</a>
                     </div>
                 </div>
 
-                <!-- Project 6 -->
-                <div class="glass-card project-card tilt-card">
-                    <img src="https://picsum.photos/seed/legalvoice/600/400" alt="Voice Legal Summarizer" class="project-img">
+                <!-- Project 5: TreeToCLI -->
+                <div class="glass-card project-card tilt-card" data-category="fullstack">
+                    <div class="project-img-wrapper">
+                        <img src="https://picsum.photos/seed/treetocli/600/400" alt="TreeToCLI" class="project-img">
+                        <div class="project-overlay"></div>
+                    </div>
                     <div class="project-info">
-                        <h3 class="project-title">Voice-Driven Legal Summarizer</h3>
+                        <h3 class="project-title">TreeToCLI Generator</h3>
+                        <div class="project-tech">
+                            <span class="tech-badge">JavaScript</span>
+                            <span class="tech-badge">HTML/CSS</span>
+                        </div>
+                        <p class="project-desc">
+                            Web tool converting directory trees into ready-to-run terminal commands for Linux, macOS, CMD, and PowerShell.
+                        </p>
+                        <div class="project-actions">
+                            <a href="https://samrajg.github.io/treetocli/" target="_blank" class="btn btn-neon" style="font-size: 0.75rem; padding: 0.6rem 1rem;">
+                                <i class="fas fa-globe"></i> Live App
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6: Hand Signature Verification -->
+                <div class="glass-card project-card tilt-card" data-category="ai">
+                    <div class="project-img-wrapper">
+                        <img src="https://picsum.photos/seed/signature/600/400" alt="Signature Verification" class="project-img">
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Hand Signature Verification</h3>
+                        <div class="project-tech">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">OpenCV</span>
+                            <span class="tech-badge">HuggingFace</span>
+                        </div>
+                        <p class="project-desc">
+                            Image processing model built to compare and authenticate handwritten signatures securely.
+                        </p>
+                        <div class="project-actions">
+                            <a href="https://huggingface.co/spaces/Samraj777/signature-verification" target="_blank" class="btn btn-neon" style="font-size: 0.75rem; padding: 0.6rem 1rem;">
+                                <i class="fas fa-rocket"></i> HuggingFace Space
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 7: Voice Legal Summarizer -->
+                <div class="glass-card project-card tilt-card" data-category="ai">
+                    <div class="project-img-wrapper">
+                        <img src="https://picsum.photos/seed/legalvoice/600/400" alt="Voice Legal Summarizer" class="project-img">
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Voice Legal Summarizer</h3>
                         <div class="project-tech">
                             <span class="tech-badge">Python</span>
                             <span class="tech-badge">NLP</span>
-                            <span class="tech-badge">Speech Rec</span>
                         </div>
-                        <div class="project-desc">
-                            <span class="desc-label">Problem:</span> Legal documents are highly complex and time-consuming to understand.
-                            <span class="desc-label">Solution:</span> AI system that takes voice commands and converts them into simplified, summarized legal text.
-                            <span class="desc-label">Impact:</span> Greatly improved accessibility and provided faster comprehension of dense legal documents.
+                        <p class="project-desc">
+                            Voice-command driven system that converts speech and legal documents into simplified text summaries.
+                        </p>
+                        <div class="project-actions">
+                            <a href="https://github.com/Samrajg" target="_blank" class="btn btn-neon" style="font-size: 0.75rem; padding: 0.6rem 1rem;">
+                                <i class="fab fa-github"></i> Repository
+                            </a>
                         </div>
-                        <a href="#" class="btn btn-neon" style="font-size: 0.8rem; padding: 0.75rem 1rem;">View Core</a>
                     </div>
                 </div>
 
-                <!-- Project 7 -->
-                <div class="glass-card project-card tilt-card">
-                    <img src="https://picsum.photos/seed/lostfound/600/400" alt="Lost & Found" class="project-img">
-                    <div class="project-info">
-                        <h3 class="project-title">Lost & Found Platform</h3>
-                        <div class="project-tech">
-                            <span class="tech-badge">Full Stack</span>
-                            <span class="tech-badge">Cloud</span>
-                            <span class="tech-badge">Campus-Based</span>
-                        </div>
-                        <div class="project-desc">
-                            <span class="desc-label">Problem:</span> Lost items on college campuses are not efficiently tracked or reported.
-                            <span class="desc-label">Solution:</span> Centralized SaaS platform where admins post found items and students can claim them securely.
-                            <span class="desc-label">Impact:</span> Improved item recovery efficiency and streamlined campus communication.
-                        </div>
-                        <a href="#" class="btn btn-neon" style="font-size: 0.8rem; padding: 0.75rem 1rem;">View Core</a>
+                <!-- Project 8: Digital Entry Gate -->
+                <div class="glass-card project-card tilt-card" data-category="ai">
+                    <div class="project-img-wrapper">
+                        <img src="https://picsum.photos/seed/entrygate/600/400" alt="Digital Entry Gate" class="project-img">
+                        <div class="project-overlay"></div>
                     </div>
-                </div>
-
-                <!-- Project 8 -->
-                <div class="glass-card project-card tilt-card">
-                    <img src="https://picsum.photos/seed/entrygate/600/400" alt="Digital Entry Gate" class="project-img">
                     <div class="project-info">
                         <h3 class="project-title">Digital Entry Gate</h3>
                         <div class="project-tech">
@@ -265,36 +240,46 @@
                             <span class="tech-badge">OCR</span>
                             <span class="tech-badge">Computer Vision</span>
                         </div>
-                        <div class="project-desc">
-                            <span class="desc-label">Problem:</span> Manual entry logging at physical gates is slow and error-prone.
-                            <span class="desc-label">Solution:</span> Automated entry system using OCR to scan forms and digitize visitor data instantly.
-                            <span class="desc-label">Impact:</span> Reduced manual data entry work and significantly improved tracking accuracy.
+                        <p class="project-desc">
+                            Automated gate entry system using OCR to digitize physical visitor logs in real time.
+                        </p>
+                        <div class="project-actions">
+                            <a href="https://github.com/Samrajg" target="_blank" class="btn btn-neon" style="font-size: 0.75rem; padding: 0.6rem 1rem;">
+                                <i class="fab fa-github"></i> Repository
+                            </a>
                         </div>
-                        <a href="#" class="btn btn-neon" style="font-size: 0.8rem; padding: 0.75rem 1rem;">View Core</a>
                     </div>
                 </div>
 
-                <!-- Project 9 -->
-                <div class="glass-card project-card tilt-card">
-                    <img src="https://picsum.photos/seed/trainbooking/600/400" alt="Train Ticket Booking" class="project-img">
+                <!-- Project 9: Train Booking Engine -->
+                <div class="glass-card project-card tilt-card" data-category="fullstack">
+                    <div class="project-img-wrapper">
+                        <img src="https://picsum.photos/seed/trainbooking/600/400" alt="Train Ticket Booking" class="project-img">
+                        <div class="project-overlay"></div>
+                    </div>
                     <div class="project-info">
-                        <h3 class="project-title">Age-Based Train Booking</h3>
+                        <h3 class="project-title">Age-Based Train Booking Engine</h3>
                         <div class="project-tech">
                             <span class="tech-badge">Java</span>
                             <span class="tech-badge">Full Stack</span>
                         </div>
-                        <div class="project-desc">
-                            <span class="desc-label">Problem:</span> Traditional systems don't dynamically adjust pricing or seat allocation based on age categories.
-                            <span class="desc-label">Solution:</span> Intelligent booking engine categorizing passengers (child, adult, senior) to apply smart pricing and seat logic.
-                            <span class="desc-label">Impact:</span> Advanced automation and personalized, user-specific ticket handling.
+                        <p class="project-desc">
+                            Booking engine categorizing passengers (child, adult, senior) with intelligent seat allocation and pricing logic.
+                        </p>
+                        <div class="project-actions">
+                            <a href="https://github.com/Samrajg" target="_blank" class="btn btn-neon" style="font-size: 0.75rem; padding: 0.6rem 1rem;">
+                                <i class="fab fa-github"></i> Repository
+                            </a>
                         </div>
-                        <a href="#" class="btn btn-neon" style="font-size: 0.8rem; padding: 0.75rem 1rem;">View Core</a>
                     </div>
                 </div>
 
-                <!-- Project 10 -->
-                <div class="glass-card project-card tilt-card">
-                    <img src="https://picsum.photos/seed/cityscope/600/400" alt="CityScope Chatbot" class="project-img">
+                <!-- Project 10: CityScope AI Chatbot -->
+                <div class="glass-card project-card tilt-card" data-category="ai">
+                    <div class="project-img-wrapper">
+                        <img src="https://picsum.photos/seed/cityscope/600/400" alt="CityScope Chatbot" class="project-img">
+                        <div class="project-overlay"></div>
+                    </div>
                     <div class="project-info">
                         <h3 class="project-title">CityScope AI Chatbot</h3>
                         <div class="project-tech">
@@ -302,102 +287,123 @@
                             <span class="tech-badge">NLP</span>
                             <span class="tech-badge">Machine Learning</span>
                         </div>
-                        <div class="project-desc">
-                            <span class="desc-label">Problem:</span> Accessing structured info about different TN districts is time-consuming.
-                            <span class="desc-label">Solution:</span> AI chatbot trained specifically on Tamil Nadu district-level data for instant, context-aware responses.
-                            <span class="desc-label">Impact:</span> Simplified public information access and boosted user engagement.
+                        <p class="project-desc">
+                            AI chatbot trained specifically on Tamil Nadu district-level data for context-aware public query responses.
+                        </p>
+                        <div class="project-actions">
+                            <a href="https://github.com/Samrajg" target="_blank" class="btn btn-neon" style="font-size: 0.75rem; padding: 0.6rem 1rem;">
+                                <i class="fab fa-github"></i> Repository
+                            </a>
                         </div>
-                        <a href="#" class="btn btn-neon" style="font-size: 0.8rem; padding: 0.75rem 1rem;">View Core</a>
                     </div>
                 </div>
 
-                <!-- Project 11 -->
-                <div class="glass-card project-card tilt-card">
-                    <img src="https://picsum.photos/seed/signature/600/400" alt="Hand Signature Verification" class="project-img">
-                    <div class="project-info">
-                        <h3 class="project-title">Signature Verification</h3>
-                        <div class="project-tech">
-                            <span class="tech-badge">Python</span>
-                            <span class="tech-badge">Image Processing</span>
-                            <span class="tech-badge">OpenCV</span>
-                        </div>
-                        <div class="project-desc">
-                            <span class="desc-label">Problem:</span> Manual signature verification is prone to forgery and human oversight.
-                            <span class="desc-label">Solution:</span> High-level image processing system built to compare and authenticate handwritten signatures securely.
-                            <span class="desc-label">Impact:</span> Improved authentication accuracy and reduced potential fraud risk.
-                        </div>
-                        <a href="https://huggingface.co/spaces/Samraj777/signature-verification" target="_blank" class="btn btn-neon" style="font-size: 0.8rem; padding: 0.75rem 1rem;">View Core</a>
+                <!-- Project 11: E-Commerce UI -->
+                <div class="glass-card project-card tilt-card" data-category="uiux">
+                    <div class="project-img-wrapper">
+                        <img src="https://picsum.photos/seed/ecommercefigma/600/400" alt="E-Commerce UI" class="project-img">
+                        <div class="project-overlay"></div>
                     </div>
-                </div>
-
-                <!-- Project 12 -->
-                <div class="glass-card project-card tilt-card">
-                    <img src="https://picsum.photos/seed/ecommercefigma/600/400" alt="E-Commerce App UI" class="project-img">
                     <div class="project-info">
-                        <h3 class="project-title">E-Commerce App UI</h3>
+                        <h3 class="project-title">E-Commerce App Interface</h3>
                         <div class="project-tech">
                             <span class="tech-badge">Figma</span>
                             <span class="tech-badge">UI/UX</span>
-                            <span class="tech-badge">Prototyping</span>
                         </div>
-                        <div class="project-desc">
-                            <span class="desc-label">Problem:</span> Poor user experience in traditional mobile e-commerce apps leads to cart abandonment.
-                            <span class="desc-label">Solution:</span> Designed a modern, intuitive, and highly interactive mobile shopping interface in Figma.
-                            <span class="desc-label">Impact:</span> Improved user journey and streamlined the checkout process.
+                        <p class="project-desc">
+                            Interactive mobile e-commerce application design engineered to optimize user checkout paths.
+                        </p>
+                        <div class="project-actions">
+                            <a href="https://www.figma.com/design/glIvSC5nvYj8VnS4RLf0EH/EXP-1?node-id=0-1&p=f&t=q6Pnej9fLQexrFiF-0" target="_blank" class="btn btn-neon" style="font-size: 0.75rem; padding: 0.6rem 1rem;">
+                                <i class="fab fa-figma"></i> Figma Design
+                            </a>
                         </div>
-                        <a href="https://www.figma.com/design/glIvSC5nvYj8VnS4RLf0EH/EXP-1?node-id=0-1&p=f&t=q6Pnej9fLQexrFiF-0" target="_blank" class="btn btn-neon" style="font-size: 0.8rem; padding: 0.75rem 1rem;">View Design</a>
                     </div>
                 </div>
 
-                <!-- Project 13 -->
-                <div class="glass-card project-card tilt-card">
-                    <img src="https://picsum.photos/seed/tuitionapp/600/400" alt="Tuition Booking App" class="project-img">
+                <!-- Project 12: Tuition App UI -->
+                <div class="glass-card project-card tilt-card" data-category="uiux">
+                    <div class="project-img-wrapper">
+                        <img src="https://picsum.photos/seed/tuitionapp/600/400" alt="Tuition App UI" class="project-img">
+                        <div class="project-overlay"></div>
+                    </div>
                     <div class="project-info">
-                        <h3 class="project-title">Tuition App UI</h3>
+                        <h3 class="project-title">Tuition App Interface</h3>
                         <div class="project-tech">
                             <span class="tech-badge">Figma</span>
                             <span class="tech-badge">UI/UX</span>
-                            <span class="tech-badge">Wireframing</span>
                         </div>
-                        <div class="project-desc">
-                            <span class="desc-label">Problem:</span> Connecting students with tutors locally is often disjointed and unorganized.
-                            <span class="desc-label">Solution:</span> Created a clean, engaging interface for a tuition booking platform with a built-in scheduling UI.
-                            <span class="desc-label">Impact:</span> Enhanced accessibility for students seeking both local and remote tutoring.
+                        <p class="project-desc">
+                            Clean mobile UI linking local tutors and students with scheduling interface.
+                        </p>
+                        <div class="project-actions">
+                            <a href="https://www.figma.com/design/PZ9eVbbEWtniPpHT8Lx2bx/Untitled?t=q6Pnej9fLQexrFiF-0" target="_blank" class="btn btn-neon" style="font-size: 0.75rem; padding: 0.6rem 1rem;">
+                                <i class="fab fa-figma"></i> Figma Design
+                            </a>
                         </div>
-                        <a href="https://www.figma.com/design/PZ9eVbbEWtniPpHT8Lx2bx/Untitled?t=q6Pnej9fLQexrFiF-0" target="_blank" class="btn btn-neon" style="font-size: 0.8rem; padding: 0.75rem 1rem;">View Design</a>
                     </div>
                 </div>
 
-                <!-- Project 14 -->
-                <div class="glass-card project-card tilt-card">
-                    <img src="https://picsum.photos/seed/farmerapp/600/400" alt="Farmer Connect App" class="project-img">
+                <!-- Project 13: Farmer Connect App UI -->
+                <div class="glass-card project-card tilt-card" data-category="uiux">
+                    <div class="project-img-wrapper">
+                        <img src="https://picsum.photos/seed/farmerapp/600/400" alt="Farmer Connect App UI" class="project-img">
+                        <div class="project-overlay"></div>
+                    </div>
                     <div class="project-info">
                         <h3 class="project-title">Farmer Connect App UI</h3>
                         <div class="project-tech">
                             <span class="tech-badge">Figma</span>
-                            <span class="tech-badge">UI/UX</span>
                             <span class="tech-badge">Accessibility</span>
                         </div>
-                        <div class="project-desc">
-                            <span class="desc-label">Problem:</span> Farmers lack digital tools with simple interfaces for direct market connectivity.
-                            <span class="desc-label">Solution:</span> Designed an accessible, easy-to-use mobile app interface connecting agricultural workers to buyers.
-                            <span class="desc-label">Impact:</span> Bridged the digital divide with a highly focused and clear user experience.
+                        <p class="project-desc">
+                            Accessible mobile app UI connecting agricultural producers directly to buyers.
+                        </p>
+                        <div class="project-actions">
+                            <a href="https://www.figma.com/design/SxgMv8iU9A6jxuhQL4GoW8/ex2-i-?t=q6Pnej9fLQexrFiF-0" target="_blank" class="btn btn-neon" style="font-size: 0.75rem; padding: 0.6rem 1rem;">
+                                <i class="fab fa-figma"></i> Figma Design
+                            </a>
                         </div>
-                        <a href="https://www.figma.com/design/SxgMv8iU9A6jxuhQL4GoW8/ex2-i-?t=q6Pnej9fLQexrFiF-0" target="_blank" class="btn btn-neon" style="font-size: 0.8rem; padding: 0.75rem 1rem;">View Design</a>
                     </div>
                 </div>
 
+                <!-- Project 14: Campus Lost & Found -->
+                <div class="glass-card project-card tilt-card" data-category="fullstack">
+                    <div class="project-img-wrapper">
+                        <img src="https://picsum.photos/seed/lostfound/600/400" alt="Lost & Found" class="project-img">
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Lost & Found Platform</h3>
+                        <div class="project-tech">
+                            <span class="tech-badge">Full Stack</span>
+                            <span class="tech-badge">Cloud</span>
+                        </div>
+                        <p class="project-desc">
+                            Centralized campus SaaS portal for item tracking, verification, and recovery.
+                        </p>
+                        <div class="project-actions">
+                            <a href="https://github.com/Samrajg" target="_blank" class="btn btn-neon" style="font-size: 0.75rem; padding: 0.6rem 1rem;">
+                                <i class="fab fa-github"></i> Repository
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer>
         <div class="container">
-            <p>System Online. Designed by Godwin Samraj.</p>
+            <p style="font-family: var(--font-code); color: var(--text-muted);">
+                System Status: <span class="text-cyan">ONLINE 100%</span> | Designed & Built by <strong>Godwin Samraj G</strong>
+            </p>
         </div>
     </footer>
 
     <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>

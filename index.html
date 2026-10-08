@@ -3,160 +3,820 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Godwin Samraj | Futuristic Portfolio</title>
+    <title>Godwin Samraj G | 3D System Architect & AI Developer</title>
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Orbitron:wght@500;700;900&family=Syne:wght@600;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-        
-        .hero-content {
-            z-index: 10;
-        }
-        
-        .hero h1 {
-            font-size: 5rem;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.5rem;
-            color: var(--text-muted);
-            margin-bottom: 3rem;
-            font-family: var(--font-code);
-        }
-        
-        .cta-container {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-        }
-
-        .profile-img-container {
-            width: 150px;
-            height: 150px;
-            margin: 0 auto 2rem;
-            border-radius: 50%;
-            padding: 5px;
-            background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
-            box-shadow: 0 0 25px rgba(0, 240, 255, 0.4);
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
-        }
-
-        .profile-img-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 4px solid var(--bg-dark);
-        }
-    </style>
 </head>
 <body>
 
-    <!-- Canvas Background -->
+    <!-- 3D WebGL Canvas Background -->
     <canvas id="bg-canvas"></canvas>
 
-    <!-- Navigation -->
+    <!-- Glassmorphic Navigation -->
     <nav>
         <div class="container nav-container">
-            <a href="index.html" class="logo">Godwin<span>.dev</span></a>
+            <a href="#hero" class="logo">
+                <i class="fas fa-cube text-cyan"></i> Godwin<span>.dev</span>
+            </a>
+            
             <div class="nav-links">
-                <a href="index.html" class="active">Home</a>
-                <a href="project.html">Projects</a>
-                <a href="contact.html">Contact</a>
+                <a href="#hero" class="active">Home</a>
+                <a href="#about">Experience</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#achievements">Achievements</a>
+                <a href="#contact">Contact</a>
+                <button id="audio-toggle" class="audio-btn">
+                    <i class="fas fa-volume-xmark"></i> Sound Off
+                </button>
             </div>
+
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container hero-content">
-            <div class="profile-img-container">
-                <img src="1-godwin-samraj-profile.jpg" alt="Godwin Samraj">
+    <!-- HERO SECTION -->
+    <section class="hero" id="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="hero-role-badge">
+                    <i class="fas fa-terminal"></i> CS Engineer & System Architect
+                </div>
+                <h1 class="hero-title glitch" data-text="GODWIN SAMRAJ">
+                    GODWIN <span class="text-gradient">SAMRAJ</span>
+                </h1>
+                <p class="hero-description">
+                    Building scalable, high-performance backends, production-ready AI models, and immersive 3D web experiences. Bridging deep machine learning with ultra-responsive architecture.
+                </p>
+
+                <!-- Hero Quick Stats -->
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number text-cyan">4+</div>
+                        <div class="stat-label">Shipped AI & Full Stack</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number text-purple">14+</div>
+                        <div class="stat-label">Project Archive</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number text-pink">8.1</div>
+                        <div class="stat-label">B.E. CGPA</div>
+                    </div>
+                </div>
+
+                <div class="cta-group">
+                    <a href="#projects" class="btn btn-neon">
+                        Explore Systems <i class="fas fa-arrow-down"></i>
+                    </a>
+                    <a href="godwin_resume.pdf" download="Godwin_Samraj_Resume.pdf" class="btn btn-purple">
+                        <i class="fas fa-file-arrow-down"></i> Resume PDF
+                    </a>
+                    <a href="#contact" class="btn btn-outline">
+                        <i class="fas fa-paper-plane"></i> Contact Me
+                    </a>
+                </div>
             </div>
-            <h1 class="glitch" data-text="GODWIN SAMRAJ">GODWIN SAMRAJ</h1>
-            <p class="hero-subtitle">> System Architect_ & Creative Developer_</p>
-            
-            <div class="cta-container">
-                <a href="project.html" class="btn btn-neon">Initialize Projects <i class="fas fa-chevron-right"></i></a>
-                <a href="contact.html" class="btn btn-purple">Open Comms</a>
-                <a href="godwin_resume.pdf" download="Godwin_Samraj_Resume.pdf" class="btn btn-neon" style="border-color: #fff; color: #fff;"><i class="fas fa-file-download"></i> Download Resume</a>
+
+            <div class="profile-3d-wrapper">
+                <div class="profile-avatar-card tilt-card">
+                    <img src="1-godwin-samraj-profile.jpg" alt="Godwin Samraj G">
+                </div>
             </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <div class="mouse-icon">
+                <div class="mouse-wheel"></div>
+            </div>
+            <span>SCROLL DEPTH</span>
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- ABOUT & EXPERIENCE SECTION -->
     <section class="section-padding" id="about">
         <div class="container">
-            <div class="page-header" style="text-align: left;">
-                <h2 class="page-title" style="font-size: 2.5rem;">System Overview</h2>
-                <p class="hero-subtitle" style="font-size: 1rem;">> Initializing user profile...</p>
+            <div class="page-header">
+                <h2 class="page-title text-gradient">System & Career Matrix</h2>
+                <p class="section-subtitle">> Inspecting professional journey & academic record...</p>
             </div>
-            
+
+            <!-- Overview Box -->
             <div class="glass-card tilt-card" style="margin-bottom: 4rem;">
-                <p style="font-size: 1.1rem; margin-bottom: 1rem; color: var(--text-main);">
-                    Welcome to my digital space. I am a passionate System Architect and Creative Developer who bridges the gap between high-performance backends and stunning, futuristic frontends.
+                <h3 style="font-size: 1.6rem; color: var(--neon-cyan); margin-bottom: 1rem;">
+                    <i class="fas fa-user-astronaut"></i> Executive Overview
+                </h3>
+                <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.8;">
+                    Computer Science undergraduate at Kamaraj College of Engineering and Technology (CGPA: 8.1/10) with 2 software & ML engineering internships. Proven track record of shipping production-ready systems — from <strong>FastAPI/Next.js security architectures</strong> to <strong>BERT-based NLP grading models</strong> achieving 92% accuracy and <strong>real-time 30 FPS OpenCV edge proctoring</strong> on Jetson Nano.
                 </p>
-                <p style="font-size: 1.1rem; color: var(--text-muted);">
-                    With deep expertise in scalable architecture and modern web technologies, I build solutions that don't just work—they leave a lasting impact. Let's create something extraordinary.
-                </p>
             </div>
-            
-            <div class="page-header" style="text-align: left;">
-                <h2 class="page-title" style="font-size: 2.5rem;">Core Modules</h2>
-                <p class="hero-subtitle" style="font-size: 1rem;">> Loading skills...</p>
-            </div>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.5rem;">
-                <div class="glass-card tilt-card" style="text-align: center; padding: 1.5rem;">
-                    <i class="fab fa-js" style="font-size: 3rem; color: #F7DF1E; margin-bottom: 1rem;"></i>
-                    <h4 style="font-family: var(--font-code);">JavaScript</h4>
+
+            <div class="timeline-grid">
+                <!-- Experience Timeline -->
+                <div>
+                    <h3 style="font-size: 1.5rem; color: #fff; margin-bottom: 2rem;">
+                        <i class="fas fa-briefcase text-cyan"></i> Professional Experience
+                    </h3>
+                    <div class="timeline">
+                        <!-- Item 1 -->
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">DEC 2025 – FEB 2026</div>
+                            <h4 class="timeline-title">Software Developer Intern</h4>
+                            <div class="timeline-company">Pentagon Garments • Virudhunagar, India</div>
+                            <ul class="timeline-bullets">
+                                <li>Built a production-ready security verification & real-time monitoring system using <strong>Next.js</strong> and <strong>FastAPI</strong>.</li>
+                                <li>Optimized database queries and API routing, reducing overall server response time by <strong>35%</strong>.</li>
+                                <li>Implemented 3-tier JWT authentication and robust PostgreSQL audit logging for security compliance.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Item 2 -->
+                        <div class="timeline-item">
+                            <div class="timeline-dot" style="border-color: var(--neon-purple); box-shadow: 0 0 10px var(--neon-purple);"></div>
+                            <div class="timeline-date" style="color: var(--neon-purple);">MAY 2024 – JUN 2024</div>
+                            <h4 class="timeline-title">Machine Learning Intern</h4>
+                            <div class="timeline-company">Panith Innovations • Bangalore, India</div>
+                            <ul class="timeline-bullets">
+                                <li>Engineered predictive machine learning models and automated data processing pipelines in Python.</li>
+                                <li>Boosted forecast accuracy by <strong>23%</strong> through advanced feature engineering and algorithm tuning.</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div class="glass-card tilt-card" style="text-align: center; padding: 1.5rem;">
-                    <i class="fab fa-react" style="font-size: 3rem; color: #61DAFB; margin-bottom: 1rem;"></i>
-                    <h4 style="font-family: var(--font-code);">React</h4>
+
+                <!-- Education Timeline -->
+                <div>
+                    <h3 style="font-size: 1.5rem; color: #fff; margin-bottom: 2rem;">
+                        <i class="fas fa-graduation-cap text-purple"></i> Academic Record
+                    </h3>
+                    <div class="timeline">
+                        <!-- Edu 1 -->
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">2023 – 2027</div>
+                            <h4 class="timeline-title">B.E. in Computer Science & Engineering</h4>
+                            <div class="timeline-company">Kamaraj College of Engineering and Technology • Virudhunagar</div>
+                            <p class="timeline-desc">
+                                <strong>CGPA: 8.1 / 10.0</strong><br>
+                                Specialized in System Architecture, Artificial Intelligence, Database Management, and Web Technologies.
+                            </p>
+                        </div>
+
+                        <!-- Edu 2 -->
+                        <div class="timeline-item">
+                            <div class="timeline-dot" style="border-color: var(--neon-pink); box-shadow: 0 0 10px var(--neon-pink);"></div>
+                            <div class="timeline-date" style="color: var(--neon-pink);">2018 – 2023</div>
+                            <h4 class="timeline-title">Higher Secondary Education</h4>
+                            <div class="timeline-company">Keren Schools • Madurai, India</div>
+                            <p class="timeline-desc">
+                                Score: <strong>70%</strong><br>
+                                Focused on Mathematics, Physics, Chemistry, and Computer Science fundamentals.
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <div class="glass-card tilt-card" style="text-align: center; padding: 1.5rem;">
-                    <i class="fab fa-node" style="font-size: 3rem; color: #339933; margin-bottom: 1rem;"></i>
-                    <h4 style="font-family: var(--font-code);">Node.js</h4>
-                </div>
-                <div class="glass-card tilt-card" style="text-align: center; padding: 1.5rem;">
-                    <i class="fab fa-python" style="font-size: 3rem; color: #3776AB; margin-bottom: 1rem;"></i>
-                    <h4 style="font-family: var(--font-code);">Python</h4>
-                </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 5rem;">
-                <a href="project.html" class="btn btn-neon">View Full Project Archive <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- CORE COMPETENCIES & SKILLS SECTION -->
+    <section class="section-padding" id="skills">
+        <div class="container">
+            <div class="page-header">
+                <h2 class="page-title text-gradient">Technical Arsenal</h2>
+                <p class="section-subtitle">> Loading core modules & framework proficiencies...</p>
+            </div>
+
+            <div class="skills-grid">
+                <!-- AI / ML -->
+                <div class="glass-card tilt-card">
+                    <h3 class="skill-category-title">
+                        <i class="fas fa-brain"></i> AI, ML & Vision
+                    </h3>
+                    <div class="skill-items">
+                        <div class="skill-bar-wrapper">
+                            <div class="skill-info">
+                                <span>Python & ML Pipelines</span>
+                                <span class="text-cyan">92%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="92%"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-bar-wrapper">
+                            <div class="skill-info">
+                                <span>BERT / NLP Architecture</span>
+                                <span class="text-cyan">88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="88%"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-bar-wrapper">
+                            <div class="skill-info">
+                                <span>OpenCV & Computer Vision</span>
+                                <span class="text-cyan">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Frontend -->
+                <div class="glass-card tilt-card">
+                    <h3 class="skill-category-title" style="color: var(--neon-purple);">
+                        <i class="fas fa-code"></i> Frontend & 3D Web
+                    </h3>
+                    <div class="skill-items">
+                        <div class="skill-bar-wrapper">
+                            <div class="skill-info">
+                                <span>React & Next.js</span>
+                                <span class="text-purple">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="background: linear-gradient(90deg, var(--neon-purple), var(--neon-pink));" data-width="90%"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-bar-wrapper">
+                            <div class="skill-info">
+                                <span>JavaScript (ES6+)</span>
+                                <span class="text-purple">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="background: linear-gradient(90deg, var(--neon-purple), var(--neon-pink));" data-width="95%"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-bar-wrapper">
+                            <div class="skill-info">
+                                <span>Three.js / WebGL / CSS3</span>
+                                <span class="text-purple">82%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="background: linear-gradient(90deg, var(--neon-purple), var(--neon-pink));" data-width="82%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Backend -->
+                <div class="glass-card tilt-card">
+                    <h3 class="skill-category-title" style="color: var(--neon-pink);">
+                        <i class="fas fa-server"></i> Backend & API Architecture
+                    </h3>
+                    <div class="skill-items">
+                        <div class="skill-bar-wrapper">
+                            <div class="skill-info">
+                                <span>FastAPI & Python Backends</span>
+                                <span class="text-pink">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="background: linear-gradient(90deg, var(--neon-pink), var(--neon-gold));" data-width="90%"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-bar-wrapper">
+                            <div class="skill-info">
+                                <span>Node.js & Express.js</span>
+                                <span class="text-pink">86%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="background: linear-gradient(90deg, var(--neon-pink), var(--neon-gold));" data-width="86%"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-bar-wrapper">
+                            <div class="skill-info">
+                                <span>PostgreSQL & MongoDB</span>
+                                <span class="text-pink">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="background: linear-gradient(90deg, var(--neon-pink), var(--neon-gold));" data-width="85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DevOps & Tools -->
+                <div class="glass-card tilt-card">
+                    <h3 class="skill-category-title" style="color: var(--neon-gold);">
+                        <i class="fas fa-gears"></i> Tools & Hardware Deployment
+                    </h3>
+                    <div class="skill-items">
+                        <div class="skill-bar-wrapper">
+                            <div class="skill-info">
+                                <span>Docker Containerization</span>
+                                <span style="color: var(--neon-gold);">84%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="background: linear-gradient(90deg, var(--neon-gold), var(--neon-cyan));" data-width="84%"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-bar-wrapper">
+                            <div class="skill-info">
+                                <span>Jetson Nano Edge Devices</span>
+                                <span style="color: var(--neon-gold);">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="background: linear-gradient(90deg, var(--neon-gold), var(--neon-cyan));" data-width="80%"></div>
+                            </div>
+                        </div>
+
+                        <div class="skill-bar-wrapper">
+                            <div class="skill-info">
+                                <span>Git & Figma UI/UX</span>
+                                <span style="color: var(--neon-gold);">92%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="background: linear-gradient(90deg, var(--neon-gold), var(--neon-cyan));" data-width="92%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECT ARCHIVE SHOWCASE -->
+    <section class="section-padding" id="projects">
+        <div class="container">
+            <div class="page-header">
+                <h2 class="page-title text-gradient">Deployed Systems & Archive</h2>
+                <p class="section-subtitle">> Filtering 14 full-scale projects and interactive prototypes...</p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="filter-container">
+                <button class="filter-btn active" data-filter="all">All Systems (14)</button>
+                <button class="filter-btn" data-filter="ai">AI / ML & Vision</button>
+                <button class="filter-btn" data-filter="fullstack">Full-Stack & Web</button>
+                <button class="filter-btn" data-filter="uiux">UI / UX Designs</button>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Project 1: Mr. Strict -->
+                <div class="glass-card project-card tilt-card" data-category="ai">
+                    <div class="project-img-wrapper">
+                        <img src="https://picsum.photos/seed/mrstrict/600/400" alt="Mr. Strict" class="project-img">
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Mr. Strict — AI Exam Evaluator</h3>
+                        <div class="project-tech">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">BERT NLP</span>
+                            <span class="tech-badge">FastAPI</span>
+                            <span class="tech-badge">Docker</span>
+                        </div>
+                        <p class="project-desc">
+                            Automated assignment and exam evaluator powered by <span class="highlight">BERT</span>. Achieved <span class="highlight">92% grading accuracy</span>, reduced grading time by <span class="highlight">85%</span>, and handles 500 concurrent submissions via Docker.
+                        </p>
+                        <div class="project-actions">
+                            <a href="https://github.com/Samrajg" target="_blank" class="btn btn-neon" style="font-size: 0.75rem; padding: 0.6rem 1rem;">
+                                <i class="fab fa-github"></i> Repository
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Autonomous Exam Monitoring -->
+                <div class="glass-card project-card tilt-card" data-category="ai">
+                    <div class="project-img-wrapper">
+                        <img src="https://picsum.photos/seed/exammonitor/600/400" alt="Autonomous Exam Monitor" class="project-img">
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Autonomous Exam Monitor</h3>
+                        <div class="project-tech">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">OpenCV</span>
+                            <span class="tech-badge">Jetson Nano</span>
+                        </div>
+                        <p class="project-desc">
+                            Real-time AI proctoring deployed on <span class="highlight">Jetson Nano</span> at <span class="highlight">30 FPS</span>. Detects facial, eye, and behavioral anomalies, reducing proctor workload by <span class="highlight">70%</span>.
+                        </p>
+                        <div class="project-actions">
+                            <a href="https://github.com/Samrajg" target="_blank" class="btn btn-neon" style="font-size: 0.75rem; padding: 0.6rem 1rem;">
+                                <i class="fab fa-github"></i> Repository
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Hospital Token Booking -->
+                <div class="glass-card project-card tilt-card" data-category="fullstack">
+                    <div class="project-img-wrapper">
+                        <img src="https://picsum.photos/seed/hospitaltoken/600/400" alt="Hospital Token Booking" class="project-img">
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Hospital Token Booking System</h3>
+                        <div class="project-tech">
+                            <span class="tech-badge">MERN Stack</span>
+                            <span class="tech-badge">JWT</span>
+                            <span class="tech-badge">MongoDB</span>
+                        </div>
+                        <p class="project-desc">
+                            Full-stack token platform. Optimized MongoDB aggregation pipeline cutting page load time by <span class="highlight">60%</span> and outpatient queue resolution by <span class="highlight">40%</span>.
+                        </p>
+                        <div class="project-actions">
+                            <a href="https://github.com/Samrajg" target="_blank" class="btn btn-neon" style="font-size: 0.75rem; padding: 0.6rem 1rem;">
+                                <i class="fab fa-github"></i> Repository
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: Security Rounds Verifier -->
+                <div class="glass-card project-card tilt-card" data-category="fullstack">
+                    <div class="project-img-wrapper">
+                        <img src="https://picsum.photos/seed/securityrounds/600/400" alt="Security Rounds Verifier" class="project-img">
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Security Rounds Verifier</h3>
+                        <div class="project-tech">
+                            <span class="tech-badge">FastAPI</span>
+                            <span class="tech-badge">Next.js</span>
+                            <span class="tech-badge">PostgreSQL</span>
+                        </div>
+                        <p class="project-desc">
+                            Verifiable digital security rounds system with JWT auth and audit logging. Optimized PostgreSQL queries cutting API response by <span class="highlight">40%</span> across 3 security tiers.
+                        </p>
+                        <div class="project-actions">
+                            <a href="https://github.com/Samrajg" target="_blank" class="btn btn-neon" style="font-size: 0.75rem; padding: 0.6rem 1rem;">
+                                <i class="fab fa-github"></i> Repository
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5: TreeToCLI -->
+                <div class="glass-card project-card tilt-card" data-category="fullstack">
+                    <div class="project-img-wrapper">
+                        <img src="https://picsum.photos/seed/treetocli/600/400" alt="TreeToCLI" class="project-img">
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">TreeToCLI Tool Generator</h3>
+                        <div class="project-tech">
+                            <span class="tech-badge">JavaScript</span>
+                            <span class="tech-badge">HTML/CSS</span>
+                            <span class="tech-badge">CLI Generator</span>
+                        </div>
+                        <p class="project-desc">
+                            Converts visual tree directory structures into executable bash, PowerShell, and CMD commands instantly with script export.
+                        </p>
+                        <div class="project-actions">
+                            <a href="https://samrajg.github.io/treetocli/" target="_blank" class="btn btn-neon" style="font-size: 0.75rem; padding: 0.6rem 1rem;">
+                                <i class="fas fa-globe"></i> Live Web App
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6: Hand Signature Verification -->
+                <div class="glass-card project-card tilt-card" data-category="ai">
+                    <div class="project-img-wrapper">
+                        <img src="https://picsum.photos/seed/signature/600/400" alt="Signature Verification" class="project-img">
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Hand Signature Verification</h3>
+                        <div class="project-tech">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">OpenCV</span>
+                            <span class="tech-badge">HuggingFace</span>
+                        </div>
+                        <p class="project-desc">
+                            High-precision image processing model comparing and authenticating handwritten signatures to prevent fraud. Deployed on HuggingFace Spaces.
+                        </p>
+                        <div class="project-actions">
+                            <a href="https://huggingface.co/spaces/Samraj777/signature-verification" target="_blank" class="btn btn-neon" style="font-size: 0.75rem; padding: 0.6rem 1rem;">
+                                <i class="fas fa-rocket"></i> HuggingFace Space
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 7: Voice Legal Summarizer -->
+                <div class="glass-card project-card tilt-card" data-category="ai">
+                    <div class="project-img-wrapper">
+                        <img src="https://picsum.photos/seed/legalvoice/600/400" alt="Voice Legal Summarizer" class="project-img">
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Voice Legal Summarizer</h3>
+                        <div class="project-tech">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">NLP</span>
+                            <span class="tech-badge">Speech Rec</span>
+                        </div>
+                        <p class="project-desc">
+                            Voice-driven AI pipeline parsing complex legal documentation into actionable, concise key points.
+                        </p>
+                        <div class="project-actions">
+                            <a href="https://github.com/Samrajg" target="_blank" class="btn btn-neon" style="font-size: 0.75rem; padding: 0.6rem 1rem;">
+                                <i class="fab fa-github"></i> Repository
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 8: CityScope Chatbot -->
+                <div class="glass-card project-card tilt-card" data-category="ai">
+                    <div class="project-img-wrapper">
+                        <img src="https://picsum.photos/seed/cityscope/600/400" alt="CityScope Chatbot" class="project-img">
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">CityScope AI Assistant</h3>
+                        <div class="project-tech">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">NLP</span>
+                            <span class="tech-badge">Machine Learning</span>
+                        </div>
+                        <p class="project-desc">
+                            Context-aware AI chatbot trained on Tamil Nadu district data for instant public information queries.
+                        </p>
+                        <div class="project-actions">
+                            <a href="https://github.com/Samrajg" target="_blank" class="btn btn-neon" style="font-size: 0.75rem; padding: 0.6rem 1rem;">
+                                <i class="fab fa-github"></i> Repository
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 9: E-Commerce UI -->
+                <div class="glass-card project-card tilt-card" data-category="uiux">
+                    <div class="project-img-wrapper">
+                        <img src="https://picsum.photos/seed/ecommercefigma/600/400" alt="E-Commerce UI" class="project-img">
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">E-Commerce App Interface</h3>
+                        <div class="project-tech">
+                            <span class="tech-badge">Figma</span>
+                            <span class="tech-badge">UI/UX</span>
+                            <span class="tech-badge">Prototyping</span>
+                        </div>
+                        <p class="project-desc">
+                            Modern mobile shopping interface designed in Figma with streamlined checkout flows and glass components.
+                        </p>
+                        <div class="project-actions">
+                            <a href="https://www.figma.com/design/glIvSC5nvYj8VnS4RLf0EH/EXP-1?node-id=0-1&p=f&t=q6Pnej9fLQexrFiF-0" target="_blank" class="btn btn-neon" style="font-size: 0.75rem; padding: 0.6rem 1rem;">
+                                <i class="fab fa-figma"></i> View Figma Prototype
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 10: Tuition App UI -->
+                <div class="glass-card project-card tilt-card" data-category="uiux">
+                    <div class="project-img-wrapper">
+                        <img src="https://picsum.photos/seed/tuitionapp/600/400" alt="Tuition App UI" class="project-img">
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Tuition Booking Platform UI</h3>
+                        <div class="project-tech">
+                            <span class="tech-badge">Figma</span>
+                            <span class="tech-badge">Wireframing</span>
+                        </div>
+                        <p class="project-desc">
+                            Engaging interface connecting local tutors with students, complete with built-in scheduling UI.
+                        </p>
+                        <div class="project-actions">
+                            <a href="https://www.figma.com/design/PZ9eVbbEWtniPpHT8Lx2bx/Untitled?t=q6Pnej9fLQexrFiF-0" target="_blank" class="btn btn-neon" style="font-size: 0.75rem; padding: 0.6rem 1rem;">
+                                <i class="fab fa-figma"></i> View Figma Prototype
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 11: Farmer Connect App UI -->
+                <div class="glass-card project-card tilt-card" data-category="uiux">
+                    <div class="project-img-wrapper">
+                        <img src="https://picsum.photos/seed/farmerapp/600/400" alt="Farmer Connect App UI" class="project-img">
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Farmer Connect Mobile UI</h3>
+                        <div class="project-tech">
+                            <span class="tech-badge">Figma</span>
+                            <span class="tech-badge">Accessibility</span>
+                        </div>
+                        <p class="project-desc">
+                            High-accessibility mobile design enabling agricultural workers to directly link with buyers.
+                        </p>
+                        <div class="project-actions">
+                            <a href="https://www.figma.com/design/SxgMv8iU9A6jxuhQL4GoW8/ex2-i-?t=q6Pnej9fLQexrFiF-0" target="_blank" class="btn btn-neon" style="font-size: 0.75rem; padding: 0.6rem 1rem;">
+                                <i class="fab fa-figma"></i> View Figma Prototype
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 12: Lost & Found SaaS -->
+                <div class="glass-card project-card tilt-card" data-category="fullstack">
+                    <div class="project-img-wrapper">
+                        <img src="https://picsum.photos/seed/lostfound/600/400" alt="Lost & Found" class="project-img">
+                        <div class="project-overlay"></div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Campus Lost & Found Platform</h3>
+                        <div class="project-tech">
+                            <span class="tech-badge">Full Stack</span>
+                            <span class="tech-badge">Cloud</span>
+                        </div>
+                        <p class="project-desc">
+                            Centralized SaaS platform for posting found items and student verification claims.
+                        </p>
+                        <div class="project-actions">
+                            <a href="https://github.com/Samrajg" target="_blank" class="btn btn-neon" style="font-size: 0.75rem; padding: 0.6rem 1rem;">
+                                <i class="fab fa-github"></i> Repository
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACHIEVEMENTS & STRATEGIC HIGHLIGHTS -->
+    <section class="section-padding" id="achievements">
+        <div class="container">
+            <div class="page-header">
+                <h2 class="page-title text-gradient">Achievements & Honors</h2>
+                <p class="section-subtitle">> Verified metrics, GitHub badges, and competitive achievements...</p>
+            </div>
+
+            <div class="achievements-grid">
+                <!-- Achievement 1 -->
+                <div class="glass-card achievement-card tilt-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-chess-knight" style="color: var(--neon-cyan);"></i>
+                    </div>
+                    <h3 class="achievement-title">FIDE-Rated Chess Player</h3>
+                    <div class="achievement-subtitle">Strategic Thinking Under Pressure</div>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">
+                        Ranked <strong>15th at the London Chess Tournament (2018)</strong>. Demonstrates high-pressure tactical calculation and strategic planning.
+                    </p>
+                </div>
+
+                <!-- Achievement 2 -->
+                <div class="glass-card achievement-card tilt-card">
+                    <div class="achievement-icon">
+                        <i class="fab fa-github" style="color: var(--neon-purple);"></i>
+                    </div>
+                    <h3 class="achievement-title">2x Pull Shark Achievement</h3>
+                    <div class="achievement-subtitle">GitHub Open Source Contribution</div>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">
+                        Earned the prestigious <strong>Pull Shark</strong> badge twice on GitHub for active code contributions and pull request merge volume.
+                    </p>
+                </div>
+
+                <!-- Achievement 3 -->
+                <div class="glass-card achievement-card tilt-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-trophy" style="color: var(--neon-gold);"></i>
+                    </div>
+                    <h3 class="achievement-title">Public Speaking Excellence</h3>
+                    <div class="achievement-subtitle">Communication & Leadership</div>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">
+                        Secured <strong>2nd Place</strong> in college-level public speaking competition. Skilled at technical presentations and architectural breakdowns.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CYBERPUNK CONTACT HUB -->
+    <section class="section-padding" id="contact">
+        <div class="container">
+            <div class="page-header">
+                <h2 class="page-title text-gradient">Initiate Connection</h2>
+                <p class="section-subtitle">> Channels open. Send transmission or schedule a call...</p>
+            </div>
+
+            <div class="contact-grid">
+                <!-- Info -->
+                <div>
+                    <h3 style="font-size: 1.8rem; color: var(--neon-cyan); margin-bottom: 1.5rem;">
+                        Direct Channels
+                    </h3>
+                    <p style="color: var(--text-muted); margin-bottom: 2rem; font-size: 1.05rem;">
+                        Whether you are looking to collaborate on high-scale systems, AI/ML models, or full-stack web applications, feel free to reach out.
+                    </p>
+
+                    <div class="contact-method-card">
+                        <div class="contact-icon-box">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <div class="contact-detail-title">EMAIL ADDRESS</div>
+                            <div class="contact-detail-value">godwinsamraj16@gmail.com</div>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/916379244349" target="_blank" class="contact-method-card" style="text-decoration: none;">
+                        <div class="contact-icon-box" style="color: #25D366; background: rgba(37, 211, 102, 0.15);">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div>
+                            <div class="contact-detail-title">WHATSAPP / CALL</div>
+                            <div class="contact-detail-value">+91 63792-44349</div>
+                        </div>
+                    </a>
+
+                    <div class="contact-method-card">
+                        <div class="contact-icon-box" style="color: var(--neon-purple); background: rgba(138, 43, 226, 0.15);">
+                            <i class="fas fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <div class="contact-detail-title">LOCATION</div>
+                            <div class="contact-detail-value">Virudhunagar / Madurai, Tamil Nadu, India</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Terminal Form -->
+                <div class="terminal-box">
+                    <div class="terminal-header">
+                        <div class="terminal-dots">
+                            <div class="dot dot-red"></div>
+                            <div class="dot dot-yellow"></div>
+                            <div class="dot dot-green"></div>
+                        </div>
+                        <div class="terminal-title">bash -- godwin@system:~/contact</div>
+                    </div>
+
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label class="form-label">> Sender Name</label>
+                            <input type="text" class="form-input" placeholder="e.g. Elon Musk" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">> Return Email Address</label>
+                            <input type="email" class="form-input" placeholder="name@company.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">> Encrypted Message Stream</label>
+                            <textarea class="form-input" placeholder="State your requirements or collaboration idea..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-neon" style="width: 100%;">
+                            <i class="fas fa-paper-plane"></i> Transmit Signal
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
     <footer>
         <div class="container">
-            <p>System Online. Designed by Godwin Samraj.</p>
+            <div class="footer-socials">
+                <a href="https://github.com/Samrajg" target="_blank" class="social-link" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.com/in/godwin-samraj-gnanaraj" target="_blank" class="social-link" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://samrajg.github.io/portfolio" target="_blank" class="social-link" title="Live Site">
+                    <i class="fas fa-globe"></i>
+                </a>
+                <a href="mailto:godwinsamraj16@gmail.com" class="social-link" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+            <p style="font-family: var(--font-code); color: var(--text-muted);">
+                System Status: <span class="text-cyan">ONLINE 100%</span> | Designed & Built by <strong>Godwin Samraj G</strong>
+            </p>
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <!-- Font Awesome -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <!-- Three.js CDN Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Application Engine Script -->
     <script src="js/app.js"></script>
 </body>
 </html>
