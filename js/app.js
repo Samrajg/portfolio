@@ -1,12 +1,77 @@
 /* ==========================================================================
-   GODWIN SAMRAJ - 3D ANIMATED PORTFOLIO ENGINE (THREE.JS + GSAP)
+   GODWIN SAMRAJ - 3D ANIMATED PORTFOLIO ENGINE (THREE.JS + GALAXY TECH LOGOS)
    ========================================================================== */
 
 let scene, camera, renderer;
 let mainMesh, wireframeMesh, particleSystem, gridPlane;
+let techBadgesGroup = [];
 let targetCameraPos = { x: 0, y: 0, z: 8 };
 let mouseX = 0, mouseY = 0;
 let targetMouseX = 0, targetMouseY = 0;
+
+// Tech Logos List requested by user
+const techLogos = [
+    { name: 'HTML5', color: '#E34F26', border: '#FF6D42', icon: '🌐' },
+    { name: 'CSS3', color: '#1572B6', border: '#33A9FF', icon: '🎨' },
+    { name: 'JS', color: '#F7DF1E', border: '#FFF066', icon: '⚡' },
+    { name: 'TensorFlow', color: '#FF6F00', border: '#FFA040', icon: '🧠' },
+    { name: 'PyTorch', color: '#EE4C2C', border: '#FF7757', icon: '🔥' },
+    { name: 'Cursor', color: '#0066FF', border: '#3388FF', icon: '🖱️' },
+    { name: 'Gemini', color: '#8E44AD', border: '#00F0FF', icon: '✨' },
+    { name: 'Antigravity', color: '#00F0FF', border: '#8A2BE2', icon: '🚀' },
+    { name: 'ChatGPT', color: '#10A37F', border: '#25D366', icon: '🤖' },
+    { name: 'Claude', color: '#D97757', border: '#FF9E7D', icon: '💡' },
+    { name: 'Pandas', color: '#150458', border: '#00F0FF', icon: '🐼' },
+    { name: 'NumPy', color: '#013243', border: '#4B8BBE', icon: '📊' },
+    { name: 'React', color: '#61DAFB', border: '#A6F0FF', icon: '⚛️' },
+    { name: 'Python', color: '#3776AB', border: '#FFD43B', icon: '🐍' },
+    { name: 'Docker', color: '#2496ED', border: '#66C2FF', icon: '🐳' },
+    { name: 'FastAPI', color: '#009688', border: '#4DB6AC', icon: '⚡' },
+    { name: 'OpenCV', color: '#5C3EE8', border: '#FF0055', icon: '👁️' },
+    { name: 'Node.js', color: '#339933', border: '#66CC66', icon: '🟢' }
+];
+
+// Helper: Dynamically Generate Glowing Tech Badge Canvas Texture
+function createBadgeTexture(tech) {
+    const canvas = document.createElement('canvas');
+    canvas.width = 256;
+    canvas.height = 128;
+    const ctx = canvas.getContext('2d');
+
+    // Rounded rectangle background
+    const rx = 12, ry = 12, rw = 232, rh = 104;
+    ctx.fillStyle = 'rgba(8, 12, 24, 0.82)';
+    ctx.beginPath();
+    ctx.roundRect(12, 12, rw, rh, 18);
+    ctx.fill();
+
+    // Glowing border
+    ctx.lineWidth = 3;
+    ctx.strokeStyle = tech.border;
+    ctx.shadowColor = tech.border;
+    ctx.shadowBlur = 15;
+    ctx.stroke();
+
+    // Subtle glass shine gradient
+    const grad = ctx.createLinearGradient(0, 0, 256, 128);
+    grad.addColorStop(0, 'rgba(255, 255, 255, 0.15)');
+    grad.addColorStop(1, 'rgba(255, 255, 255, 0.0)');
+    ctx.fillStyle = grad;
+    ctx.fill();
+
+    // Icon & Text
+    ctx.shadowBlur = 10;
+    ctx.shadowColor = tech.color;
+    ctx.fillStyle = '#FFFFFF';
+    ctx.font = 'bold 32px "JetBrains Mono", sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(`${tech.icon} ${tech.name}`, 128, 64);
+
+    const texture = new THREE.CanvasTexture(canvas);
+    texture.minFilter = THREE.LinearFilter;
+    return texture;
+}
 
 // Initialize 3D Engine
 function init3DEngine() {
@@ -15,7 +80,7 @@ function init3DEngine() {
 
     // 1. SCENE & CAMERA
     scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(0x05060b, 0.035);
+    scene.fog = new THREE.FogExp2(0x05060b, 0.032);
 
     camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
     camera.position.set(0, 0, 8);
@@ -30,7 +95,7 @@ function init3DEngine() {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
     // 3. LIGHTING
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
     scene.add(ambientLight);
 
     const cyanLight = new THREE.PointLight(0x00f0ff, 2.5, 50);
@@ -63,8 +128,8 @@ function init3DEngine() {
     wireframeMesh = new THREE.Mesh(torusGeo, wireMat);
     mainMesh.add(wireframeMesh);
 
-    // 5. 3D PARTICLE FIELD (STARS & NEBULA)
-    const particleCount = 2500;
+    // 5. 3D PARTICLE FIELD (STARS & GALAXY DUST)
+    const particleCount = 2800;
     const particleGeo = new THREE.BufferGeometry();
     const particlePositions = new Float32Array(particleCount * 3);
     const particleColors = new Float32Array(particleCount * 3);
@@ -77,9 +142,9 @@ function init3DEngine() {
     ];
 
     for (let i = 0; i < particleCount; i++) {
-        particlePositions[i * 3] = (Math.random() - 0.5) * 45;
-        particlePositions[i * 3 + 1] = (Math.random() - 0.5) * 45;
-        particlePositions[i * 3 + 2] = (Math.random() - 0.5) * 45;
+        particlePositions[i * 3] = (Math.random() - 0.5) * 50;
+        particlePositions[i * 3 + 1] = (Math.random() - 0.5) * 50;
+        particlePositions[i * 3 + 2] = (Math.random() - 0.5) * 50;
 
         const col = colors[Math.floor(Math.random() * colors.length)];
         particleColors[i * 3] = col.r;
@@ -100,7 +165,44 @@ function init3DEngine() {
     particleSystem = new THREE.Points(particleGeo, particleMat);
     scene.add(particleSystem);
 
-    // 6. CYBERNETIC GRID FLOOR
+    // 6. FLOATING GALAXY TECH LOGOS
+    techBadgesGroup = [];
+    const badgeGeo = new THREE.PlaneGeometry(1.6, 0.8);
+
+    // Create 45 floating badges scattered throughout the galaxy scene
+    for (let i = 0; i < 45; i++) {
+        const tech = techLogos[i % techLogos.length];
+        const texture = createBadgeTexture(tech);
+        const badgeMat = new THREE.MeshBasicMaterial({
+            map: texture,
+            transparent: true,
+            opacity: 0.88,
+            side: THREE.DoubleSide
+        });
+
+        const badgeMesh = new THREE.Mesh(badgeGeo, badgeMat);
+        
+        // Random 3D Position
+        badgeMesh.position.x = (Math.random() - 0.5) * 35;
+        badgeMesh.position.y = (Math.random() - 0.5) * 35;
+        badgeMesh.position.z = (Math.random() - 0.5) * 35;
+
+        // Custom Animation UserData
+        badgeMesh.userData = {
+            vx: (Math.random() - 0.5) * 0.015,
+            vy: (Math.random() - 0.5) * 0.015,
+            vz: (Math.random() - 0.5) * 0.015,
+            rotSpeed: (Math.random() - 0.5) * 0.01,
+            phase: Math.random() * Math.PI * 2,
+            baseScale: 0.8 + Math.random() * 0.5
+        };
+
+        badgeMesh.scale.setScalar(badgeMesh.userData.baseScale);
+        scene.add(badgeMesh);
+        techBadgesGroup.push(badgeMesh);
+    }
+
+    // 7. CYBERNETIC GRID FLOOR
     const gridGeo = new THREE.PlaneGeometry(100, 100, 40, 40);
     const gridMat = new THREE.MeshBasicMaterial({
         color: 0x8a2be2,
@@ -157,6 +259,8 @@ function onScrollDepthUpdate() {
 function animate() {
     requestAnimationFrame(animate);
 
+    const time = Date.now() * 0.001;
+
     // Smooth Mouse Interpolation (Lerp)
     mouseX += (targetMouseX - mouseX) * 0.05;
     mouseY += (targetMouseY - mouseY) * 0.05;
@@ -174,12 +278,34 @@ function animate() {
     }
 
     if (particleSystem) {
-        particleSystem.rotation.y += 0.0005;
-        particleSystem.rotation.x += 0.0002;
+        particleSystem.rotation.y += 0.0006;
+        particleSystem.rotation.x += 0.0003;
     }
 
+    // Animate Floating Galaxy Tech Badges
+    techBadgesGroup.forEach((badge) => {
+        const u = badge.userData;
+
+        // Velocity motion
+        badge.position.x += u.vx;
+        badge.position.y += u.vy + Math.sin(time + u.phase) * 0.005;
+        badge.position.z += u.vz;
+
+        // Gentle floating tilt
+        badge.rotation.z += u.rotSpeed;
+        badge.rotation.y = Math.sin(time * 0.5 + u.phase) * 0.2;
+
+        // Boundary wrap-around (Infinite Galaxy Flow)
+        if (badge.position.x > 22) badge.position.x = -22;
+        if (badge.position.x < -22) badge.position.x = 22;
+        if (badge.position.y > 22) badge.position.y = -22;
+        if (badge.position.y < -22) badge.position.y = 22;
+        if (badge.position.z > 20) badge.position.z = -20;
+        if (badge.position.z < -20) badge.position.z = 20;
+    });
+
     if (gridPlane) {
-        gridPlane.position.z = (Date.now() * 0.001) % 2.5;
+        gridPlane.position.z = (time * 2) % 2.5;
     }
 
     renderer.render(scene, camera);
