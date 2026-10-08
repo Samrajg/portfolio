@@ -542,22 +542,23 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // -------------------------------------------------------------
-// Initialize GSAP Horizontal Scroll for Projects
+// Initialize GSAP 3D Coverflow Scroll for Projects
 // -------------------------------------------------------------
 document.addEventListener('DOMContentLoaded', () => {
-    // Check if GSAP is available
     if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
         gsap.registerPlugin(ScrollTrigger);
 
         const projectsWrapper = document.querySelector('.projects-wrapper');
         const projectsGrid = document.querySelector('.projects-grid');
+        const cards = gsap.utils.toArray('.project-card');
 
-        if (projectsWrapper && projectsGrid && window.innerWidth > 768) {
+        if (projectsWrapper && projectsGrid && cards.length > 0 && window.innerWidth > 768) {
             
-            // Calculate how much to scroll based on the flex container width
+            // We want to scroll exactly enough to bring the last card to the center.
+            // With padding-left and padding-right set to 50vw - 200px, 
+            // scrollWidth is exactly the distance needed + 100vw.
             function getScrollAmount() {
-                let gridWidth = projectsGrid.scrollWidth;
-                return -(gridWidth - window.innerWidth + 100);
+                return -(projectsGrid.scrollWidth - window.innerWidth);
             }
 
             const tween = gsap.to(projectsGrid, {
@@ -568,13 +569,42 @@ document.addEventListener('DOMContentLoaded', () => {
             ScrollTrigger.create({
                 trigger: projectsWrapper,
                 start: "top top",
-                end: () => `+=${getScrollAmount() * -1}`,
+                end: () => `+=${projectsGrid.scrollWidth - window.innerWidth}`,
                 pin: true,
                 animation: tween,
                 scrub: 1,
                 invalidateOnRefresh: true,
-                markers: false
+                onUpdate: (self) => {
+                    const centerX = window.innerWidth / 2;
+                    
+                    cards.forEach(card => {
+                        const rect = card.getBoundingClientRect();
+                        const cardCenterX = rect.left + rect.width / 2;
+                        const distance = Math.abs(centerX - cardCenterX);
+                        const maxDist = window.innerWidth / 1.5; // Controls the curve
+                        
+                        let progress = 1 - Math.min(distance / maxDist, 1);
+                        // Easing for smoother curve
+                        progress = progress * progress; 
+                        
+                        const scale = 0.75 + (0.35 * progress);
+                        // Rotation: positive when right of center, negative when left
+                        const rotationY = ((cardCenterX - centerX) / maxDist) * 55; 
+                        const opacity = 0.3 + (0.7 * progress);
+                        
+                        gsap.set(card, {
+                            scale: scale,
+                            rotationY: Math.max(-65, Math.min(65, rotationY)), // Clamp rotation
+                            opacity: opacity,
+                            transformPerspective: 1200,
+                            zIndex: Math.round(progress * 100)
+                        });
+                    });
+                }
             });
+            
+            // Trigger an initial update to set the first card styles
+            ScrollTrigger.refresh();
         }
     }
 });
