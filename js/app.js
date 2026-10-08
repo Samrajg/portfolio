@@ -3,7 +3,11 @@
    ========================================================================== */
 
 let scene, camera, renderer;
-let mainMesh, wireframeMesh, particleSystem, gridPlane;
+let particleSystem, gridPlane;
+let nodesMesh, linesMesh;
+const nodeCount = 150;
+const nodeVelocities = [];
+let linePositions, linesGeo;
 let techBadgesGroup = [];
 let targetCameraPos = { x: 0, y: 0, z: 8 };
 let mouseX = 0, mouseY = 0;
@@ -106,27 +110,42 @@ function init3DEngine() {
     purpleLight.position.set(-5, -5, -2);
     scene.add(purpleLight);
 
-    // 4. MAIN 3D GEOMETRY (Torus Knot)
-    const torusGeo = new THREE.TorusKnotGeometry(1.6, 0.45, 128, 32);
-    const torusMat = new THREE.MeshStandardMaterial({
-        color: 0x050814,
-        roughness: 0.2,
-        metalness: 0.8,
-        wireframe: false,
-        emissive: 0x0a1026
-    });
-    mainMesh = new THREE.Mesh(torusGeo, torusMat);
-    scene.add(mainMesh);
+    // 4. NEURAL GRAPH (Nodes & Edges)
+    const nodePositions = new Float32Array(nodeCount * 3);
+    for (let i = 0; i < nodeCount; i++) {
+        nodePositions[i * 3] = (Math.random() - 0.5) * 40;
+        nodePositions[i * 3 + 1] = (Math.random() - 0.5) * 40;
+        nodePositions[i * 3 + 2] = (Math.random() - 0.5) * 20;
+        nodeVelocities.push({
+            x: (Math.random() - 0.5) * 0.015,
+            y: (Math.random() - 0.5) * 0.015,
+            z: (Math.random() - 0.5) * 0.015
+        });
+    }
 
-    // Wireframe Overlay
-    const wireMat = new THREE.MeshBasicMaterial({
+    const nodesGeo = new THREE.BufferGeometry();
+    nodesGeo.setAttribute('position', new THREE.BufferAttribute(nodePositions, 3));
+    const nodesMat = new THREE.PointsMaterial({
         color: 0x00f0ff,
-        wireframe: true,
+        size: 0.15,
+        transparent: true,
+        opacity: 0.8
+    });
+    nodesMesh = new THREE.Points(nodesGeo, nodesMat);
+    scene.add(nodesMesh);
+
+    // Prepare line geometry
+    const maxLines = nodeCount * nodeCount;
+    linePositions = new Float32Array(maxLines * 6);
+    linesGeo = new THREE.BufferGeometry();
+    linesGeo.setAttribute('position', new THREE.BufferAttribute(linePositions, 3));
+    const linesMat = new THREE.LineBasicMaterial({
+        color: 0x8a2be2,
         transparent: true,
         opacity: 0.25
     });
-    wireframeMesh = new THREE.Mesh(torusGeo, wireMat);
-    mainMesh.add(wireframeMesh);
+    linesMesh = new THREE.LineSegments(linesGeo, linesMat);
+    scene.add(linesMesh);
 
     // 5. 3D PARTICLE FIELD (STARS & GALAXY DUST)
     const particleCount = 2800;
@@ -243,16 +262,10 @@ function onScrollDepthUpdate() {
     const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
     const progress = Math.min(Math.max(scrollY / (maxScroll || 1), 0), 1);
 
-    // Smoothly update target camera & mesh position based on scroll depth
+    // Smoothly update target camera position based on scroll depth
     targetCameraPos.z = 8 - progress * 4;
     targetCameraPos.y = -progress * 2;
     targetCameraPos.x = Math.sin(progress * Math.PI * 2) * 2.5;
-
-    if (mainMesh) {
-        mainMesh.position.x = Math.cos(progress * Math.PI * 2) * 2;
-        mainMesh.position.y = Math.sin(progress * Math.PI) * 1.5;
-        mainMesh.rotation.z = progress * Math.PI * 2;
-    }
 }
 
 // Main Render Loop
@@ -271,10 +284,46 @@ function animate() {
     camera.position.z += (targetCameraPos.z - camera.position.z) * 0.05;
     camera.lookAt(0, 0, 0);
 
-    // 3D Object Auto Rotations
-    if (mainMesh) {
-        mainMesh.rotation.x += 0.005;
-        mainMesh.rotation.y += 0.008;
+    // Animate Neural Graph Nodes
+    if (nodesMesh && linesGeo) {
+        nodesMesh.rotation.y += 0.001;
+        linesMesh.rotation.y += 0.001;
+
+        const pos = nodesMesh.geometry.attributes.position.array;
+        let lineIndex = 0;
+
+        for (let i = 0; i < nodeCount; i++) {
+            // Move nodes
+            pos[i * 3] += nodeVelocities[i].x;
+            pos[i * 3 + 1] += nodeVelocities[i].y;
+            pos[i * 3 + 2] += nodeVelocities[i].z;
+
+            // Bounce off edges
+            if (pos[i * 3] > 20 || pos[i * 3] < -20) nodeVelocities[i].x *= -1;
+            if (pos[i * 3 + 1] > 20 || pos[i * 3 + 1] < -20) nodeVelocities[i].y *= -1;
+            if (pos[i * 3 + 2] > 10 || pos[i * 3 + 2] < -10) nodeVelocities[i].z *= -1;
+
+            // Connect nearby nodes
+            for (let j = i + 1; j < nodeCount; j++) {
+                const dx = pos[i * 3] - pos[j * 3];
+                const dy = pos[i * 3 + 1] - pos[j * 3 + 1];
+                const dz = pos[i * 3 + 2] - pos[j * 3 + 2];
+                const distSq = dx * dx + dy * dy + dz * dz;
+
+                if (distSq < 15) {
+                    linePositions[lineIndex++] = pos[i * 3];
+                    linePositions[lineIndex++] = pos[i * 3 + 1];
+                    linePositions[lineIndex++] = pos[i * 3 + 2];
+                    linePositions[lineIndex++] = pos[j * 3];
+                    linePositions[lineIndex++] = pos[j * 3 + 1];
+                    linePositions[lineIndex++] = pos[j * 3 + 2];
+                }
+            }
+        }
+
+        nodesMesh.geometry.attributes.position.needsUpdate = true;
+        linesGeo.attributes.position.needsUpdate = true;
+        linesGeo.setDrawRange(0, lineIndex / 3);
     }
 
     if (particleSystem) {
@@ -489,5 +538,43 @@ document.addEventListener('DOMContentLoaded', () => {
                 }, 3000);
             }, 1500);
         });
+    }
+});
+
+// -------------------------------------------------------------
+// Initialize GSAP Horizontal Scroll for Projects
+// -------------------------------------------------------------
+document.addEventListener('DOMContentLoaded', () => {
+    // Check if GSAP is available
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+
+        const projectsWrapper = document.querySelector('.projects-wrapper');
+        const projectsGrid = document.querySelector('.projects-grid');
+
+        if (projectsWrapper && projectsGrid && window.innerWidth > 768) {
+            
+            // Calculate how much to scroll based on the flex container width
+            function getScrollAmount() {
+                let gridWidth = projectsGrid.scrollWidth;
+                return -(gridWidth - window.innerWidth + 100);
+            }
+
+            const tween = gsap.to(projectsGrid, {
+                x: getScrollAmount,
+                ease: "none"
+            });
+
+            ScrollTrigger.create({
+                trigger: projectsWrapper,
+                start: "top top",
+                end: () => `+=${getScrollAmount() * -1}`,
+                pin: true,
+                animation: tween,
+                scrub: 1,
+                invalidateOnRefresh: true,
+                markers: false
+            });
+        }
     }
 });
