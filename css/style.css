@@ -715,20 +715,33 @@ nav.scrolled {
 }
 
 .projects-wrapper {
+    overflow: hidden;
     width: 100%;
-    padding: 2rem 0;
+    height: 100vh; /* Full viewport height for pinning */
+    display: flex;
+    align-items: center; /* Vertically center the slider */
 }
 
 .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2.5rem;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0; /* Remove gap to handle spacing via GSAP or precise padding */
+    width: max-content;
+    padding-left: calc(50vw - 200px); /* Center the first card (400/2) */
+    padding-right: calc(50vw - 200px); /* Center the last card */
+    perspective: 1500px;
+    transform-style: preserve-3d;
 }
 
 .project-card {
+    width: 400px;
+    flex-shrink: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
+    margin: 0 1.25rem; /* Gap replacement for smooth scaling */
+    transform-origin: center center;
+    will-change: transform, opacity;
 }
 
 .project-img-wrapper {
