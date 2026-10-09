@@ -1,4 +1,4 @@
-/* --- HIGH CLASS 3D & NEON FUTURISTIC STYLES --- */
+﻿/* --- HIGH CLASS 3D & NEON FUTURISTIC STYLES --- */
 :root {
     --bg-dark: #05060b;
     --bg-card: rgba(12, 14, 24, 0.65);
@@ -1062,21 +1062,13 @@ footer {
     }
 }
 
-/* Educational Journey Animation */
-.education-journey { position: relative; height: 300vh; background: transparent; z-index: 10; }
-.education-pin { position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; justify-content: flex-start; padding-top: 15vh; overflow: hidden; }
-.edu-timeline-container { width: 100%; height: 20vh; position: relative; display: flex; align-items: center; z-index: 20; }
-.edu-timeline-track { display: flex; flex-direction: row; flex-wrap: nowrap; width: max-content; padding-left: 60vw; position: relative; }
-.edu-timeline-track::before { content: ""; position: absolute; top: 10px; left: 60vw; width: 250vw; height: 2px; background: var(--neon-cyan); z-index: -1; box-shadow: 0 0 10px var(--neon-cyan); }
-.edu-step { width: 80vw; text-align: left; padding-right: 10vw; flex-shrink: 0; position: relative; padding-top: 50px; }
-.edu-step::before { content: ""; position: absolute; top: 0; left: 0; width: 20px; height: 20px; background: var(--bg-dark); border: 3px solid var(--neon-cyan); border-radius: 50%; box-shadow: 0 0 15px var(--neon-cyan); }
+/* Educational Journey Vertical Timeline */
+.education-journey { position: relative; width: 100%; background: transparent; z-index: 10; padding: 5rem 0; }
+.edu-timeline-container { width: 100%; max-width: 800px; margin: 0 auto; position: relative; padding: 2rem; }
+.edu-timeline-track { display: flex; flex-direction: column; position: relative; gap: 3rem; }
+.edu-timeline-track::before { content: ""; position: absolute; top: 0; left: 10px; width: 2px; height: 100%; background: var(--neon-cyan); z-index: -1; box-shadow: 0 0 10px var(--neon-cyan); }
+.edu-step { width: 100%; text-align: left; padding-left: 40px; position: relative; }
+.edu-step::before { content: ""; position: absolute; top: 5px; left: 0; width: 20px; height: 20px; background: var(--bg-dark); border: 3px solid var(--neon-cyan); border-radius: 50%; box-shadow: 0 0 15px var(--neon-cyan); }
 .edu-step h3 { color: var(--neon-cyan); font-size: 2.2rem; font-family: var(--font-heading); margin-bottom: 0.5rem; text-shadow: 0 0 10px rgba(0,240,255,0.5); }
 .edu-step p { color: var(--text-main); font-size: 1.2rem; font-family: var(--font-body); }
-
-
-
-
-
-
-
 

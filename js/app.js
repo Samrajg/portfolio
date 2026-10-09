@@ -1,4 +1,4 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    GODWIN SAMRAJ - 3D ANIMATED PORTFOLIO ENGINE (THREE.JS + GALAXY TECH LOGOS)
    ========================================================================== */
 
@@ -15,24 +15,24 @@ let targetMouseX = 0, targetMouseY = 0;
 
 // Tech Logos List requested by user
 const techLogos = [
-    { name: 'HTML5', color: '#E34F26', border: '#FF6D42', icon: 'Ã°Å¸Å’Â' },
-    { name: 'CSS3', color: '#1572B6', border: '#33A9FF', icon: 'Ã°Å¸Å½Â¨' },
-    { name: 'JS', color: '#F7DF1E', border: '#FFF066', icon: 'Ã¢Å¡Â¡' },
-    { name: 'TensorFlow', color: '#FF6F00', border: '#FFA040', icon: 'Ã°Å¸Â§Â ' },
-    { name: 'PyTorch', color: '#EE4C2C', border: '#FF7757', icon: 'Ã°Å¸â€Â¥' },
-    { name: 'Cursor', color: '#0066FF', border: '#3388FF', icon: 'Ã°Å¸â€“Â±Ã¯Â¸Â' },
-    { name: 'Gemini', color: '#8E44AD', border: '#00F0FF', icon: 'Ã¢Å“Â¨' },
-    { name: 'Antigravity', color: '#00F0FF', border: '#8A2BE2', icon: 'Ã°Å¸Å¡â‚¬' },
-    { name: 'ChatGPT', color: '#10A37F', border: '#25D366', icon: 'Ã°Å¸Â¤â€“' },
-    { name: 'Claude', color: '#D97757', border: '#FF9E7D', icon: 'Ã°Å¸â€™Â¡' },
-    { name: 'Pandas', color: '#150458', border: '#00F0FF', icon: 'Ã°Å¸ÂÂ¼' },
-    { name: 'NumPy', color: '#013243', border: '#4B8BBE', icon: 'Ã°Å¸â€œÅ ' },
-    { name: 'React', color: '#61DAFB', border: '#A6F0FF', icon: 'Ã¢Å¡â€ºÃ¯Â¸Â' },
-    { name: 'Python', color: '#3776AB', border: '#FFD43B', icon: 'Ã°Å¸ÂÂ' },
-    { name: 'Docker', color: '#2496ED', border: '#66C2FF', icon: 'Ã°Å¸ÂÂ³' },
-    { name: 'FastAPI', color: '#009688', border: '#4DB6AC', icon: 'Ã¢Å¡Â¡' },
-    { name: 'OpenCV', color: '#5C3EE8', border: '#FF0055', icon: 'Ã°Å¸â€˜ÂÃ¯Â¸Â' },
-    { name: 'Node.js', color: '#339933', border: '#66CC66', icon: 'Ã°Å¸Å¸Â¢' }
+    { name: 'HTML5', color: '#E34F26', border: '#FF6D42', icon: 'ÃƒÂ°Ã…Â¸Ã…â€™Ã‚Â' },
+    { name: 'CSS3', color: '#1572B6', border: '#33A9FF', icon: 'ÃƒÂ°Ã…Â¸Ã…Â½Ã‚Â¨' },
+    { name: 'JS', color: '#F7DF1E', border: '#FFF066', icon: 'ÃƒÂ¢Ã…Â¡Ã‚Â¡' },
+    { name: 'TensorFlow', color: '#FF6F00', border: '#FFA040', icon: 'ÃƒÂ°Ã…Â¸Ã‚Â§Ã‚Â ' },
+    { name: 'PyTorch', color: '#EE4C2C', border: '#FF7757', icon: 'ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â¥' },
+    { name: 'Cursor', color: '#0066FF', border: '#3388FF', icon: 'ÃƒÂ°Ã…Â¸Ã¢â‚¬â€œÃ‚Â±ÃƒÂ¯Ã‚Â¸Ã‚Â' },
+    { name: 'Gemini', color: '#8E44AD', border: '#00F0FF', icon: 'ÃƒÂ¢Ã…â€œÃ‚Â¨' },
+    { name: 'Antigravity', color: '#00F0FF', border: '#8A2BE2', icon: 'ÃƒÂ°Ã…Â¸Ã…Â¡Ã¢â€šÂ¬' },
+    { name: 'ChatGPT', color: '#10A37F', border: '#25D366', icon: 'ÃƒÂ°Ã…Â¸Ã‚Â¤Ã¢â‚¬â€œ' },
+    { name: 'Claude', color: '#D97757', border: '#FF9E7D', icon: 'ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â¡' },
+    { name: 'Pandas', color: '#150458', border: '#00F0FF', icon: 'ÃƒÂ°Ã…Â¸Ã‚ÂÃ‚Â¼' },
+    { name: 'NumPy', color: '#013243', border: '#4B8BBE', icon: 'ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã…Â ' },
+    { name: 'React', color: '#61DAFB', border: '#A6F0FF', icon: 'ÃƒÂ¢Ã…Â¡Ã¢â‚¬ÂºÃƒÂ¯Ã‚Â¸Ã‚Â' },
+    { name: 'Python', color: '#3776AB', border: '#FFD43B', icon: 'ÃƒÂ°Ã…Â¸Ã‚ÂÃ‚Â' },
+    { name: 'Docker', color: '#2496ED', border: '#66C2FF', icon: 'ÃƒÂ°Ã…Â¸Ã‚ÂÃ‚Â³' },
+    { name: 'FastAPI', color: '#009688', border: '#4DB6AC', icon: 'ÃƒÂ¢Ã…Â¡Ã‚Â¡' },
+    { name: 'OpenCV', color: '#5C3EE8', border: '#FF0055', icon: 'ÃƒÂ°Ã…Â¸Ã¢â‚¬ËœÃ‚ÂÃƒÂ¯Ã‚Â¸Ã‚Â' },
+    { name: 'Node.js', color: '#339933', border: '#66CC66', icon: 'ÃƒÂ°Ã…Â¸Ã…Â¸Ã‚Â¢' }
 ];
 
 // Helper: Dynamically Generate Glowing Tech Badge Canvas Texture
@@ -609,24 +609,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Educational Journey GSAP
-document.addEventListener('DOMContentLoaded', () => {
-    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-        const eduJourney = document.querySelector('.education-journey');
-        const eduTrack = document.querySelector('.edu-timeline-track');
-        if (eduJourney && eduTrack) {
-            const eduTl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: eduJourney,
-                    start: "top top",
-                    end: "bottom bottom",
-                    scrub: 1
-                }
-            });
-            eduTl.to(eduTrack, { x: () => -(eduTrack.scrollWidth - window.innerWidth + 100), ease: "none" }, 0);
-        }
-    }
-});
+
 
 
 
