@@ -1,4 +1,4 @@
-﻿/* ==========================================================================
+/* ==========================================================================
    GODWIN SAMRAJ - 3D ANIMATED PORTFOLIO ENGINE (THREE.JS + GALAXY TECH LOGOS)
    ========================================================================== */
 
@@ -619,8 +619,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 scrollTrigger: {
                     trigger: eduJourney,
                     start: "top top",
-                    end: () => "+=" + (document.querySelector(".edu-timeline-track").scrollWidth || 2000), invalidateOnRefresh: true,
-                    scrub: 1, pin: true
+                    end: "bottom bottom",
+                    scrub: 1
                 }
             });
             eduTl.to(eduTrack, { x: () => -(eduTrack.scrollWidth - window.innerWidth + 100), ease: "none" }, 0);
