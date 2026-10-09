@@ -617,6 +617,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const teaImg = document.getElementById('tea-anim-img');
         if (eduJourney && eduTrack && teaImg) {
             const teaImages = [
+                'assets/tea/teaanimate6.png',
                 'assets/tea/teaanimate1.png',
                 'assets/tea/teaanimate2.png',
                 'assets/tea/teaanimate3.png',
@@ -635,11 +636,12 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             eduTl.to(eduTrack, { x: () => -(eduTrack.scrollWidth - window.innerWidth + 100), ease: 'none' }, 0);
             const frameObj = { frame: 0 };
-            eduTl.to(frameObj, { frame: 5, snap: 'frame', ease: 'none', onUpdate: () => { teaImg.src = teaImages[Math.round(frameObj.frame)]; } }, 0);
+            eduTl.to(frameObj, { frame: 6, snap: 'frame', ease: 'none', onUpdate: () => { teaImg.src = teaImages[Math.round(frameObj.frame)]; } }, 0);
             eduTl.fromTo(teaImg, { scale: 1.2, y: -20 }, { scale: 0.6, y: 150, ease: 'none' }, 0);
         }
     }
 });
+
 
 
 
