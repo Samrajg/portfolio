@@ -1,4 +1,4 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    GODWIN SAMRAJ - 3D ANIMATED PORTFOLIO ENGINE (THREE.JS + GALAXY TECH LOGOS)
    ========================================================================== */
 
@@ -15,24 +15,24 @@ let targetMouseX = 0, targetMouseY = 0;
 
 // Tech Logos List requested by user
 const techLogos = [
-    { name: 'HTML5', color: '#E34F26', border: '#FF6D42', icon: 'ðŸŒ' },
-    { name: 'CSS3', color: '#1572B6', border: '#33A9FF', icon: 'ðŸŽ¨' },
-    { name: 'JS', color: '#F7DF1E', border: '#FFF066', icon: 'âš¡' },
-    { name: 'TensorFlow', color: '#FF6F00', border: '#FFA040', icon: 'ðŸ§ ' },
-    { name: 'PyTorch', color: '#EE4C2C', border: '#FF7757', icon: 'ðŸ”¥' },
-    { name: 'Cursor', color: '#0066FF', border: '#3388FF', icon: 'ðŸ–±ï¸' },
-    { name: 'Gemini', color: '#8E44AD', border: '#00F0FF', icon: 'âœ¨' },
-    { name: 'Antigravity', color: '#00F0FF', border: '#8A2BE2', icon: 'ðŸš€' },
-    { name: 'ChatGPT', color: '#10A37F', border: '#25D366', icon: 'ðŸ¤–' },
-    { name: 'Claude', color: '#D97757', border: '#FF9E7D', icon: 'ðŸ’¡' },
-    { name: 'Pandas', color: '#150458', border: '#00F0FF', icon: 'ðŸ¼' },
-    { name: 'NumPy', color: '#013243', border: '#4B8BBE', icon: 'ðŸ“Š' },
-    { name: 'React', color: '#61DAFB', border: '#A6F0FF', icon: 'âš›ï¸' },
-    { name: 'Python', color: '#3776AB', border: '#FFD43B', icon: 'ðŸ' },
-    { name: 'Docker', color: '#2496ED', border: '#66C2FF', icon: 'ðŸ³' },
-    { name: 'FastAPI', color: '#009688', border: '#4DB6AC', icon: 'âš¡' },
-    { name: 'OpenCV', color: '#5C3EE8', border: '#FF0055', icon: 'ðŸ‘ï¸' },
-    { name: 'Node.js', color: '#339933', border: '#66CC66', icon: 'ðŸŸ¢' }
+    { name: 'HTML5', color: '#E34F26', border: '#FF6D42', icon: 'Ã°Å¸Å’Â' },
+    { name: 'CSS3', color: '#1572B6', border: '#33A9FF', icon: 'Ã°Å¸Å½Â¨' },
+    { name: 'JS', color: '#F7DF1E', border: '#FFF066', icon: 'Ã¢Å¡Â¡' },
+    { name: 'TensorFlow', color: '#FF6F00', border: '#FFA040', icon: 'Ã°Å¸Â§Â ' },
+    { name: 'PyTorch', color: '#EE4C2C', border: '#FF7757', icon: 'Ã°Å¸â€Â¥' },
+    { name: 'Cursor', color: '#0066FF', border: '#3388FF', icon: 'Ã°Å¸â€“Â±Ã¯Â¸Â' },
+    { name: 'Gemini', color: '#8E44AD', border: '#00F0FF', icon: 'Ã¢Å“Â¨' },
+    { name: 'Antigravity', color: '#00F0FF', border: '#8A2BE2', icon: 'Ã°Å¸Å¡â‚¬' },
+    { name: 'ChatGPT', color: '#10A37F', border: '#25D366', icon: 'Ã°Å¸Â¤â€“' },
+    { name: 'Claude', color: '#D97757', border: '#FF9E7D', icon: 'Ã°Å¸â€™Â¡' },
+    { name: 'Pandas', color: '#150458', border: '#00F0FF', icon: 'Ã°Å¸ÂÂ¼' },
+    { name: 'NumPy', color: '#013243', border: '#4B8BBE', icon: 'Ã°Å¸â€œÅ ' },
+    { name: 'React', color: '#61DAFB', border: '#A6F0FF', icon: 'Ã¢Å¡â€ºÃ¯Â¸Â' },
+    { name: 'Python', color: '#3776AB', border: '#FFD43B', icon: 'Ã°Å¸ÂÂ' },
+    { name: 'Docker', color: '#2496ED', border: '#66C2FF', icon: 'Ã°Å¸ÂÂ³' },
+    { name: 'FastAPI', color: '#009688', border: '#4DB6AC', icon: 'Ã¢Å¡Â¡' },
+    { name: 'OpenCV', color: '#5C3EE8', border: '#FF0055', icon: 'Ã°Å¸â€˜ÂÃ¯Â¸Â' },
+    { name: 'Node.js', color: '#339933', border: '#66CC66', icon: 'Ã°Å¸Å¸Â¢' }
 ];
 
 // Helper: Dynamically Generate Glowing Tech Badge Canvas Texture
@@ -572,7 +572,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 end: () => `+=${projectsGrid.scrollWidth - window.innerWidth}`,
                 pin: true,
                 animation: tween,
-                scrub: 1, pin: true,
+                scrub: 1,
                 invalidateOnRefresh: true,
                 onUpdate: (self) => {
                     const centerX = window.innerWidth / 2;
@@ -619,7 +619,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 scrollTrigger: {
                     trigger: eduJourney,
                     start: "top top",
-                    end: "+=3000",
+                    end: () => "+=" + (document.querySelector(".edu-timeline-track").scrollWidth || 2000), invalidateOnRefresh: true,
                     scrub: 1, pin: true
                 }
             });
@@ -627,6 +627,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+
+
 
 
 
