@@ -184,42 +184,7 @@ function init3DEngine() {
     particleSystem = new THREE.Points(particleGeo, particleMat);
     scene.add(particleSystem);
 
-    // 6. FLOATING GALAXY TECH LOGOS
-    techBadgesGroup = [];
-    const badgeGeo = new THREE.PlaneGeometry(1.6, 0.8);
-
-    // Create 45 floating badges scattered throughout the galaxy scene
-    for (let i = 0; i < 45; i++) {
-        const tech = techLogos[i % techLogos.length];
-        const texture = createBadgeTexture(tech);
-        const badgeMat = new THREE.MeshBasicMaterial({
-            map: texture,
-            transparent: true,
-            opacity: 0.88,
-            side: THREE.DoubleSide
-        });
-
-        const badgeMesh = new THREE.Mesh(badgeGeo, badgeMat);
-        
-        // Random 3D Position
-        badgeMesh.position.x = (Math.random() - 0.5) * 35;
-        badgeMesh.position.y = (Math.random() - 0.5) * 35;
-        badgeMesh.position.z = (Math.random() - 0.5) * 35;
-
-        // Custom Animation UserData
-        badgeMesh.userData = {
-            vx: (Math.random() - 0.5) * 0.015,
-            vy: (Math.random() - 0.5) * 0.015,
-            vz: (Math.random() - 0.5) * 0.015,
-            rotSpeed: (Math.random() - 0.5) * 0.01,
-            phase: Math.random() * Math.PI * 2,
-            baseScale: 0.8 + Math.random() * 0.5
-        };
-
-        badgeMesh.scale.setScalar(badgeMesh.userData.baseScale);
-        scene.add(badgeMesh);
-        techBadgesGroup.push(badgeMesh);
-    }
+    
 
     // 7. CYBERNETIC GRID FLOOR
     const gridGeo = new THREE.PlaneGeometry(100, 100, 40, 40);
@@ -331,27 +296,7 @@ function animate() {
         particleSystem.rotation.x += 0.0003;
     }
 
-    // Animate Floating Galaxy Tech Badges
-    techBadgesGroup.forEach((badge) => {
-        const u = badge.userData;
-
-        // Velocity motion
-        badge.position.x += u.vx;
-        badge.position.y += u.vy + Math.sin(time + u.phase) * 0.005;
-        badge.position.z += u.vz;
-
-        // Gentle floating tilt
-        badge.rotation.z += u.rotSpeed;
-        badge.rotation.y = Math.sin(time * 0.5 + u.phase) * 0.2;
-
-        // Boundary wrap-around (Infinite Galaxy Flow)
-        if (badge.position.x > 22) badge.position.x = -22;
-        if (badge.position.x < -22) badge.position.x = 22;
-        if (badge.position.y > 22) badge.position.y = -22;
-        if (badge.position.y < -22) badge.position.y = 22;
-        if (badge.position.z > 20) badge.position.z = -20;
-        if (badge.position.z < -20) badge.position.z = 20;
-    });
+    
 
     if (gridPlane) {
         gridPlane.position.z = (time * 2) % 2.5;
@@ -608,6 +553,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+
+
+
 
 
 
