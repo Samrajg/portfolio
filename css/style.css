@@ -1063,13 +1063,14 @@ footer {
 }
 
 /* Educational Journey Animation */
-.education-journey { position: relative; height: 300vh; background: var(--bg-dark); overflow: hidden; }
-.education-pin { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; position: sticky; top: 0; padding-top: 10vh; }
-.edu-timeline-container { width: 100%; height: 20vh; overflow: hidden; position: relative; display: flex; align-items: center; }
-.edu-timeline-track { display: flex; width: max-content; padding-left: 60vw; }
-.edu-step { width: 70vw; text-align: left; padding-right: 10vw; }
-.edu-step h3 { color: var(--neon-cyan); font-size: 2rem; font-family: var(--font-heading); margin-bottom: 0.5rem; }
+.education-journey { position: relative; height: 100vh; background: transparent; z-index: 10; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-start; padding-top: 15vh; }
+.edu-timeline-container { width: 100%; height: 20vh; position: relative; display: flex; align-items: center; z-index: 20; }
+.edu-timeline-track { display: flex; flex-direction: row; flex-wrap: nowrap; width: 300vw; padding-left: 60vw; }
+.edu-step { width: 80vw; text-align: left; padding-right: 10vw; flex-shrink: 0; }
+.edu-step h3 { color: var(--neon-cyan); font-size: 2.2rem; font-family: var(--font-heading); margin-bottom: 0.5rem; text-shadow: 0 0 10px rgba(0,240,255,0.5); }
 .edu-step p { color: var(--text-main); font-size: 1.2rem; font-family: var(--font-body); }
-.tea-animation-container { height: 70vh; width: 100%; display: flex; justify-content: center; align-items: flex-start; }
-.tea-image { max-height: 100%; max-width: 90vw; object-fit: contain; will-change: transform; }
+.tea-animation-container { height: 65vh; width: 100%; display: flex; justify-content: center; align-items: flex-end; position: absolute; bottom: 0; z-index: 15; }
+.tea-image { max-height: 100%; max-width: 90vw; object-fit: contain; will-change: transform; transform-origin: bottom center; }
+
+
 

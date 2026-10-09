@@ -572,7 +572,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 end: () => `+=${projectsGrid.scrollWidth - window.innerWidth}`,
                 pin: true,
                 animation: tween,
-                scrub: 1,
+                scrub: 1, pin: true,
                 invalidateOnRefresh: true,
                 onUpdate: (self) => {
                     const centerX = window.innerWidth / 2;
@@ -629,8 +629,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 scrollTrigger: {
                     trigger: eduJourney,
                     start: 'top top',
-                    end: 'bottom bottom',
-                    scrub: 1
+                    end: '+=3000',
+                    scrub: 1, pin: true
                 }
             });
             eduTl.to(eduTrack, { x: () => -(eduTrack.scrollWidth - window.innerWidth + 100), ease: 'none' }, 0);
@@ -640,4 +640,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+
+
 
