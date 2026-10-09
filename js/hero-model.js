@@ -122,7 +122,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
         // Limit the rotation so the computer doesn't flip completely around
         targetRotationY = -0.5 + (mouseX * 0.3);
-        targetRotationX = 0.2 + (mouseY * 0.2);
+        // Scroll interaction added to mouse X/Y interaction
+        const scrollFactor = window.scrollY * 0.002;
+        targetRotationX = 0.2 + (mouseY * 0.2) + scrollFactor;
     });
 
     // ANIMATION LOOP
@@ -148,4 +150,5 @@ document.addEventListener('DOMContentLoaded', () => {
         renderer.setSize(container.clientWidth, container.clientHeight);
     });
 });
+
 
