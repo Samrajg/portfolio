@@ -1,4 +1,4 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    GODWIN SAMRAJ - 3D ANIMATED PORTFOLIO ENGINE (THREE.JS + GALAXY TECH LOGOS)
    ========================================================================== */
 
@@ -15,24 +15,24 @@ let targetMouseX = 0, targetMouseY = 0;
 
 // Tech Logos List requested by user
 const techLogos = [
-    { name: 'HTML5', color: '#E34F26', border: '#FF6D42', icon: '🌐' },
-    { name: 'CSS3', color: '#1572B6', border: '#33A9FF', icon: '🎨' },
-    { name: 'JS', color: '#F7DF1E', border: '#FFF066', icon: '⚡' },
-    { name: 'TensorFlow', color: '#FF6F00', border: '#FFA040', icon: '🧠' },
-    { name: 'PyTorch', color: '#EE4C2C', border: '#FF7757', icon: '🔥' },
-    { name: 'Cursor', color: '#0066FF', border: '#3388FF', icon: '🖱️' },
-    { name: 'Gemini', color: '#8E44AD', border: '#00F0FF', icon: '✨' },
-    { name: 'Antigravity', color: '#00F0FF', border: '#8A2BE2', icon: '🚀' },
-    { name: 'ChatGPT', color: '#10A37F', border: '#25D366', icon: '🤖' },
-    { name: 'Claude', color: '#D97757', border: '#FF9E7D', icon: '💡' },
-    { name: 'Pandas', color: '#150458', border: '#00F0FF', icon: '🐼' },
-    { name: 'NumPy', color: '#013243', border: '#4B8BBE', icon: '📊' },
-    { name: 'React', color: '#61DAFB', border: '#A6F0FF', icon: '⚛️' },
-    { name: 'Python', color: '#3776AB', border: '#FFD43B', icon: '🐍' },
-    { name: 'Docker', color: '#2496ED', border: '#66C2FF', icon: '🐳' },
-    { name: 'FastAPI', color: '#009688', border: '#4DB6AC', icon: '⚡' },
-    { name: 'OpenCV', color: '#5C3EE8', border: '#FF0055', icon: '👁️' },
-    { name: 'Node.js', color: '#339933', border: '#66CC66', icon: '🟢' }
+    { name: 'HTML5', color: '#E34F26', border: '#FF6D42', icon: 'ðŸŒ' },
+    { name: 'CSS3', color: '#1572B6', border: '#33A9FF', icon: 'ðŸŽ¨' },
+    { name: 'JS', color: '#F7DF1E', border: '#FFF066', icon: 'âš¡' },
+    { name: 'TensorFlow', color: '#FF6F00', border: '#FFA040', icon: 'ðŸ§ ' },
+    { name: 'PyTorch', color: '#EE4C2C', border: '#FF7757', icon: 'ðŸ”¥' },
+    { name: 'Cursor', color: '#0066FF', border: '#3388FF', icon: 'ðŸ–±ï¸' },
+    { name: 'Gemini', color: '#8E44AD', border: '#00F0FF', icon: 'âœ¨' },
+    { name: 'Antigravity', color: '#00F0FF', border: '#8A2BE2', icon: 'ðŸš€' },
+    { name: 'ChatGPT', color: '#10A37F', border: '#25D366', icon: 'ðŸ¤–' },
+    { name: 'Claude', color: '#D97757', border: '#FF9E7D', icon: 'ðŸ’¡' },
+    { name: 'Pandas', color: '#150458', border: '#00F0FF', icon: 'ðŸ¼' },
+    { name: 'NumPy', color: '#013243', border: '#4B8BBE', icon: 'ðŸ“Š' },
+    { name: 'React', color: '#61DAFB', border: '#A6F0FF', icon: 'âš›ï¸' },
+    { name: 'Python', color: '#3776AB', border: '#FFD43B', icon: 'ðŸ' },
+    { name: 'Docker', color: '#2496ED', border: '#66C2FF', icon: 'ðŸ³' },
+    { name: 'FastAPI', color: '#009688', border: '#4DB6AC', icon: 'âš¡' },
+    { name: 'OpenCV', color: '#5C3EE8', border: '#FF0055', icon: 'ðŸ‘ï¸' },
+    { name: 'Node.js', color: '#339933', border: '#66CC66', icon: 'ðŸŸ¢' }
 ];
 
 // Helper: Dynamically Generate Glowing Tech Badge Canvas Texture
@@ -608,3 +608,36 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+
+// Educational Journey GSAP
+document.addEventListener('DOMContentLoaded', () => {
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        const eduJourney = document.querySelector('.education-journey');
+        const eduTrack = document.querySelector('.edu-timeline-track');
+        const teaImg = document.getElementById('tea-anim-img');
+        if (eduJourney && eduTrack && teaImg) {
+            const teaImages = [
+                'assets/tea/teaanimate1.png',
+                'assets/tea/teaanimate2.png',
+                'assets/tea/teaanimate3.png',
+                'assets/tea/teaanimate4.png',
+                'assets/tea/teaanimate5.png',
+                'assets/tea/teaanimate6.png'
+            ];
+            teaImages.forEach(src => { const img = new Image(); img.src = src; });
+            const eduTl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: eduJourney,
+                    start: 'top top',
+                    end: 'bottom bottom',
+                    scrub: 1
+                }
+            });
+            eduTl.to(eduTrack, { x: () => -(eduTrack.scrollWidth - window.innerWidth + 100), ease: 'none' }, 0);
+            const frameObj = { frame: 0 };
+            eduTl.to(frameObj, { frame: 5, snap: 'frame', ease: 'none', onUpdate: () => { teaImg.src = teaImages[Math.round(frameObj.frame)]; } }, 0);
+            eduTl.fromTo(teaImg, { scale: 1.2, y: -20 }, { scale: 0.6, y: 150, ease: 'none' }, 0);
+        }
+    }
+});
+
