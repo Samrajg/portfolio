@@ -1071,8 +1071,8 @@ footer {
 .edu-step::before { content: ""; position: absolute; top: 0; left: 0; width: 20px; height: 20px; background: var(--bg-dark); border: 3px solid var(--neon-cyan); border-radius: 50%; box-shadow: 0 0 15px var(--neon-cyan); }
 .edu-step h3 { color: var(--neon-cyan); font-size: 2.2rem; font-family: var(--font-heading); margin-bottom: 0.5rem; text-shadow: 0 0 10px rgba(0,240,255,0.5); }
 .edu-step p { color: var(--text-main); font-size: 1.2rem; font-family: var(--font-body); }
-.tea-animation-container { height: 65vh; width: 100%; display: flex; justify-content: center; align-items: flex-end; position: absolute; bottom: 0; z-index: 15; }
-.tea-image { max-height: 100%; max-width: 90vw; object-fit: contain; will-change: transform; transform-origin: bottom center; }
+
+
 
 
 

@@ -1,4 +1,4 @@
-﻿/* ==========================================================================
+/* ==========================================================================
    GODWIN SAMRAJ - 3D ANIMATED PORTFOLIO ENGINE (THREE.JS + GALAXY TECH LOGOS)
    ========================================================================== */
 
@@ -614,124 +614,21 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
         const eduJourney = document.querySelector('.education-journey');
         const eduTrack = document.querySelector('.edu-timeline-track');
-        const teaImg = document.getElementById('tea-anim-img');
-        if (eduJourney && eduTrack && teaImg) {
-            const teaImages = [
-                'assets/tea/teaanimate6.png',
-                'assets/tea/teaanimate1.png',
-                'assets/tea/teaanimate2.png',
-                'assets/tea/teaanimate3.png',
-                'assets/tea/teaanimate4.png',
-                'assets/tea/teaanimate5.png',
-                'assets/tea/teaanimate6.png'
-            ];
-            teaImages.forEach(src => { const img = new Image(); img.src = src; });
+        if (eduJourney && eduTrack) {
             const eduTl = gsap.timeline({
                 scrollTrigger: {
                     trigger: eduJourney,
-                    start: 'top top',
-                    end: '+=3000',
+                    start: "top top",
+                    end: "+=3000",
                     scrub: 1, pin: true
                 }
             });
-            eduTl.to(eduTrack, { x: () => -(eduTrack.scrollWidth - window.innerWidth + 100), ease: 'none' }, 0);
-            const frameObj = { frame: 0 };
-            eduTl.to(frameObj, { frame: 6, snap: 'frame', ease: 'none', onUpdate: () => { teaImg.src = teaImages[Math.round(frameObj.frame)]; } }, 0);
-            eduTl.fromTo(teaImg, { scale: 1.2, y: -20 }, { scale: 0.6, y: 150, ease: 'none' }, 0);
+            eduTl.to(eduTrack, { x: () => -(eduTrack.scrollWidth - window.innerWidth + 100), ease: "none" }, 0);
         }
     }
 });
 
 
-
-
-
-// FBX Loading Test
-document.addEventListener('DOMContentLoaded', () => {
-    const container = document.getElementById('fbx-container');
-    if (container && typeof THREE !== 'undefined' ) {
-        const scene3d = new THREE.Scene();
-        const camera3d = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 2000);
-        camera3d.position.set(0, 300, 800);
-        const renderer3d = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-        renderer3d.setSize(window.innerWidth, window.innerHeight);
-        container.appendChild(renderer3d.domElement);
-        const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444);
-        hemiLight.position.set(0, 200, 0);
-        scene3d.add(hemiLight);
-        const dirLight = new THREE.DirectionalLight(0xffffff);
-        dirLight.position.set(0, 200, 100);
-        scene3d.add(dirLight); const geo = new THREE.BoxGeometry(50,50,50); const mat = new THREE.MeshStandardMaterial({color: 0xff0000}); const cube = new THREE.Mesh(geo, mat); cube.position.y = 50; scene3d.add(cube);
-        let mixer;
-        const clock = new THREE.Clock();
-        const loader = new THREE.FBXLoader();
-        loader.load('assets/3d/MmaKick.fbx', (object) => {
-            mixer = new THREE.AnimationMixer(object);
-            if(object.animations.length > 0) {
-                const action = mixer.clipAction(object.animations[0]);
-                action.play();
-            }
-            object.position.y = -100;
-            scene3d.add(object); object.scale.set(1, 1, 1);
-        });
-        function animate3d() {
-            requestAnimationFrame(animate3d);
-            const delta = clock.getDelta();
-            if (mixer) mixer.update(delta);
-            renderer3d.render(scene3d, camera3d);
-        }
-        animate3d();
-        window.addEventListener('resize', () => {
-            camera3d.aspect = window.innerWidth / window.innerHeight;
-            camera3d.updateProjectionMatrix();
-            renderer3d.setSize(window.innerWidth, window.innerHeight);
-        });
-    }
-});
-
-
-// Contact FBX Loading
-document.addEventListener('DOMContentLoaded', () => {
-    const containerContact = document.getElementById('contact-3d-container');
-    if (containerContact && typeof THREE !== 'undefined' ) {
-        const scenePhone = new THREE.Scene();
-        const cameraPhone = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 2000);
-        cameraPhone.position.set(0, 300, 800);
-        const rendererPhone = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-        rendererPhone.setSize(containerContact.offsetWidth || window.innerWidth/2, containerContact.offsetHeight || 500);
-        containerContact.appendChild(rendererPhone.domElement);
-        const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444);
-        hemiLight.position.set(0, 200, 0);
-        scenePhone.add(hemiLight);
-        const dirLight = new THREE.DirectionalLight(0xffffff);
-        dirLight.position.set(0, 200, 100);
-        scenePhone.add(dirLight); const geoP = new THREE.BoxGeometry(50,50,50); const matP = new THREE.MeshStandardMaterial({color: 0x00ff00}); const cubeP = new THREE.Mesh(geoP, matP); cubeP.position.y = 50; scenePhone.add(cubeP);
-        let mixerPhone;
-        const clockPhone = new THREE.Clock();
-        const loader = new THREE.FBXLoader();
-        loader.load('assets/3d/TalkingOnPhone.fbx', (object) => {
-            mixerPhone = new THREE.AnimationMixer(object);
-            if(object.animations.length > 0) {
-                const action = mixerPhone.clipAction(object.animations[0]);
-                action.play();
-            }
-            object.position.y = -100;
-            scenePhone.add(object); object.scale.set(1, 1, 1);
-        });
-        function animatePhone() {
-            requestAnimationFrame(animatePhone);
-            const delta = clockPhone.getDelta();
-            if (mixerPhone) mixerPhone.update(delta);
-            rendererPhone.render(scenePhone, cameraPhone);
-        }
-        animatePhone();
-        window.addEventListener('resize', () => {
-            cameraPhone.aspect = window.innerWidth / window.innerHeight;
-            cameraPhone.updateProjectionMatrix();
-            rendererPhone.setSize(containerContact.offsetWidth || window.innerWidth/2, containerContact.offsetHeight || 500);
-        });
-    }
-});
 
 
 
