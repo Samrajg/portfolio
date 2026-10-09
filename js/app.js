@@ -649,10 +649,10 @@ document.addEventListener('DOMContentLoaded', () => {
 // FBX Loading Test
 document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('fbx-container');
-    if (container && typeof THREE !== 'undefined' && typeof THREE.FBXLoader !== 'undefined') {
+    if (container && typeof THREE !== 'undefined' ) {
         const scene3d = new THREE.Scene();
         const camera3d = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 2000);
-        camera3d.position.set(0, 150, 400);
+        camera3d.position.set(0, 300, 800);
         const renderer3d = new THREE.WebGLRenderer({ alpha: true, antialias: true });
         renderer3d.setSize(window.innerWidth, window.innerHeight);
         container.appendChild(renderer3d.domElement);
@@ -661,7 +661,7 @@ document.addEventListener('DOMContentLoaded', () => {
         scene3d.add(hemiLight);
         const dirLight = new THREE.DirectionalLight(0xffffff);
         dirLight.position.set(0, 200, 100);
-        scene3d.add(dirLight);
+        scene3d.add(dirLight); const geo = new THREE.BoxGeometry(50,50,50); const mat = new THREE.MeshStandardMaterial({color: 0xff0000}); const cube = new THREE.Mesh(geo, mat); cube.position.y = 50; scene3d.add(cube);
         let mixer;
         const clock = new THREE.Clock();
         const loader = new THREE.FBXLoader();
@@ -672,7 +672,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 action.play();
             }
             object.position.y = -100;
-            scene3d.add(object);
+            scene3d.add(object); object.scale.set(1, 1, 1);
         });
         function animate3d() {
             requestAnimationFrame(animate3d);
@@ -693,19 +693,19 @@ document.addEventListener('DOMContentLoaded', () => {
 // Contact FBX Loading
 document.addEventListener('DOMContentLoaded', () => {
     const containerContact = document.getElementById('contact-3d-container');
-    if (containerContact && typeof THREE !== 'undefined' && typeof THREE.FBXLoader !== 'undefined') {
+    if (containerContact && typeof THREE !== 'undefined' ) {
         const scenePhone = new THREE.Scene();
         const cameraPhone = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 2000);
-        cameraPhone.position.set(0, 100, 300);
+        cameraPhone.position.set(0, 300, 800);
         const rendererPhone = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-        rendererPhone.setSize(containerContact.clientWidth, containerContact.clientHeight);
+        rendererPhone.setSize(containerContact.offsetWidth || window.innerWidth/2, containerContact.offsetHeight || 500);
         containerContact.appendChild(rendererPhone.domElement);
         const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444);
         hemiLight.position.set(0, 200, 0);
         scenePhone.add(hemiLight);
         const dirLight = new THREE.DirectionalLight(0xffffff);
         dirLight.position.set(0, 200, 100);
-        scenePhone.add(dirLight);
+        scenePhone.add(dirLight); const geoP = new THREE.BoxGeometry(50,50,50); const matP = new THREE.MeshStandardMaterial({color: 0x00ff00}); const cubeP = new THREE.Mesh(geoP, matP); cubeP.position.y = 50; scenePhone.add(cubeP);
         let mixerPhone;
         const clockPhone = new THREE.Clock();
         const loader = new THREE.FBXLoader();
@@ -716,7 +716,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 action.play();
             }
             object.position.y = -100;
-            scenePhone.add(object);
+            scenePhone.add(object); object.scale.set(1, 1, 1);
         });
         function animatePhone() {
             requestAnimationFrame(animatePhone);
@@ -728,8 +728,12 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('resize', () => {
             cameraPhone.aspect = window.innerWidth / window.innerHeight;
             cameraPhone.updateProjectionMatrix();
-            rendererPhone.setSize(containerContact.clientWidth, containerContact.clientHeight);
+            rendererPhone.setSize(containerContact.offsetWidth || window.innerWidth/2, containerContact.offsetHeight || 500);
         });
     }
 });
+
+
+
+
 
