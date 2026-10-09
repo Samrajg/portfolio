@@ -645,3 +645,47 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+
+// FBX Loading Test
+document.addEventListener('DOMContentLoaded', () => {
+    const container = document.getElementById('fbx-container');
+    if (container && typeof THREE !== 'undefined' && typeof THREE.FBXLoader !== 'undefined') {
+        const scene3d = new THREE.Scene();
+        const camera3d = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 2000);
+        camera3d.position.set(0, 150, 400);
+        const renderer3d = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+        renderer3d.setSize(window.innerWidth, window.innerHeight);
+        container.appendChild(renderer3d.domElement);
+        const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444);
+        hemiLight.position.set(0, 200, 0);
+        scene3d.add(hemiLight);
+        const dirLight = new THREE.DirectionalLight(0xffffff);
+        dirLight.position.set(0, 200, 100);
+        scene3d.add(dirLight);
+        let mixer;
+        const clock = new THREE.Clock();
+        const loader = new THREE.FBXLoader();
+        loader.load('assets/3d/MmaKick.fbx', (object) => {
+            mixer = new THREE.AnimationMixer(object);
+            if(object.animations.length > 0) {
+                const action = mixer.clipAction(object.animations[0]);
+                action.play();
+            }
+            object.position.y = -100;
+            scene3d.add(object);
+        });
+        function animate3d() {
+            requestAnimationFrame(animate3d);
+            const delta = clock.getDelta();
+            if (mixer) mixer.update(delta);
+            renderer3d.render(scene3d, camera3d);
+        }
+        animate3d();
+        window.addEventListener('resize', () => {
+            camera3d.aspect = window.innerWidth / window.innerHeight;
+            camera3d.updateProjectionMatrix();
+            renderer3d.setSize(window.innerWidth, window.innerHeight);
+        });
+    }
+});
+
