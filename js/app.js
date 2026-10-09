@@ -689,3 +689,47 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+
+// Contact FBX Loading
+document.addEventListener('DOMContentLoaded', () => {
+    const containerContact = document.getElementById('contact-3d-container');
+    if (containerContact && typeof THREE !== 'undefined' && typeof THREE.FBXLoader !== 'undefined') {
+        const scenePhone = new THREE.Scene();
+        const cameraPhone = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 2000);
+        cameraPhone.position.set(0, 100, 300);
+        const rendererPhone = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+        rendererPhone.setSize(containerContact.clientWidth, containerContact.clientHeight);
+        containerContact.appendChild(rendererPhone.domElement);
+        const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444);
+        hemiLight.position.set(0, 200, 0);
+        scenePhone.add(hemiLight);
+        const dirLight = new THREE.DirectionalLight(0xffffff);
+        dirLight.position.set(0, 200, 100);
+        scenePhone.add(dirLight);
+        let mixerPhone;
+        const clockPhone = new THREE.Clock();
+        const loader = new THREE.FBXLoader();
+        loader.load('assets/3d/TalkingOnPhone.fbx', (object) => {
+            mixerPhone = new THREE.AnimationMixer(object);
+            if(object.animations.length > 0) {
+                const action = mixerPhone.clipAction(object.animations[0]);
+                action.play();
+            }
+            object.position.y = -100;
+            scenePhone.add(object);
+        });
+        function animatePhone() {
+            requestAnimationFrame(animatePhone);
+            const delta = clockPhone.getDelta();
+            if (mixerPhone) mixerPhone.update(delta);
+            rendererPhone.render(scenePhone, cameraPhone);
+        }
+        animatePhone();
+        window.addEventListener('resize', () => {
+            cameraPhone.aspect = window.innerWidth / window.innerHeight;
+            cameraPhone.updateProjectionMatrix();
+            rendererPhone.setSize(containerContact.clientWidth, containerContact.clientHeight);
+        });
+    }
+});
+
