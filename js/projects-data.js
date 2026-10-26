@@ -309,40 +309,60 @@ const portfolioProjects = [
     title: "Security Rounds Digital Verifier & Audit Trail",
     category: "fullstack",
     tier: "utility",
-    badge: "Public • Deployed",
+    badge: "Enterprise Client • Live",
     badgeColor: "success",
-    tagline: "Tamper-proof digital physical patrol verification with cryptographic audit timestamps.",
-    desc: "Enterprise checkpoint log verifying security guard patrol rounds. Prevents falsified patrol logs through time-fenced checkpoint scans, geolocation tagging, and incident logging.",
-    tech: ["FastAPI", "JavaScript", "PostgreSQL", "JWT", "REST API"],
+    tagline: "Tamper-proof physical security patrol verification deployed for Pentagon Textiles.",
+    desc: "Enterprise checkpoint log verifying security guard patrol rounds. Prevents falsified patrol logs through time-fenced checkpoint scans, geolocation tagging, and incident logging with 3-tier JWT auth.",
+    tech: ["FastAPI", "Next.js", "PostgreSQL", "JWT", "REST API"],
     metrics: [
-      { label: "API Speed", val: "40% Faster Query" },
-      { label: "Audit Log", val: "Immutable Records" },
-      { label: "Status", val: "Public Deployment" }
+      { label: "Deployment", val: "apps.pentagontextiles.com" },
+      { label: "Latency", val: "35% Faster Query" },
+      { label: "Client", val: "Pentagon Textiles" }
     ],
     github: "https://github.com/Samrajg/security-rounds-tracking",
-    demo: null,
-    featured: false,
+    demo: "https://apps.pentagontextiles.com/",
+    featured: true,
     highlights: "Multi-facility routing, tamper-evident checkpoint timestamps, automated incident notifications."
   },
   {
     id: "asset-management-system",
-    title: "Enterprise Asset Management & Lifecycle Tracker",
+    title: "Enterprise Asset Management & Maintenance Suite",
     category: "fullstack",
     tier: "utility",
-    badge: "Perfect Working Clone",
+    badge: "Enterprise Client • Live",
     badgeColor: "success",
-    tagline: "Corporate IT equipment and hardware lifecycle management with QR tracking.",
-    desc: "Complete asset inventory system overseeing requisition, depreciation schedules, maintenance logs, and personnel assignments with real-time barcode/QR indexing.",
-    tech: ["Python / Django", "SQLite / PostgreSQL", "Bootstrap", "QR Engine"],
+    tagline: "Corporate equipment lifecycle management & QR asset tracking for Pentagon Textiles.",
+    desc: "Complete asset inventory system overseeing equipment requisition, depreciation schedules, maintenance logs, and personnel assignments with real-time barcode/QR indexing.",
+    tech: ["Python / Django", "PostgreSQL", "Bootstrap", "QR Engine"],
     metrics: [
-      { label: "Functionality", val: "Full Asset Lifecycle" },
-      { label: "Status", val: "Flawlessly Working" },
-      { label: "Feature", val: "Audit Export" }
+      { label: "Deployment", val: "mr.pentagontextiles.com" },
+      { label: "Scope", val: "Factory Asset Lifecycle" },
+      { label: "Client", val: "Pentagon Textiles" }
+    ],
+    github: "https://github.com/Samrajg",
+    demo: "https://mr.pentagontextiles.com/",
+    featured: true,
+    highlights: "Depreciation calculators, automated vendor alerts, batch hardware import/export."
+  },
+  {
+    id: "smile-score-management",
+    title: "SmileScore — Employee Satisfaction & Morale Analytics",
+    category: "ai",
+    tier: "incubator",
+    badge: "Active Client Build",
+    badgeColor: "cyan",
+    tagline: "Continuous employee sentiment index calculations, morale tracking & burnout alerts.",
+    desc: "Commercial workplace telemetry platform capturing anonymous team feedback pulses, sentiment trends, and workplace morale indices to prevent employee turnover and optimize retention.",
+    tech: ["React.js", "Node.js", "Sentiment NLP", "PostgreSQL", "Charts"],
+    metrics: [
+      { label: "Domain", val: "HR Sentiment Telemetry" },
+      { label: "Status", val: "Under Active Build" },
+      { label: "Contract", val: "Freelance Client System" }
     ],
     github: "https://github.com/Samrajg",
     demo: null,
-    featured: false,
-    highlights: "Depreciation calculators, automated vendor alerts, batch hardware import/export."
+    featured: true,
+    highlights: "Anonymous micro-pulses, sentiment classification, team morale heatmaps."
   },
   {
     id: "bible-quiz-challenge",
