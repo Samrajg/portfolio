@@ -362,22 +362,23 @@ const portfolioProjects = [
     tagline: "Statistical frequency analysis and keyword clustering across historical exam papers.",
     category: "aiml",
     categories: ["aiml", "education"],
-    status: ["Completed"],
+    status: ["Completed", "Live / Deployed"],
     tier: "ai",
     featured: false,
     problem: "Students and educators preparing for university semester exams often manually tally past 5-year question papers to understand syllabus weightage.",
     solution: "Created an automated text analysis tool that parses university exam papers, clusters recurring question topics, and highlights high-frequency syllabus modules.",
     myRole: "Developer & Analyst",
-    contributions: "Built PDF text extraction routines, keyword frequency ranking, and topic distribution visualizations.",
-    implementation: "Python script using NLTK and TF-IDF topic analysis with exportable summary charts.",
-    results: "Automated analysis of multi-year question banks, reducing manual review time.",
-    technologies: ["Python", "NLTK", "TF-IDF", "PDFMiner", "Pandas"],
+    contributions: "Built PDF text extraction routines, keyword frequency ranking, and topic distribution visualizations into an interactive Streamlit web application.",
+    implementation: "Python application using NLTK, TF-IDF topic analysis, and Streamlit Cloud deployment with exportable summary charts.",
+    results: "Deployed live on Streamlit Cloud; provides fast automated keyword frequency and question distribution insights across semester question banks.",
+    technologies: ["Python", "Streamlit", "NLTK", "TF-IDF", "PDFMiner", "Pandas"],
     metrics: [
-      { label: "Domain", val: "Academic Analytics" },
-      { label: "Technique", val: "TF-IDF Topic Modeling" }
+      { label: "Deployment", val: "Streamlit Cloud" },
+      { label: "Technique", val: "TF-IDF Topic Modeling" },
+      { label: "Domain", val: "Academic Analytics" }
     ],
     github: "https://github.com/Samrajg/question_paper_prediction",
-    demo: null,
+    demo: "https://questionpaperprediction-godwin.streamlit.app/",
     lastUpdated: "2025-04"
   },
   {
