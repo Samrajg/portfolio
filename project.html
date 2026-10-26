@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects Archive | Godwin Samraj G</title>
+    <title>Systems & AI Project Matrix | Godwin Samraj G</title>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/aiml-portfolio.css">
 </head>
 <body>
 
@@ -22,16 +23,17 @@
     <nav>
         <div class="container nav-container">
             <a href="index.html" class="logo">
-                <i class="fas fa-cube text-cyan"></i> Godwin<span>.dev</span>
+                <i class="fas fa-brain text-cyan"></i> Godwin<span>.ai</span>
             </a>
             
             <div class="nav-links">
                 <a href="index.html#hero">Home</a>
                 <a href="index.html#about">Experience</a>
-                <a href="index.html#skills">Skills</a>
-                <a href="project.html" class="active">Projects</a>
-                <a href="index.html#achievements">Achievements</a>
-                <a href="contact.html">Contact</a>
+                <a href="index.html#skills">AI Stack</a>
+                <a href="project.html" class="active">Projects Matrix (28+)</a>
+                <a href="index.html#playground">Live Lab</a>
+                <a href="index.html#achievements">Honors</a>
+                <a href="index.html#contact">Contact</a>
                 <button id="audio-toggle" class="audio-btn">
                     <i class="fas fa-volume-xmark"></i> Sound Off
                 </button>
@@ -43,369 +45,120 @@
         </div>
     </nav>
 
-    <!-- Projects Archive Section -->
-    <section class="section-padding">
+    <!-- Projects Matrix Section -->
+    <section class="section-padding" style="padding-top: 120px;">
         <div class="container">
             <div class="page-header">
-                <h1 class="page-title text-gradient">Complete System Archive</h1>
-                <p class="section-subtitle">> 14 Production-Ready & Prototype Applications Deployed...</p>
+                <h1 class="page-title text-gradient">AI/ML & Systems Engineering Matrix</h1>
+                <p class="section-subtitle">> 28+ Production AI Models, Architectural Blueprints, Utilities & Research Laboratories...</p>
             </div>
 
-            <!-- Filter Buttons -->
-            <div class="filter-container">
-                <button class="filter-btn active" data-filter="all">All Systems (14)</button>
-                <button class="filter-btn" data-filter="ai">AI / ML & Vision</button>
-                <button class="filter-btn" data-filter="fullstack">Full-Stack Systems</button>
-                <button class="filter-btn" data-filter="uiux">UI / UX Designs</button>
+            <!-- Search, Filter & Counters Bar -->
+            <div class="archive-controls">
+                <div class="search-input-wrap">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="project-search" placeholder="Search models, algorithms, tech (e.g. BERT, OpenCV, Streamlit, IoT)...">
+                </div>
+
+                <div class="filter-container" style="margin-bottom: 0;">
+                    <button class="filter-btn active" data-category="all">All Systems</button>
+                    <button class="filter-btn" data-category="ai">AI / ML & Vision</button>
+                    <button class="filter-btn" data-category="system">Architectural Blueprints</button>
+                    <button class="filter-btn" data-category="fullstack">Full-Stack Systems</button>
+                    <button class="filter-btn" data-category="tools">Live Utilities & Tools</button>
+                </div>
+
+                <div class="status-counter-pill" id="results-count">
+                    Showing 28 of 28 Systems
+                </div>
             </div>
 
-            <div class="projects-wrapper">
-                <div class="projects-grid">
-                    <!-- Project 1: Mr. Strict -->
-                    <div class="glass-card project-card" data-category="ai">
-                    <div class="project-img-wrapper">
-                        <img src="https://picsum.photos/seed/mrstrict/600/400" alt="Mr. Strict" class="project-img">
-                        <div class="project-overlay"></div>
+            <!-- TIER 1: FLAGSHIP PRODUCTION & RESEARCH AI SYSTEMS -->
+            <div class="tier-section" data-tier-section="flagship">
+                <div class="tier-header">
+                    <div class="tier-title-wrap">
+                        <div class="tier-indicator" style="background: var(--neon-cyan); box-shadow: 0 0 10px var(--neon-cyan);"></div>
+                        <h2 class="tier-title">Tier 1: Flagship Production AI & Research Models</h2>
                     </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Mr. Strict — AI Assignment Evaluator</h3>
-                        <div class="project-tech">
-                            <span class="tech-badge">Python</span>
-                            <span class="tech-badge">BERT NLP</span>
-                            <span class="tech-badge">FastAPI</span>
-                            <span class="tech-badge">Docker</span>
-                        </div>
-                        <p class="project-desc">
-                            Automated evaluation system using <span class="highlight">BERT</span>. Achieved 92% grading accuracy, cut grading time by 85%, and handles 500 concurrent submissions via Docker.
-                        </p>
-                        <div class="project-actions">
-                            <a href="https://github.com/Samrajg" target="_blank" class="btn btn-neon" style="font-size: 0.75rem; padding: 0.6rem 1rem;">
-                                <i class="fab fa-github"></i> View Repository
-                            </a>
-                        </div>
-                    </div>
+                    <span class="tier-tag">Verified Implementations</span>
                 </div>
-
-                <!-- Project 2: Autonomous Exam Monitor -->
-                <div class="glass-card project-card" data-category="ai">
-                    <div class="project-img-wrapper">
-                        <img src="https://picsum.photos/seed/exammonitor/600/400" alt="Autonomous Exam Monitor" class="project-img">
-                        <div class="project-overlay"></div>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Autonomous Exam Monitor</h3>
-                        <div class="project-tech">
-                            <span class="tech-badge">Python</span>
-                            <span class="tech-badge">OpenCV</span>
-                            <span class="tech-badge">Jetson Nano</span>
-                        </div>
-                        <p class="project-desc">
-                            Real-time AI proctoring system running at <span class="highlight">30 FPS on Jetson Nano</span>. Detects facial, eye, and behavioral anomalies, reducing proctoring workload by 70%.
-                        </p>
-                        <div class="project-actions">
-                            <a href="https://github.com/Samrajg" target="_blank" class="btn btn-neon" style="font-size: 0.75rem; padding: 0.6rem 1rem;">
-                                <i class="fab fa-github"></i> View Repository
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3: Hospital Token Booking -->
-                <div class="glass-card project-card" data-category="fullstack">
-                    <div class="project-img-wrapper">
-                        <img src="https://picsum.photos/seed/hospitaltoken/600/400" alt="Hospital Token Booking" class="project-img">
-                        <div class="project-overlay"></div>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Hospital Token Booking System</h3>
-                        <div class="project-tech">
-                            <span class="tech-badge">MERN Stack</span>
-                            <span class="tech-badge">JWT</span>
-                            <span class="tech-badge">MongoDB</span>
-                        </div>
-                        <p class="project-desc">
-                            Full-stack token platform. Optimized MongoDB queries reducing page load by 60% and queue resolution time by 40%.
-                        </p>
-                        <div class="project-actions">
-                            <a href="https://github.com/Samrajg" target="_blank" class="btn btn-neon" style="font-size: 0.75rem; padding: 0.6rem 1rem;">
-                                <i class="fab fa-github"></i> View Repository
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 4: Security Rounds Verifier -->
-                <div class="glass-card project-card" data-category="fullstack">
-                    <div class="project-img-wrapper">
-                        <img src="https://picsum.photos/seed/securityrounds/600/400" alt="Security Rounds Verifier" class="project-img">
-                        <div class="project-overlay"></div>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Security Rounds Verifier</h3>
-                        <div class="project-tech">
-                            <span class="tech-badge">FastAPI</span>
-                            <span class="tech-badge">Next.js</span>
-                            <span class="tech-badge">PostgreSQL</span>
-                        </div>
-                        <p class="project-desc">
-                            Verifiable digital security system with audit logging and JWT auth. Optimized PostgreSQL queries cutting API response time by 40%.
-                        </p>
-                        <div class="project-actions">
-                            <a href="https://github.com/Samrajg" target="_blank" class="btn btn-neon" style="font-size: 0.75rem; padding: 0.6rem 1rem;">
-                                <i class="fab fa-github"></i> View Repository
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 5: TreeToCLI -->
-                <div class="glass-card project-card" data-category="fullstack">
-                    <div class="project-img-wrapper">
-                        <img src="https://picsum.photos/seed/treetocli/600/400" alt="TreeToCLI" class="project-img">
-                        <div class="project-overlay"></div>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">TreeToCLI Generator</h3>
-                        <div class="project-tech">
-                            <span class="tech-badge">JavaScript</span>
-                            <span class="tech-badge">HTML/CSS</span>
-                        </div>
-                        <p class="project-desc">
-                            Web tool converting directory trees into ready-to-run terminal commands for Linux, macOS, CMD, and PowerShell.
-                        </p>
-                        <div class="project-actions">
-                            <a href="https://samrajg.github.io/treetocli/" target="_blank" class="btn btn-neon" style="font-size: 0.75rem; padding: 0.6rem 1rem;">
-                                <i class="fas fa-globe"></i> Live App
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 6: Hand Signature Verification -->
-                <div class="glass-card project-card" data-category="ai">
-                    <div class="project-img-wrapper">
-                        <img src="https://picsum.photos/seed/signature/600/400" alt="Signature Verification" class="project-img">
-                        <div class="project-overlay"></div>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Hand Signature Verification</h3>
-                        <div class="project-tech">
-                            <span class="tech-badge">Python</span>
-                            <span class="tech-badge">OpenCV</span>
-                            <span class="tech-badge">HuggingFace</span>
-                        </div>
-                        <p class="project-desc">
-                            Image processing model built to compare and authenticate handwritten signatures securely.
-                        </p>
-                        <div class="project-actions">
-                            <a href="https://huggingface.co/spaces/Samraj777/signature-verification" target="_blank" class="btn btn-neon" style="font-size: 0.75rem; padding: 0.6rem 1rem;">
-                                <i class="fas fa-rocket"></i> HuggingFace Space
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 7: Voice Legal Summarizer -->
-                <div class="glass-card project-card" data-category="ai">
-                    <div class="project-img-wrapper">
-                        <img src="https://picsum.photos/seed/legalvoice/600/400" alt="Voice Legal Summarizer" class="project-img">
-                        <div class="project-overlay"></div>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Voice Legal Summarizer</h3>
-                        <div class="project-tech">
-                            <span class="tech-badge">Python</span>
-                            <span class="tech-badge">NLP</span>
-                        </div>
-                        <p class="project-desc">
-                            Voice-command driven system that converts speech and legal documents into simplified text summaries.
-                        </p>
-                        <div class="project-actions">
-                            <a href="https://github.com/Samrajg" target="_blank" class="btn btn-neon" style="font-size: 0.75rem; padding: 0.6rem 1rem;">
-                                <i class="fab fa-github"></i> Repository
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 8: Digital Entry Gate -->
-                <div class="glass-card project-card" data-category="ai">
-                    <div class="project-img-wrapper">
-                        <img src="https://picsum.photos/seed/entrygate/600/400" alt="Digital Entry Gate" class="project-img">
-                        <div class="project-overlay"></div>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Digital Entry Gate</h3>
-                        <div class="project-tech">
-                            <span class="tech-badge">Python</span>
-                            <span class="tech-badge">OCR</span>
-                            <span class="tech-badge">Computer Vision</span>
-                        </div>
-                        <p class="project-desc">
-                            Automated gate entry system using OCR to digitize physical visitor logs in real time.
-                        </p>
-                        <div class="project-actions">
-                            <a href="https://github.com/Samrajg" target="_blank" class="btn btn-neon" style="font-size: 0.75rem; padding: 0.6rem 1rem;">
-                                <i class="fab fa-github"></i> Repository
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 9: Train Booking Engine -->
-                <div class="glass-card project-card" data-category="fullstack">
-                    <div class="project-img-wrapper">
-                        <img src="https://picsum.photos/seed/trainbooking/600/400" alt="Train Ticket Booking" class="project-img">
-                        <div class="project-overlay"></div>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Age-Based Train Booking Engine</h3>
-                        <div class="project-tech">
-                            <span class="tech-badge">Java</span>
-                            <span class="tech-badge">Full Stack</span>
-                        </div>
-                        <p class="project-desc">
-                            Booking engine categorizing passengers (child, adult, senior) with intelligent seat allocation and pricing logic.
-                        </p>
-                        <div class="project-actions">
-                            <a href="https://github.com/Samrajg" target="_blank" class="btn btn-neon" style="font-size: 0.75rem; padding: 0.6rem 1rem;">
-                                <i class="fab fa-github"></i> Repository
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 10: CityScope AI Chatbot -->
-                <div class="glass-card project-card" data-category="ai">
-                    <div class="project-img-wrapper">
-                        <img src="https://picsum.photos/seed/cityscope/600/400" alt="CityScope Chatbot" class="project-img">
-                        <div class="project-overlay"></div>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">CityScope AI Chatbot</h3>
-                        <div class="project-tech">
-                            <span class="tech-badge">Python</span>
-                            <span class="tech-badge">NLP</span>
-                            <span class="tech-badge">Machine Learning</span>
-                        </div>
-                        <p class="project-desc">
-                            AI chatbot trained specifically on Tamil Nadu district-level data for context-aware public query responses.
-                        </p>
-                        <div class="project-actions">
-                            <a href="https://github.com/Samrajg" target="_blank" class="btn btn-neon" style="font-size: 0.75rem; padding: 0.6rem 1rem;">
-                                <i class="fab fa-github"></i> Repository
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 11: E-Commerce UI -->
-                <div class="glass-card project-card" data-category="uiux">
-                    <div class="project-img-wrapper">
-                        <img src="https://picsum.photos/seed/ecommercefigma/600/400" alt="E-Commerce UI" class="project-img">
-                        <div class="project-overlay"></div>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">E-Commerce App Interface</h3>
-                        <div class="project-tech">
-                            <span class="tech-badge">Figma</span>
-                            <span class="tech-badge">UI/UX</span>
-                        </div>
-                        <p class="project-desc">
-                            Interactive mobile e-commerce application design engineered to optimize user checkout paths.
-                        </p>
-                        <div class="project-actions">
-                            <a href="https://www.figma.com/design/glIvSC5nvYj8VnS4RLf0EH/EXP-1?node-id=0-1&p=f&t=q6Pnej9fLQexrFiF-0" target="_blank" class="btn btn-neon" style="font-size: 0.75rem; padding: 0.6rem 1rem;">
-                                <i class="fab fa-figma"></i> Figma Design
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 12: Tuition App UI -->
-                <div class="glass-card project-card" data-category="uiux">
-                    <div class="project-img-wrapper">
-                        <img src="https://picsum.photos/seed/tuitionapp/600/400" alt="Tuition App UI" class="project-img">
-                        <div class="project-overlay"></div>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Tuition App Interface</h3>
-                        <div class="project-tech">
-                            <span class="tech-badge">Figma</span>
-                            <span class="tech-badge">UI/UX</span>
-                        </div>
-                        <p class="project-desc">
-                            Clean mobile UI linking local tutors and students with scheduling interface.
-                        </p>
-                        <div class="project-actions">
-                            <a href="https://www.figma.com/design/PZ9eVbbEWtniPpHT8Lx2bx/Untitled?t=q6Pnej9fLQexrFiF-0" target="_blank" class="btn btn-neon" style="font-size: 0.75rem; padding: 0.6rem 1rem;">
-                                <i class="fab fa-figma"></i> Figma Design
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 13: Farmer Connect App UI -->
-                <div class="glass-card project-card" data-category="uiux">
-                    <div class="project-img-wrapper">
-                        <img src="https://picsum.photos/seed/farmerapp/600/400" alt="Farmer Connect App UI" class="project-img">
-                        <div class="project-overlay"></div>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Farmer Connect App UI</h3>
-                        <div class="project-tech">
-                            <span class="tech-badge">Figma</span>
-                            <span class="tech-badge">Accessibility</span>
-                        </div>
-                        <p class="project-desc">
-                            Accessible mobile app UI connecting agricultural producers directly to buyers.
-                        </p>
-                        <div class="project-actions">
-                            <a href="https://www.figma.com/design/SxgMv8iU9A6jxuhQL4GoW8/ex2-i-?t=q6Pnej9fLQexrFiF-0" target="_blank" class="btn btn-neon" style="font-size: 0.75rem; padding: 0.6rem 1rem;">
-                                <i class="fab fa-figma"></i> Figma Design
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 14: Campus Lost & Found -->
-                <div class="glass-card project-card" data-category="fullstack">
-                    <div class="project-img-wrapper">
-                        <img src="https://picsum.photos/seed/lostfound/600/400" alt="Lost & Found" class="project-img">
-                        <div class="project-overlay"></div>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Lost & Found Platform</h3>
-                        <div class="project-tech">
-                            <span class="tech-badge">Full Stack</span>
-                            <span class="tech-badge">Cloud</span>
-                        </div>
-                        <p class="project-desc">
-                            Centralized campus SaaS portal for item tracking, verification, and recovery.
-                        </p>
-                        <div class="project-actions">
-                            <a href="https://github.com/Samrajg" target="_blank" class="btn btn-neon" style="font-size: 0.75rem; padding: 0.6rem 1rem;">
-                                <i class="fab fa-github"></i> Repository
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                <div class="neural-metrics-grid" id="tier-flagship-grid" style="grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.5rem;">
+                    <!-- Rendered via JS -->
                 </div>
             </div>
+
+            <!-- TIER 2: HIGH-IMPACT ARCHITECTURAL BLUEPRINTS -->
+            <div class="tier-section" data-tier-section="blueprint">
+                <div class="tier-header">
+                    <div class="tier-title-wrap">
+                        <div class="tier-indicator" style="background: var(--neon-purple); box-shadow: 0 0 10px var(--neon-purple);"></div>
+                        <h2 class="tier-title">Tier 2: High-Impact Blueprints & Visionary Systems</h2>
+                    </div>
+                    <span class="tier-tag">Smart Transit • OPD • Companion Agents</span>
+                </div>
+                <div class="neural-metrics-grid" id="tier-blueprint-grid" style="grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.5rem;">
+                    <!-- Rendered via JS -->
+                </div>
+            </div>
+
+            <!-- TIER 3: PRODUCTION UTILITIES & VERIFIED TOOLS -->
+            <div class="tier-section" data-tier-section="utility">
+                <div class="tier-header">
+                    <div class="tier-title-wrap">
+                        <div class="tier-indicator" style="background: #00ffaa; box-shadow: 0 0 10px #00ffaa;"></div>
+                        <h2 class="tier-title">Tier 3: Live Developer Utilities & Verified Tools</h2>
+                    </div>
+                    <span class="tier-tag">100% Functional & Deployed</span>
+                </div>
+                <div class="neural-metrics-grid" id="tier-utility-grid" style="grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.5rem;">
+                    <!-- Rendered via JS -->
+                </div>
+            </div>
+
+            <!-- TIER 4: FULL-STACK ENTERPRISE & LAB RESEARCH INCUBATOR -->
+            <div class="tier-section" data-tier-section="incubator">
+                <div class="tier-header">
+                    <div class="tier-title-wrap">
+                        <div class="tier-indicator" style="background: var(--neon-gold); box-shadow: 0 0 10px var(--neon-gold);"></div>
+                        <h2 class="tier-title">Tier 4: Enterprise Full-Stack & Research Labs</h2>
+                    </div>
+                    <span class="tier-tag">Multi-Repo Suites • Neural Experiments</span>
+                </div>
+                <div class="neural-metrics-grid" id="tier-incubator-grid" style="grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.5rem;">
+                    <!-- Rendered via JS -->
+                </div>
+            </div>
+
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer>
         <div class="container">
+            <div class="footer-socials">
+                <a href="https://github.com/Samrajg" target="_blank" class="social-link" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.com/in/godwinsamraj" target="_blank" class="social-link" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://samrajg.github.io/portfolio" target="_blank" class="social-link" title="Live Site">
+                    <i class="fas fa-globe"></i>
+                </a>
+                <a href="mailto:godwinsamraj16@gmail.com" class="social-link" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
             <p style="font-family: var(--font-code); color: var(--text-muted);">
                 System Status: <span class="text-cyan">ONLINE 100%</span> | Designed & Built by <strong>Godwin Samraj G</strong>
             </p>
         </div>
     </footer>
 
-    <!-- Scripts -->
+    <!-- Three.js CDN Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="js/projects-data.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/project-matrix.js"></script>
 </body>
 </html>
