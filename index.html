@@ -3,728 +3,566 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Godwin Samraj G | AI/ML Systems & Full-Stack Architect</title>
-    <!-- Fonts -->
+    <title>Godwin Samraj G — AI / ML Systems Engineer & Architect</title>
+    <!-- Modern Typographic Scale: Geist / Inter Display / JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Orbitron:wght@500;700;900&family=Syne:wght@600;800&display=swap" rel="stylesheet">
-    <!-- FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide & FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/aiml-portfolio.css">
+    <link rel="stylesheet" href="css/brand-new-aiml.css">
 </head>
-<body>
+<body class="neural-theme">
 
-    <!-- 3D WebGL Canvas Background -->
-    <canvas id="bg-canvas"></canvas>
+    <!-- Interactive Ambient Glow Grid -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+    <div class="ambient-glow glow-3"></div>
+    <div class="cyber-grid-overlay"></div>
 
-    <!-- Glassmorphic Navigation -->
-    <nav>
-        <div class="container nav-container">
-            <a href="#hero" class="logo">
-                <i class="fas fa-brain text-cyan"></i> Godwin<span>.ai</span>
+    <!-- Navigation Header -->
+    <header class="studio-header">
+        <div class="header-inner">
+            <a href="index.html" class="brand-signature">
+                <span class="brand-monogram">GS</span>
+                <span class="brand-name">Godwin Samraj</span>
+                <span class="badge-pill">AI/ML '26</span>
             </a>
-            
-            <div class="nav-links">
-                <a href="#hero" class="active">Home</a>
-                <a href="#about">Experience</a>
-                <a href="#skills">AI Stack</a>
-                <a href="#featured-ai">Flagship AI</a>
-                <a href="#playground">Live Lab</a>
-                <a href="project.html">All Projects (28+)</a>
-                <a href="#achievements">Honors</a>
+
+            <nav class="studio-nav">
+                <a href="#models">Deployed Models</a>
+                <a href="#matrix">Systems Matrix</a>
+                <a href="#lab">Interactive Lab</a>
+                <a href="#background">Philosophy & Stack</a>
                 <a href="#contact">Contact</a>
-                <button id="audio-toggle" class="audio-btn">
-                    <i class="fas fa-volume-xmark"></i> Sound Off
-                </button>
-            </div>
+            </nav>
 
-            <button class="nav-toggle" aria-label="Toggle navigation">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-    </nav>
-
-    <!-- HERO SECTION -->
-    <section class="hero" id="hero">
-        <div class="container hero-grid">
-            <div class="hero-content">
-                <div class="aiml-hero-pill">
-                    <span class="pulse-dot"></span>
-                    <span>AI/ML ENGINEER & SYSTEM ARCHITECT • TAMIL NADU, IN</span>
-                </div>
-                <h1 class="hero-title glitch" data-text="GODWIN SAMRAJ">
-                    GODWIN <span class="text-gradient">SAMRAJ</span>
-                </h1>
-                <p class="hero-description">
-                    Engineering production-grade machine learning pipelines, multimodal LLM systems, computer vision at 30 FPS on Jetson Nano, and fault-tolerant full-stack microservices. Transforming raw telemetry and neural embeddings into high-impact software.
-                </p>
-
-                <!-- High-Impact Neural Benchmarks -->
-                <div class="neural-metrics-grid">
-                    <div class="metric-card">
-                        <div class="metric-val text-cyan">92%</div>
-                        <div class="metric-title">BERT Grading Precision</div>
-                        <div class="metric-sub">Mr. Strict Academic Evaluator</div>
-                    </div>
-                    <div class="metric-card purple">
-                        <div class="metric-val text-purple">30 FPS</div>
-                        <div class="metric-title">Edge AI Inference</div>
-                        <div class="metric-sub">OpenCV on NVIDIA Jetson</div>
-                    </div>
-                    <div class="metric-card pink">
-                        <div class="metric-val text-pink">28+</div>
-                        <div class="metric-title">Projects & Systems</div>
-                        <div class="metric-sub">AI Models • Full-Stack • Tools</div>
-                    </div>
-                    <div class="metric-card green">
-                        <div class="metric-val" style="color: #00ffaa;">38</div>
-                        <div class="metric-title">Districts Analyzed</div>
-                        <div class="metric-sub">CityScope AI Policy Engine</div>
-                    </div>
-                </div>
-
-                <div class="cta-group">
-                    <a href="project.html" class="btn btn-purple">
-                        <i class="fas fa-microchip"></i> Explore Complete Systems Archive (28+)
-                    </a>
-                    <a href="godwin_resume.pdf" download="Godwin_Samraj_Resume.pdf" class="btn btn-neon">
-                        <i class="fas fa-file-arrow-down"></i> Resume PDF
-                    </a>
-                    <a href="#playground" class="btn btn-outline">
-                        <i class="fas fa-flask"></i> Interactive AI Lab
-                    </a>
-                </div>
-            </div>
-
-            <!-- Standalone 3D Tech Core Model + AI Avatar Overlay -->
-            <div class="hero-avatar-showcase">
-                <div class="avatar-ambient-glow"></div>
-                <div class="hero-profile-card">
-                    <img src="1-godwin-samraj-profile.jpg" alt="Godwin Samraj G - AI/ML Engineer">
-                    <div class="hero-card-overlay">
-                        <div class="hero-card-name">Godwin Samraj G</div>
-                        <div class="hero-card-status">
-                            <span class="pulse-dot" style="width:6px; height:6px;"></span>
-                            <span>Model Weights Active &bull; Ready to Deploy</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ABOUT & EXPERIENCE SECTION -->
-    <section class="section-padding" id="about">
-        <div class="container">
-            <div class="page-header">
-                <h2 class="page-title text-gradient">Engineering Track Record</h2>
-                <p class="section-subtitle">> Production ML pipelines, edge deployments, and backend scalability...</p>
-            </div>
-
-            <!-- Overview Box -->
-            <div class="glass-card tilt-card" style="margin-bottom: 4rem;">
-                <h3 style="font-size: 1.6rem; color: var(--neon-cyan); margin-bottom: 1rem;">
-                    <i class="fas fa-brain"></i> Applied AI & Systems Philosophy
-                </h3>
-                <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.8;">
-                    Computer Science undergraduate at <strong>Kamaraj College of Engineering and Technology (CGPA: 8.1/10)</strong> with 2 intensive software & ML engineering internships. Specializing in taking machine learning models out of notebooks and putting them into high-concurrency production  —  from <strong>BERT-based semantic evaluation</strong> handling 500+ Dockerized submissions, to <strong>real-time computer vision</strong> optimized for edge hardware, and <strong>geospatial analytics engines</strong> for public administration.
-                </p>
-            </div>
-
-            <div class="timeline-grid">
-                <!-- Experience Timeline -->
-                <div>
-                    <h3 style="font-size: 1.5rem; color: #fff; margin-bottom: 2rem;">
-                        <i class="fas fa-briefcase text-cyan"></i> Professional Experience
-                    </h3>
-                    <div class="timeline">
-                        <!-- Item 1 -->
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-date">DEC 2025 – FEB 2026</div>
-                            <h4 class="timeline-title">Software Developer Intern</h4>
-                            <div class="timeline-company">Pentagon Garments — Virudhunagar, India</div>
-                            <ul class="timeline-bullets">
-                                <li>Architected production security verification & real-time monitoring system using <strong>FastAPI</strong> and <strong>Next.js</strong>.</li>
-                                <li>Optimized PostgreSQL queries, cutting API latency across multi-tier security audit checkpoints by <strong>35%</strong>.</li>
-                                <li>Implemented 3-tier JWT authentication and immutable cryptographic audit logging for security compliance.</li>
-                            </ul>
-                        </div>
-
-                        <!-- Item 2 -->
-                        <div class="timeline-item">
-                            <div class="timeline-dot" style="border-color: var(--neon-purple); box-shadow: 0 0 10px var(--neon-purple);"></div>
-                            <div class="timeline-date" style="color: var(--neon-purple);">MAY 2024 – JUN 2024</div>
-                            <h4 class="timeline-title">Machine Learning Intern</h4>
-                            <div class="timeline-company">Panith Innovations — Bangalore, India</div>
-                            <ul class="timeline-bullets">
-                                <li>Engineered predictive machine learning pipelines and automated high-throughput data cleaning scripts in Python.</li>
-                                <li>Boosted forecast accuracy by <strong>23%</strong> through advanced feature extraction, hyperparameter tuning, and cross-validation.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Education Timeline -->
-                <div>
-                    <h3 style="font-size: 1.5rem; color: #fff; margin-bottom: 2rem;">
-                        <i class="fas fa-graduation-cap text-purple"></i> Academic Foundation
-                    </h3>
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-dot" style="border-color: var(--neon-cyan); box-shadow: 0 0 10px var(--neon-cyan);"></div>
-                            <div class="timeline-date">2022 – 2026</div>
-                            <h4 class="timeline-title">B.E. in Computer Science & Engineering</h4>
-                            <div class="timeline-company">Kamaraj College of Engineering and Technology</div>
-                            <ul class="timeline-bullets">
-                                <li>Cumulative GPA: <strong>8.1 / 10.0</strong></li>
-                                <li>Specialization in Machine Learning, Deep Neural Networks, Distributed Systems & Database Design.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SKILLS MATRIX SECTION -->
-    <section class="section-padding" id="skills">
-        <div class="container">
-            <div class="page-header">
-                <h2 class="page-title text-gradient">AI/ML & Architecture Stack</h2>
-                <p class="section-subtitle">> Core technologies powering my models, data engineering, and backends...</p>
-            </div>
-
-            <div class="skills-grid">
-                <!-- AI / ML Card -->
-                <div class="glass-card tilt-card">
-                    <h3 class="skill-category-title">
-                        <i class="fas fa-brain"></i> Machine Learning & Deep Learning
-                    </h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">PyTorch & TensorFlow</span>
-                        <span class="skill-tag">Scikit-Learn</span>
-                        <span class="skill-tag">BERT & Transformer NLP</span>
-                        <span class="skill-tag">OpenCV & YOLOv8</span>
-                        <span class="skill-tag">Random Forest & XGBoost</span>
-                        <span class="skill-tag">K-Means & Clustering</span>
-                    </div>
-                </div>
-
-                <!-- LLM & GenAI -->
-                <div class="glass-card tilt-card">
-                    <h3 class="skill-category-title" style="color: var(--neon-purple);">
-                        <i class="fas fa-robot"></i> Generative AI & LLM Systems
-                    </h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">LangChain & RAG</span>
-                        <span class="skill-tag">Vector Stores (FAISS/Chroma)</span>
-                        <span class="skill-tag">Prompt Engineering</span>
-                        <span class="skill-tag">Whisper Speech AI</span>
-                        <span class="skill-tag">HuggingFace Spaces</span>
-                    </div>
-                </div>
-
-                <!-- Backend & APIs -->
-                <div class="glass-card tilt-card">
-                    <h3 class="skill-category-title" style="color: var(--neon-pink);">
-                        <i class="fas fa-server"></i> Backend & Distributed Systems
-                    </h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">FastAPI (High Throughput)</span>
-                        <span class="skill-tag">Node.js & Express</span>
-                        <span class="skill-tag">PostgreSQL & MongoDB</span>
-                        <span class="skill-tag">JWT Security & RBAC</span>
-                        <span class="skill-tag">WebSockets / Socket.io</span>
-                    </div>
-                </div>
-
-                <!-- Hardware & DevOps -->
-                <div class="glass-card tilt-card">
-                    <h3 class="skill-category-title" style="color: var(--neon-gold);">
-                        <i class="fas fa-microchip"></i> Edge Hardware & MLOps
-                    </h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">NVIDIA Jetson Nano</span>
-                        <span class="skill-tag">Docker Containerization</span>
-                        <span class="skill-tag">Git / GitHub Actions</span>
-                        <span class="skill-tag">Streamlit Dashboards</span>
-                        <span class="skill-tag">Three.js / WebGL</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FLAGSHIP PRODUCTION AI SHOWCASE -->
-    <section class="section-padding" id="featured-ai">
-        <div class="container">
-            <div class="page-header">
-                <h2 class="page-title text-gradient">Flagship AI & Machine Learning Systems</h2>
-                <p class="section-subtitle">> Core deployed models, clinical diagnostics, automated grading, and research tools...</p>
-            </div>
-
-            <!-- Grid of Primary AI Projects -->
-            <div class="neural-metrics-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
-                
-                <!-- CityScope AI -->
-                <div class="aiml-project-card">
-                    <div>
-                        <div class="card-top-bar">
-                            <span class="status-badge success"><i class="fas fa-check-circle"></i> Completed • Flagship</span>
-                            <span style="font-family: var(--font-code); font-size: 0.75rem; color: var(--text-dim);">Geospatial AI</span>
-                        </div>
-                        <h3 class="card-project-title">CityScope AI — Smart Geospatial Analytics</h3>
-                        <p class="card-tagline">> Public Policy & Demographics Intelligence</p>
-                        <p class="card-desc">
-                            Smart geospatial predictive analytics engine offering multi-dimensional demographic, healthcare, and educational insights across 38 districts of Tamil Nadu for governance and policy optimization.
-                        </p>
-                        <div class="card-metrics-strip">
-                            <div class="metric-strip-item">
-                                <div class="metric-strip-val text-cyan">38</div>
-                                <div class="metric-strip-lbl">Districts</div>
-                            </div>
-                            <div class="metric-strip-item">
-                                <div class="metric-strip-val text-purple">Multi-Layer</div>
-                                <div class="metric-strip-lbl">Pillars</div>
-                            </div>
-                            <div class="metric-strip-item">
-                                <div class="metric-strip-val" style="color:#00ffaa;">Production</div>
-                                <div class="metric-strip-lbl">Readiness</div>
-                            </div>
-                        </div>
-                        <div class="card-tech-badges">
-                            <span class="tech-chip">Python</span>
-                            <span class="tech-chip">Machine Learning</span>
-                            <span class="tech-chip">NLP</span>
-                            <span class="tech-chip">GeoPandas</span>
-                            <span class="tech-chip">Streamlit</span>
-                        </div>
-                    </div>
-                    <div class="card-footer-actions">
-                        <a href="https://cityscopeai-bg5nlpwgfwagazxiownnpf.streamlit.app/" target="_blank" class="btn btn-neon">
-                            <i class="fas fa-play"></i> Live App
-                        </a>
-                        <a href="https://github.com/Samrajg" target="_blank" class="btn btn-purple">
-                            <i class="fab fa-github"></i> Code
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Stroke Risk Predictor -->
-                <div class="aiml-project-card">
-                    <div>
-                        <div class="card-top-bar">
-                            <span class="status-badge success"><i class="fas fa-heart-pulse"></i> Verified Working</span>
-                            <span style="font-family: var(--font-code); font-size: 0.75rem; color: var(--text-dim);">Clinical ML</span>
-                        </div>
-                        <h3 class="card-project-title">NeuroStroke AI — Clinical Stroke Risk Engine</h3>
-                        <p class="card-tagline">> Random Forest Diagnostic Assistant</p>
-                        <p class="card-desc">
-                            Clinical predictive healthcare assistant built with Random Forest evaluating patient biometric indicators (BMI, average glucose, heart disease, hypertension, smoking history, age) with real-time risk scores.
-                        </p>
-                        <div class="card-metrics-strip">
-                            <div class="metric-strip-item">
-                                <div class="metric-strip-val text-cyan">Random Forest</div>
-                                <div class="metric-strip-lbl">Model</div>
-                            </div>
-                            <div class="metric-strip-item">
-                                <div class="metric-strip-val text-purple">6 Markers</div>
-                                <div class="metric-strip-lbl">Biometrics</div>
-                            </div>
-                            <div class="metric-strip-item">
-                                <div class="metric-strip-val" style="color:#00ffaa;">&lt;100ms</div>
-                                <div class="metric-strip-lbl">Latency</div>
-                            </div>
-                        </div>
-                        <div class="card-tech-badges">
-                            <span class="tech-chip">Python</span>
-                            <span class="tech-chip">Random Forest</span>
-                            <span class="tech-chip">Scikit-Learn</span>
-                            <span class="tech-chip">Streamlit</span>
-                        </div>
-                    </div>
-                    <div class="card-footer-actions">
-                        <a href="https://strokeprediction-amrhvyqse9ni86rntyyffk.streamlit.app/" target="_blank" class="btn btn-neon">
-                            <i class="fas fa-play"></i> Live App
-                        </a>
-                        <a href="https://github.com/Samrajg/Stroke_prediction" target="_blank" class="btn btn-purple">
-                            <i class="fab fa-github"></i> Code
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Mr Strict -->
-                <div class="aiml-project-card">
-                    <div>
-                        <div class="card-top-bar">
-                            <span class="status-badge success"><i class="fas fa-check-circle"></i> Live Streamlit</span>
-                            <span style="font-family: var(--font-code); font-size: 0.75rem; color: var(--text-dim);">Transformer NLP</span>
-                        </div>
-                        <h3 class="card-project-title">Mr. Strict — AI Assignment Evaluator</h3>
-                        <p class="card-tagline">> BERT Semantic Scoring & Code Sandboxing</p>
-                        <p class="card-desc">
-                            Automated evaluation engine powered by fine-tuned BERT embeddings. Cuts human grading time by 85% with 92% rubric consistency and handles 500+ concurrent submissions in Docker containers.
-                        </p>
-                        <div class="card-metrics-strip">
-                            <div class="metric-strip-item">
-                                <div class="metric-strip-val text-cyan">92%</div>
-                                <div class="metric-strip-lbl">Accuracy</div>
-                            </div>
-                            <div class="metric-strip-item">
-                                <div class="metric-strip-val text-purple">-85%</div>
-                                <div class="metric-strip-lbl">Grading Time</div>
-                            </div>
-                            <div class="metric-strip-item">
-                                <div class="metric-strip-val" style="color:#00ffaa;">500+</div>
-                                <div class="metric-strip-lbl">Concurrent</div>
-                            </div>
-                        </div>
-                        <div class="card-tech-badges">
-                            <span class="tech-chip">BERT NLP</span>
-                            <span class="tech-chip">Python</span>
-                            <span class="tech-chip">FastAPI</span>
-                            <span class="tech-chip">Docker</span>
-                            <span class="tech-chip">Streamlit</span>
-                        </div>
-                    </div>
-                    <div class="card-footer-actions">
-                        <a href="https://mr-strict-godwin.streamlit.app/" target="_blank" class="btn btn-neon">
-                            <i class="fas fa-play"></i> Live App
-                        </a>
-                        <a href="https://github.com/Samrajg/Mr-strict" target="_blank" class="btn btn-purple">
-                            <i class="fab fa-github"></i> Code
-                        </a>
-                    </div>
-                </div>
-
-                <!-- IEEE Paper Writer -->
-                <div class="aiml-project-card">
-                    <div>
-                        <div class="card-top-bar">
-                            <span class="status-badge success"><i class="fas fa-check-circle"></i> Completed</span>
-                            <span style="font-family: var(--font-code); font-size: 0.75rem; color: var(--text-dim);">GenAI / Agentic</span>
-                        </div>
-                        <h3 class="card-project-title">IEEE Paper Synthesizer & Research Agent</h3>
-                        <p class="card-tagline">> Autonomous Literature & LaTeX Engine</p>
-                        <p class="card-desc">
-                            Multi-agent LLM workflow automating academic literature surveys, citation bibtex compiling, and IEEE two-column LaTeX draft generation, accelerating scientific paper writing by ~70%.
-                        </p>
-                        <div class="card-metrics-strip">
-                            <div class="metric-strip-item">
-                                <div class="metric-strip-val text-cyan">IEEE 2-Col</div>
-                                <div class="metric-strip-lbl">Format</div>
-                            </div>
-                            <div class="metric-strip-item">
-                                <div class="metric-strip-val text-purple">~70%</div>
-                                <div class="metric-strip-lbl">Time Saved</div>
-                            </div>
-                            <div class="metric-strip-item">
-                                <div class="metric-strip-val" style="color:#00ffaa;">Autonomous</div>
-                                <div class="metric-strip-lbl">Agents</div>
-                            </div>
-                        </div>
-                        <div class="card-tech-badges">
-                            <span class="tech-chip">LLMs</span>
-                            <span class="tech-chip">Python</span>
-                            <span class="tech-chip">LaTeX</span>
-                            <span class="tech-chip">RAG</span>
-                            <span class="tech-chip">Prompt Chains</span>
-                        </div>
-                    </div>
-                    <div class="card-footer-actions">
-                        <a href="https://github.com/Samrajg/ieee-paper-writer" target="_blank" class="btn btn-purple">
-                            <i class="fab fa-github"></i> Repository
-                        </a>
-                        <a href="project.html#ieee-paper-writer" class="btn btn-outline">
-                            <i class="fas fa-book"></i> Read Spec
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Edge Proctor Jetson Nano -->
-                <div class="aiml-project-card">
-                    <div>
-                        <div class="card-top-bar">
-                            <span class="status-badge cyan"><i class="fas fa-microchip"></i> Edge Hardware</span>
-                            <span style="font-family: var(--font-code); font-size: 0.75rem; color: var(--text-dim);">Edge Computer Vision</span>
-                        </div>
-                        <h3 class="card-project-title">Edge Proctor — NVIDIA Jetson Exam Monitor</h3>
-                        <p class="card-tagline">> Real-Time 30 FPS Anomaly Detection</p>
-                        <p class="card-desc">
-                            Embedded deep learning proctoring pipeline running on Jetson Nano. Performs multi-candidate face tracking, gaze direction analysis, and unauthorized phone detection with zero cloud latency.
-                        </p>
-                        <div class="card-metrics-strip">
-                            <div class="metric-strip-item">
-                                <div class="metric-strip-val text-cyan">30 FPS</div>
-                                <div class="metric-strip-lbl">Jetson Nano</div>
-                            </div>
-                            <div class="metric-strip-item">
-                                <div class="metric-strip-val text-purple">&lt;33ms</div>
-                                <div class="metric-strip-lbl">Latency</div>
-                            </div>
-                            <div class="metric-strip-item">
-                                <div class="metric-strip-val" style="color:#00ffaa;">-70%</div>
-                                <div class="metric-strip-lbl">Workload</div>
-                            </div>
-                        </div>
-                        <div class="card-tech-badges">
-                            <span class="tech-chip">OpenCV</span>
-                            <span class="tech-chip">Jetson Nano</span>
-                            <span class="tech-chip">Python</span>
-                            <span class="tech-chip">TensorRT</span>
-                            <span class="tech-chip">YOLOv8</span>
-                        </div>
-                    </div>
-                    <div class="card-footer-actions">
-                        <a href="https://github.com/Samrajg" target="_blank" class="btn btn-purple">
-                            <i class="fab fa-github"></i> Source Code
-                        </a>
-                        <a href="project.html#autonomous-exam-monitor" class="btn btn-outline">
-                            <i class="fas fa-eye"></i> Vision Specs
-                        </a>
-                    </div>
-                </div>
-
-                <!-- TreeToCLI Utility -->
-                <div class="aiml-project-card">
-                    <div>
-                        <div class="card-top-bar">
-                            <span class="status-badge success"><i class="fas fa-globe"></i> Live Web Application</span>
-                            <span style="font-family: var(--font-code); font-size: 0.75rem; color: var(--text-dim);">DevOps Tool</span>
-                        </div>
-                        <h3 class="card-project-title">TreeToCLI — Command Line Shell Generator</h3>
-                        <p class="card-tagline">> 100% Client-Side AST Regex Engine</p>
-                        <p class="card-desc">
-                            High-productivity developer utility converting indented folder diagrams into one-shot executable bash scripts, PowerShell mkdir commands, and CMD batch instructions. Deployed on GitHub Pages.
-                        </p>
-                        <div class="card-metrics-strip">
-                            <div class="metric-strip-item">
-                                <div class="metric-strip-val text-cyan">3 Shells</div>
-                                <div class="metric-strip-lbl">Bash/PS/CMD</div>
-                            </div>
-                            <div class="metric-strip-item">
-                                <div class="metric-strip-val text-purple">Instant</div>
-                                <div class="metric-strip-lbl">AST Parse</div>
-                            </div>
-                            <div class="metric-strip-item">
-                                <div class="metric-strip-val" style="color:#00ffaa;">Live</div>
-                                <div class="metric-strip-lbl">Deployed</div>
-                            </div>
-                        </div>
-                        <div class="card-tech-badges">
-                            <span class="tech-chip">JavaScript</span>
-                            <span class="tech-chip">Regex AST</span>
-                            <span class="tech-chip">HTML5</span>
-                            <span class="tech-chip">GitHub Pages</span>
-                        </div>
-                    </div>
-                    <div class="card-footer-actions">
-                        <a href="https://samrajg.github.io/treetocli/" target="_blank" class="btn btn-neon">
-                            <i class="fas fa-external-link-alt"></i> Launch Live App
-                        </a>
-                        <a href="https://github.com/Samrajg/treetocli" target="_blank" class="btn btn-outline">
-                            <i class="fab fa-github"></i> Code
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- View Complete 28+ Systems Callout -->
-            <div style="text-align: center; margin-top: 3.5rem;">
-                <p style="color: var(--text-muted); font-family: var(--font-code); margin-bottom: 1.2rem;">
-                    Looking for the full catalog of 28+ categorized repositories (SmartRail AI, MediQueue, MIRA, Steel Energy Predictor)?
-                </p>
-                <a href="project.html" class="btn btn-purple" style="font-size: 1.05rem; padding: 0.9rem 2.2rem;">
-                    <i class="fas fa-layer-group"></i> Open Complete Systems Matrix (28+ Projects)
+            <div class="header-actions">
+                <a href="godwin_resume.pdf" download="Godwin_Samraj_Resume.pdf" class="btn-subtle">
+                    <i class="fas fa-arrow-down-to-line"></i>
+                    <span>Resume</span>
+                </a>
+                <a href="#contact" class="btn-accent">
+                    <span>Collaborate</span>
                 </a>
             </div>
         </div>
-    </section>
+    </header>
 
-    <!-- INTERACTIVE AI LAB / PLAYGROUND -->
-    <section class="section-padding" id="playground">
-        <div class="container">
-            <div class="page-header">
-                <h2 class="page-title text-gradient">Interactive AI Model Playground</h2>
-                <p class="section-subtitle">> Test simulated client-side inference on biometric parameters...</p>
+    <main class="main-content">
+        <!-- HERO SECTION: MINIMALIST HIGH-IMPACT ARCHITECT PRESENTATION -->
+        <section class="hero-studio">
+            <div class="hero-left">
+                <div class="status-indicator">
+                    <span class="pulse-beacon"></span>
+                    <span class="status-text">Available for High-Impact AI/ML & System Architecture Roles</span>
+                </div>
+
+                <h1 class="hero-headline">
+                    Engineering <span class="gradient-text">predictive intelligence</span> from mathematical theory to production metal.
+                </h1>
+
+                <p class="hero-manifesto">
+                    Hi, I'm <strong>Godwin Samraj G</strong>. A Computer Science Engineer (B.E. 8.1 CGPA) with dual software & ML internships. I specialize in building fault-tolerant architectures around deep models: <strong>BERT semantic evaluation engines</strong>, <strong>30 FPS edge proctoring on NVIDIA Jetson</strong>, <strong>clinical diagnostic pipelines</strong>, and <strong>geospatial analytics for regional governance</strong>.
+                </p>
+
+                <div class="hero-cta-cluster">
+                    <a href="#models" class="btn-primary-large">
+                        <i class="fas fa-layer-group"></i>
+                        <span>Explore Flagship Systems</span>
+                    </a>
+                    <a href="https://github.com/Samrajg" target="_blank" class="btn-github-large">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub @Samrajg</span>
+                    </a>
+                </div>
+
+                <!-- Verified Key Production Metrics -->
+                <div class="proven-metrics-strip">
+                    <div class="proven-metric">
+                        <span class="p-num">92%</span>
+                        <span class="p-label">BERT Grading Rubric Match</span>
+                    </div>
+                    <div class="proven-metric-divider"></div>
+                    <div class="proven-metric">
+                        <span class="p-num">30 FPS</span>
+                        <span class="p-label">Real-Time Edge Computer Vision</span>
+                    </div>
+                    <div class="proven-metric-divider"></div>
+                    <div class="proven-metric">
+                        <span class="p-num">38</span>
+                        <span class="p-label">TN Districts Mapped & Analyzed</span>
+                    </div>
+                    <div class="proven-metric-divider"></div>
+                    <div class="proven-metric">
+                        <span class="p-num">28+</span>
+                        <span class="p-label">Repositories & Microservices</span>
+                    </div>
+                </div>
             </div>
 
-            <div class="model-playground-box">
-                <div class="playground-header">
-                    <div class="playground-title">
-                        <i class="fas fa-heart-pulse text-cyan"></i>
-                        <span>NeuroStroke AI Clinical Risk Simulator</span>
+            <!-- Profile & Architectural Core Visual -->
+            <div class="hero-right">
+                <div class="studio-card-deck">
+                    <div class="deck-frame">
+                        <div class="author-portrait">
+                            <img src="1-godwin-samraj-profile.jpg" alt="Godwin Samraj G">
+                            <div class="portrait-scrim"></div>
+                            <div class="portrait-tag">
+                                <span class="engineer-title">Godwin Samraj G</span>
+                                <span class="engineer-spec">AI/ML Systems Engineer &bull; Kamaraj College of Eng.</span>
+                            </div>
+                        </div>
+
+                        <!-- Live Console Floating Card -->
+                        <div class="floating-telemetry-badge">
+                            <div class="telemetry-header">
+                                <span class="dot-red"></span>
+                                <span class="dot-yellow"></span>
+                                <span class="dot-green"></span>
+                                <span class="telemetry-title">edge_runtime.log</span>
+                            </div>
+                            <div class="telemetry-code">
+                                <div><span class="c-dim">></span> Initializing Jetson TensorRT...</div>
+                                <div><span class="c-green">></span> OpenCV CUDA stream: 30.2 FPS</div>
+                                <div><span class="c-cyan">></span> Random Forest inference: 18ms</div>
+                                <div><span class="c-purple">></span> Streamlit gateways: Active</div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="status-counter-pill">
-                        <i class="fas fa-bolt"></i> Real-Time Mathematical Inference
+                </div>
+            </div>
+        </section>
+
+        <!-- FLAGSHIP LIVE STREAMLIT & DEPLOYED SYSTEMS -->
+        <section class="studio-section" id="models">
+            <div class="section-top">
+                <div class="section-tag">PRODUCTION WORKLOADS</div>
+                <h2 class="section-title">Flagship AI Deployments</h2>
+                <p class="section-intro">
+                    Direct access to live running web applications, trained models, and production APIs.
+                </p>
+            </div>
+
+            <div class="flagship-cards-layout">
+                <!-- CARD 1: CITYSCOPE AI -->
+                <article class="flagship-panel">
+                    <div class="panel-glow panel-glow-cyan"></div>
+                    <div class="panel-header">
+                        <span class="panel-badge badge-green"><i class="fas fa-circle-check"></i> Live Production</span>
+                        <span class="panel-meta">Geospatial Analytics &bull; Public Policy</span>
+                    </div>
+                    
+                    <h3 class="panel-heading">CityScope AI — Smart Regional Governance Intelligence</h3>
+                    <p class="panel-tagline">Comprehensive demographic, health, education & infrastructure analytics across Tamil Nadu.</p>
+                    
+                    <p class="panel-narrative">
+                        Engineered to give regional planners and state administrative officials multi-parameter spatial intelligence across all 38 districts of Tamil Nadu. Synthesizes dense public datasets into actionable predictive clusters and automated trend heatmaps.
+                    </p>
+
+                    <div class="panel-specs-grid">
+                        <div class="spec-cell">
+                            <span class="spec-lbl">Coverage</span>
+                            <span class="spec-val">38 Districts</span>
+                        </div>
+                        <div class="spec-cell">
+                            <span class="spec-lbl">Stack</span>
+                            <span class="spec-val">Python &bull; Streamlit &bull; GeoPandas</span>
+                        </div>
+                        <div class="spec-cell">
+                            <span class="spec-lbl">Domain</span>
+                            <span class="spec-val">Public Sector AI</span>
+                        </div>
+                    </div>
+
+                    <div class="panel-actions">
+                        <a href="https://cityscopeai-bg5nlpwgfwagazxiownnpf.streamlit.app/" target="_blank" class="btn-live-launch">
+                            <i class="fas fa-arrow-up-right-from-square"></i>
+                            <span>Launch Live App</span>
+                        </a>
+                        <a href="https://github.com/Samrajg" target="_blank" class="btn-code-view">
+                            <i class="fab fa-github"></i>
+                            <span>Repository</span>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- CARD 2: STROKE PREDICTION -->
+                <article class="flagship-panel">
+                    <div class="panel-glow panel-glow-purple"></div>
+                    <div class="panel-header">
+                        <span class="panel-badge badge-green"><i class="fas fa-heart-pulse"></i> Live Diagnostic Model</span>
+                        <span class="panel-meta">Clinical Informatics &bull; Machine Learning</span>
+                    </div>
+                    
+                    <h3 class="panel-heading">NeuroStroke AI — Clinical Biomarker Risk Estimator</h3>
+                    <p class="panel-tagline">Trained Random Forest model predicting personalized patient stroke risks.</p>
+                    
+                    <p class="panel-narrative">
+                        Trained on clinical patient records addressing class imbalances using SMOTE. Evaluates compound relationships between average glucose levels, BMI, hypertension, heart disease, smoking status, and age demographics to output calibrated probabilities in &lt;100ms.
+                    </p>
+
+                    <div class="panel-specs-grid">
+                        <div class="spec-cell">
+                            <span class="spec-lbl">Algorithm</span>
+                            <span class="spec-val">Random Forest</span>
+                        </div>
+                        <div class="spec-cell">
+                            <span class="spec-lbl">Biomarkers</span>
+                            <span class="spec-val">6 Core Metrics</span>
+                        </div>
+                        <div class="spec-cell">
+                            <span class="spec-lbl">Inference</span>
+                            <span class="spec-val">&lt;100ms Latency</span>
+                        </div>
+                    </div>
+
+                    <div class="panel-actions">
+                        <a href="https://strokeprediction-amrhvyqse9ni86rntyyffk.streamlit.app/" target="_blank" class="btn-live-launch">
+                            <i class="fas fa-arrow-up-right-from-square"></i>
+                            <span>Launch Live App</span>
+                        </a>
+                        <a href="https://github.com/Samrajg/Stroke_prediction" target="_blank" class="btn-code-view">
+                            <i class="fab fa-github"></i>
+                            <span>Repository</span>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- CARD 3: MR STRICT -->
+                <article class="flagship-panel">
+                    <div class="panel-glow panel-glow-amber"></div>
+                    <div class="panel-header">
+                        <span class="panel-badge badge-green"><i class="fas fa-graduation-cap"></i> Live Evaluator</span>
+                        <span class="panel-meta">Transformer NLP &bull; Fine-Tuned BERT</span>
+                    </div>
+                    
+                    <h3 class="panel-heading">Mr. Strict — Automated AI Assignment Evaluator</h3>
+                    <p class="panel-tagline">Contextual semantic grading eliminating human evaluation fatigue and bias.</p>
+                    
+                    <p class="panel-narrative">
+                        Leverages transformer sentence embeddings to compare student written answers and code against reference marking rubrics. Achieved a 92% correlation with senior faculty marking standards and reduced grading turnaround from days to minutes.
+                    </p>
+
+                    <div class="panel-specs-grid">
+                        <div class="spec-cell">
+                            <span class="spec-lbl">Accuracy</span>
+                            <span class="spec-val">92% Consistency</span>
+                        </div>
+                        <div class="spec-cell">
+                            <span class="spec-lbl">Speedup</span>
+                            <span class="spec-val">85% Turnaround</span>
+                        </div>
+                        <div class="spec-cell">
+                            <span class="spec-lbl">Architecture</span>
+                            <span class="spec-val">BERT NLP &bull; FastAPI</span>
+                        </div>
+                    </div>
+
+                    <div class="panel-actions">
+                        <a href="https://mr-strict-godwin.streamlit.app/" target="_blank" class="btn-live-launch">
+                            <i class="fas fa-arrow-up-right-from-square"></i>
+                            <span>Launch Live App</span>
+                        </a>
+                        <a href="https://github.com/Samrajg/Mr-strict" target="_blank" class="btn-code-view">
+                            <i class="fab fa-github"></i>
+                            <span>Repository</span>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- CARD 4: TREETOCLI LIVE UTILITY -->
+                <article class="flagship-panel">
+                    <div class="panel-glow panel-glow-cyan"></div>
+                    <div class="panel-header">
+                        <span class="panel-badge badge-cyan"><i class="fas fa-terminal"></i> Deployed Web App</span>
+                        <span class="panel-meta">Developer Productivity &bull; AST Parser</span>
+                    </div>
+                    
+                    <h3 class="panel-heading">TreeToCLI — Directory Tree AST Shell Generator</h3>
+                    <p class="panel-tagline">Converts ASCII folder structures directly into executable Bash/PowerShell.</p>
+                    
+                    <p class="panel-narrative">
+                        Client-side parsing utility that parses nested directory diagrams and outputs one-shot executable commands. Solves a recurring developer friction point with zero dependencies. Hosted live on GitHub Pages.
+                    </p>
+
+                    <div class="panel-specs-grid">
+                        <div class="spec-cell">
+                            <span class="spec-lbl">Output Targets</span>
+                            <span class="spec-val">Bash &bull; PowerShell &bull; CMD</span>
+                        </div>
+                        <div class="spec-cell">
+                            <span class="spec-lbl">Execution</span>
+                            <span class="spec-val">Instant Client-Side</span>
+                        </div>
+                        <div class="spec-cell">
+                            <span class="spec-lbl">Hosting</span>
+                            <span class="spec-val">GitHub Pages Live</span>
+                        </div>
+                    </div>
+
+                    <div class="panel-actions">
+                        <a href="https://samrajg.github.io/treetocli/" target="_blank" class="btn-live-launch">
+                            <i class="fas fa-arrow-up-right-from-square"></i>
+                            <span>Launch Live App</span>
+                        </a>
+                        <a href="https://github.com/Samrajg/treetocli" target="_blank" class="btn-code-view">
+                            <i class="fab fa-github"></i>
+                            <span>Repository</span>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- INTERACTIVE LAB: IN-BROWSER SIMULATION -->
+        <section class="studio-section" id="lab">
+            <div class="section-top">
+                <div class="section-tag">TEST INFERENCE IN REAL TIME</div>
+                <h2 class="section-title">Interactive AI Laboratory</h2>
+                <p class="section-intro">
+                    Simulate clinical diagnostic inference right in your browser. Adjust patient parameters to watch live risk regression curves compute in real-time.
+                </p>
+            </div>
+
+            <div class="lab-workspace">
+                <div class="lab-controls-pane">
+                    <div class="lab-control-group">
+                        <div class="control-header">
+                            <label for="input-age">Patient Demographics (Age)</label>
+                            <span id="age-val" class="control-metric">58 yrs</span>
+                        </div>
+                        <input type="range" id="input-age" min="18" max="95" value="58" class="studio-range">
+                    </div>
+
+                    <div class="lab-control-group">
+                        <div class="control-header">
+                            <label for="input-glucose">Average Glucose Level (mg/dL)</label>
+                            <span id="glucose-val" class="control-metric">135 mg/dL</span>
+                        </div>
+                        <input type="range" id="input-glucose" min="60" max="280" value="135" class="studio-range">
+                    </div>
+
+                    <div class="lab-control-group">
+                        <div class="control-header">
+                            <label for="input-bmi">Body Mass Index (BMI)</label>
+                            <span id="bmi-val" class="control-metric">28.4</span>
+                        </div>
+                        <input type="range" id="input-bmi" min="15" max="50" step="0.1" value="28.4" class="studio-range">
+                    </div>
+
+                    <div class="lab-toggles">
+                        <label class="toggle-card">
+                            <input type="checkbox" id="input-hypertension">
+                            <div class="toggle-content">
+                                <span class="toggle-title">Hypertension History</span>
+                                <span class="toggle-desc">Chronic blood pressure marker</span>
+                            </div>
+                        </label>
+
+                        <label class="toggle-card">
+                            <input type="checkbox" id="input-heart-disease">
+                            <div class="toggle-content">
+                                <span class="toggle-title">Known Cardiac Condition</span>
+                                <span class="toggle-desc">Pre-existing cardiovascular markers</span>
+                            </div>
+                        </label>
                     </div>
                 </div>
 
-                <div class="simulator-grid">
-                    <!-- Controls -->
-                    <div class="input-slider-group">
-                        <div class="slider-ctrl">
-                            <label>
-                                <span>Patient Age:</span>
-                                <span id="age-val" class="text-cyan">58 years</span>
-                            </label>
-                            <input type="range" id="input-age" min="18" max="95" value="58">
+                <div class="lab-visualization-pane">
+                    <div class="neural-meter-card">
+                        <div class="meter-halo" id="risk-dial-circle">
+                            <div class="meter-number" id="risk-score">18%</div>
+                            <div class="meter-caption">Estimated Probability</div>
                         </div>
 
-                        <div class="slider-ctrl">
-                            <label>
-                                <span>Average Glucose Level:</span>
-                                <span id="glucose-val" class="text-purple">135 mg/dL</span>
-                            </label>
-                            <input type="range" id="input-glucose" min="60" max="280" value="135">
-                        </div>
-
-                        <div class="slider-ctrl">
-                            <label>
-                                <span>Body Mass Index (BMI):</span>
-                                <span id="bmi-val" class="text-pink">28.4</span>
-                            </label>
-                            <input type="range" id="input-bmi" min="15" max="50" step="0.1" value="28.4">
-                        </div>
-
-                        <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 0.5rem;">
-                            <label style="display: flex; align-items: center; gap: 8px; font-family: var(--font-code); font-size: 0.82rem; cursor: pointer;">
-                                <input type="checkbox" id="input-hypertension"> Hypertension History
-                            </label>
-                            <label style="display: flex; align-items: center; gap: 8px; font-family: var(--font-code); font-size: 0.82rem; cursor: pointer;">
-                                <input type="checkbox" id="input-heart-disease"> Heart Disease
-                            </label>
+                        <div class="meter-diagnostics">
+                            <span class="diagnostic-badge" id="risk-category">Moderate Clinical Risk</span>
+                            <p class="diagnostic-explanation" id="risk-advice">
+                                Biomarkers remain within acceptable preventive margins. Slight elevation detected in baseline glucose.
+                            </p>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
 
-                    <!-- Output Dial -->
-                    <div class="simulator-output-box">
-                        <div class="risk-dial" id="risk-dial-circle">
-                            <div class="risk-dial-val" id="risk-score">18%</div>
-                            <div class="risk-dial-lbl">Risk Index</div>
-                        </div>
-                        <h4 id="risk-category" style="color: #00ffaa; font-family: var(--font-heading); margin-bottom: 0.4rem;">
-                            Moderate Risk Profile
-                        </h4>
-                        <p id="risk-advice" style="color: var(--text-muted); font-size: 0.85rem; max-width: 320px; line-height: 1.5;">
-                            Biomarkers align within standard clinical confidence thresholds. Model weights highlight glucose management.
+        <!-- COMPLETE 28+ SYSTEMS ARCHITECTURE MATRIX -->
+        <section class="studio-section" id="matrix">
+            <div class="section-top">
+                <div class="section-tag">CATALOG & REPOSITORY SEARCH</div>
+                <h2 class="section-title">Complete 28+ Systems Matrix</h2>
+                <p class="section-intro">
+                    Search and filter across my entire portfolio of ML models, full-stack microservices, edge deployments, and research experiments.
+                </p>
+            </div>
+
+            <div class="matrix-search-strip">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="project-search" placeholder="Filter by technology or system (e.g. BERT, OpenCV, Jetson, Streamlit, PostgreSQL)...">
+                </div>
+
+                <div class="matrix-filter-pills">
+                    <button class="pill-btn active" data-category="all">All Systems (28+)</button>
+                    <button class="pill-btn" data-category="ai">AI / ML & Vision</button>
+                    <button class="pill-btn" data-category="system">Architectural Blueprints</button>
+                    <button class="pill-btn" data-category="fullstack">Full-Stack & APIs</button>
+                    <button class="pill-btn" data-category="tools">Live Utilities</button>
+                </div>
+
+                <div class="results-badge" id="results-count">
+                    Showing 28 of 28 Systems
+                </div>
+            </div>
+
+            <!-- TIER 1 -->
+            <div class="matrix-group" data-tier-section="flagship">
+                <div class="group-title-bar">
+                    <span class="group-indicator ind-cyan"></span>
+                    <h3 class="group-title">Tier 1: Flagship Production AI & Research Models</h3>
+                    <span class="group-count">High-Confidence Systems</span>
+                </div>
+                <div class="matrix-grid" id="tier-flagship-grid"></div>
+            </div>
+
+            <!-- TIER 2 -->
+            <div class="matrix-group" data-tier-section="blueprint">
+                <div class="group-title-bar">
+                    <span class="group-indicator ind-purple"></span>
+                    <h3 class="group-title">Tier 2: High-Impact Blueprints & Visionary Architectures</h3>
+                    <span class="group-count">Smart Transit • Healthcare Triage • Companion AI</span>
+                </div>
+                <div class="matrix-grid" id="tier-blueprint-grid"></div>
+            </div>
+
+            <!-- TIER 3 -->
+            <div class="matrix-group" data-tier-section="utility">
+                <div class="group-title-bar">
+                    <span class="group-indicator ind-green"></span>
+                    <h3 class="group-title">Tier 3: Live Developer Utilities & Verified Tools</h3>
+                    <span class="group-count">100% Functional & Deployed</span>
+                </div>
+                <div class="matrix-grid" id="tier-utility-grid"></div>
+            </div>
+
+            <!-- TIER 4 -->
+            <div class="matrix-group" data-tier-section="incubator">
+                <div class="group-title-bar">
+                    <span class="group-indicator ind-amber"></span>
+                    <h3 class="group-title">Tier 4: Enterprise Full-Stack Suites & Research Labs</h3>
+                    <span class="group-count">Multi-Repo Suites & Academic Experiments</span>
+                </div>
+                <div class="matrix-grid" id="tier-incubator-grid"></div>
+            </div>
+        </section>
+
+        <!-- BACKGROUND, INTERNSHIPS & PHILOSOPHY -->
+        <section class="studio-section" id="background">
+            <div class="section-top">
+                <div class="section-tag">ENGINEERING CREDENTIALS</div>
+                <h2 class="section-title">Experience & Technical Foundation</h2>
+                <p class="section-subtitle">Dual engineering internships, strong academics, and verified strategic accomplishments.</p>
+            </div>
+
+            <div class="experience-split-grid">
+                <!-- Internships -->
+                <div class="exp-column">
+                    <h3 class="column-heading"><i class="fas fa-briefcase text-cyan"></i> Work Experience</h3>
+                    
+                    <div class="exp-card">
+                        <div class="exp-date">DEC 2025 — FEB 2026</div>
+                        <h4 class="exp-role">Software Developer Intern</h4>
+                        <div class="exp-org">Pentagon Garments — Virudhunagar, India</div>
+                        <p class="exp-narrative">
+                            Engineered an enterprise security verification platform using <strong>FastAPI</strong> and <strong>Next.js</strong>. Optimized PostgreSQL indexing and query logic to cut API round-trip latency by <strong>35%</strong> while enforcing strict 3-tier JWT authentication and audit trails.
+                        </p>
+                    </div>
+
+                    <div class="exp-card">
+                        <div class="exp-date">MAY 2024 — JUN 2024</div>
+                        <h4 class="exp-role">Machine Learning Intern</h4>
+                        <div class="exp-org">Panith Innovations — Bangalore, India</div>
+                        <p class="exp-narrative">
+                            Constructed predictive ML pipelines and automated preprocessing scripts in Python. Elevated forecast precision by <strong>23%</strong> through advanced feature selection, hyperparameter tuning, and cross-validation on messy client data.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Academics & Strategic Highlights -->
+                <div class="exp-column">
+                    <h3 class="column-heading"><i class="fas fa-graduation-cap text-purple"></i> Education & Honors</h3>
+                    
+                    <div class="exp-card">
+                        <div class="exp-date">2022 — 2026</div>
+                        <h4 class="exp-role">B.E. Computer Science & Engineering</h4>
+                        <div class="exp-org">Kamaraj College of Engineering & Technology</div>
+                        <p class="exp-narrative">
+                            Graduating with an aggregate <strong>8.1 / 10.0 CGPA</strong>. Deep coursework in Machine Learning, Deep Neural Networks, Distributed Systems, Data Structures & Database Design.
+                        </p>
+                    </div>
+
+                    <div class="exp-card">
+                        <div class="exp-date">STRATEGIC COMPETITION</div>
+                        <h4 class="exp-role">FIDE-Rated Competitive Chess Player</h4>
+                        <div class="exp-org">London International Chess Tournament (2018)</div>
+                        <p class="exp-narrative">
+                            Ranked <strong>15th internationally</strong>. Demonstrates high-speed tactical calculation, calm strategic decision-making under stringent clock pressure, and deep pattern recognition.
                         </p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ACHIEVEMENTS & STRATEGIC HIGHLIGHTS -->
-    <section class="section-padding" id="achievements">
-        <div class="container">
-            <div class="page-header">
-                <h2 class="page-title text-gradient">Achievements & Honors</h2>
-                <p class="section-subtitle">> Verified competitive chess ratings, GitHub honors, and technical leadership...</p>
-            </div>
+        <!-- CONTACT & COLLABORATION -->
+        <section class="studio-section" id="contact">
+            <div class="contact-box-centered">
+                <div class="section-tag">LET'S BUILD SOMETHING EXCEPTIONAL</div>
+                <h2 class="contact-title">Available for AI/ML & System Architecture Roles</h2>
+                <p class="contact-sub">
+                    Whether you are building high-throughput machine learning pipelines, edge computer vision, or scalable distributed backends — let's connect.
+                </p>
 
-            <div class="achievements-grid">
-                <!-- Achievement 1 -->
-                <div class="glass-card achievement-card tilt-card">
-                    <div class="achievement-icon">
-                        <i class="fas fa-chess-knight" style="color: var(--neon-cyan);"></i>
-                    </div>
-                    <h3 class="achievement-title">FIDE-Rated Chess Player</h3>
-                    <div class="achievement-subtitle">Strategic Thinking Under Pressure</div>
-                    <p style="color: var(--text-muted); font-size: 0.9rem;">
-                        Ranked <strong>15th at the London Chess Tournament (2018)</strong>. Demonstrates high-pressure tactical calculation, strategic pattern recognition, and decisive execution under time controls.
-                    </p>
-                </div>
-
-                <!-- Achievement 2 -->
-                <div class="glass-card achievement-card tilt-card">
-                    <div class="achievement-icon">
-                        <i class="fab fa-github" style="color: var(--neon-purple);"></i>
-                    </div>
-                    <h3 class="achievement-title">2x Pull Shark Achievement</h3>
-                    <div class="achievement-subtitle">GitHub Open Source Contribution</div>
-                    <p style="color: var(--text-muted); font-size: 0.9rem;">
-                        Earned the prestigious <strong>Pull Shark</strong> badge twice on GitHub for active code contributions, repository pull request mergers, and collaborative open-source maintenance.
-                    </p>
-                </div>
-
-                <!-- Achievement 3 -->
-                <div class="glass-card achievement-card tilt-card">
-                    <div class="achievement-icon">
-                        <i class="fas fa-trophy" style="color: var(--neon-pink);"></i>
-                    </div>
-                    <h3 class="achievement-title">Hackathon & Mini-Project Honors</h3>
-                    <div class="achievement-subtitle">Rapid Prototyping & AI Delivery</div>
-                    <p style="color: var(--text-muted); font-size: 0.9rem;">
-                        Delivered award-winning prototypes including Voice-Driven Legal Document Summarizer and automated proctoring frameworks under tight deadlines.
-                    </p>
+                <div class="contact-links-grid">
+                    <a href="mailto:godwinsamraj16@gmail.com" class="contact-channel">
+                        <i class="fas fa-envelope"></i>
+                        <span class="channel-title">godwinsamraj16@gmail.com</span>
+                        <span class="channel-label">Direct Email</span>
+                    </a>
+                    <a href="https://github.com/Samrajg" target="_blank" class="contact-channel">
+                        <i class="fab fa-github"></i>
+                        <span class="channel-title">github.com/Samrajg</span>
+                        <span class="channel-label">GitHub Profile</span>
+                    </a>
+                    <a href="https://linkedin.com/in/godwinsamraj" target="_blank" class="contact-channel">
+                        <i class="fab fa-linkedin-in"></i>
+                        <span class="channel-title">LinkedIn Profile</span>
+                        <span class="channel-label">Professional Network</span>
+                    </a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- CONTACT SECTION -->
-    <section class="section-padding" id="contact">
-        <div class="container">
-            <div class="page-header">
-                <h2 class="page-title text-gradient">Initiate Connection</h2>
-                <p class="section-subtitle">> Available for AI/ML Engineering, Full-Stack Architecture, and Research Roles...</p>
-            </div>
-
-            <div style="max-width: 600px; margin: 0 auto;">
-                <form id="contact-form" class="glass-card" style="padding: 2.5rem; display: flex; flex-direction: column; gap: 1.5rem;">
-                    <div>
-                        <label style="font-family: var(--font-code); font-size: 0.85rem; color: var(--text-muted); display: block; margin-bottom: 0.5rem;">Your Name</label>
-                        <input type="text" required style="width: 100%; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.12); padding: 0.8rem; border-radius: 8px; color: #fff; outline: none;">
-                    </div>
-                    <div>
-                        <label style="font-family: var(--font-code); font-size: 0.85rem; color: var(--text-muted); display: block; margin-bottom: 0.5rem;">Your Email</label>
-                        <input type="email" required style="width: 100%; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.12); padding: 0.8rem; border-radius: 8px; color: #fff; outline: none;">
-                    </div>
-                    <div>
-                        <label style="font-family: var(--font-code); font-size: 0.85rem; color: var(--text-muted); display: block; margin-bottom: 0.5rem;">Project or Role Details</label>
-                        <textarea rows="4" required style="width: 100%; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.12); padding: 0.8rem; border-radius: 8px; color: #fff; outline: none;"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-purple" style="width: 100%;">
-                        <i class="fas fa-paper-plane"></i> Transmit Message
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- FOOTER -->
-    <footer>
-        <div class="container">
-            <div class="footer-socials">
-                <a href="https://github.com/Samrajg" target="_blank" class="social-link" title="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://linkedin.com/in/godwinsamraj" target="_blank" class="social-link" title="LinkedIn">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="https://samrajg.github.io/portfolio" target="_blank" class="social-link" title="Live Site">
-                    <i class="fas fa-globe"></i>
-                </a>
-                <a href="mailto:godwinsamraj16@gmail.com" class="social-link" title="Email">
-                    <i class="fas fa-envelope"></i>
-                </a>
-            </div>
-            <p style="font-family: var(--font-code); color: var(--text-muted);">
-                System Status: <span class="text-cyan">ONLINE 100%</span> | Designed & Built by <strong>Godwin Samraj G</strong>
+    <footer class="studio-footer">
+        <div class="footer-inner">
+            <p class="footer-copy">
+                &copy; 2026 Godwin Samraj G. Built for high performance, modern typography, and clean code.
             </p>
+            <div class="footer-links">
+                <a href="#models">Deployments</a>
+                <a href="#matrix">Systems Matrix</a>
+                <a href="godwin_resume.pdf" download="Godwin_Samraj_Resume.pdf">Resume</a>
+                <a href="https://github.com/Samrajg" target="_blank">GitHub</a>
+            </div>
         </div>
     </footer>
 
-    <!-- Three.js CDN Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Scripts -->
     <script src="js/projects-data.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/hero-model.js"></script>
+    <script src="js/project-matrix.js"></script>
     <script src="js/aiml-interactive.js"></script>
 </body>
 </html>
