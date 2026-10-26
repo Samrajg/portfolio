@@ -16,7 +16,7 @@ const portfolioProjects = [
       { label: "Status", val: "Production Ready" }
     ],
     github: "https://github.com/Samrajg",
-    demo: null,
+    demo: "https://cityscopeai-bg5nlpwgfwagazxiownnpf.streamlit.app/",
     featured: true,
     highlights: "Multi-parameter spatial clustering, policy trend forecasting, interactive citizen & official dashboard."
   },
@@ -36,7 +36,7 @@ const portfolioProjects = [
       { label: "Inference", val: "<100ms" }
     ],
     github: "https://github.com/Samrajg/Stroke_prediction",
-    demo: "https://github.com/Samrajg/Stroke_prediction",
+    demo: "https://strokeprediction-amrhvyqse9ni86rntyyffk.streamlit.app/",
     featured: true,
     highlights: "Class imbalance handling via SMOTE, high diagnostic recall, real-time patient risk profiling."
   },
@@ -65,18 +65,18 @@ const portfolioProjects = [
     title: "Mr. Strict — AI Automated Assignment Evaluator",
     category: "ai",
     tier: "flagship",
-    badge: "Core Prototype • Debugging",
-    badgeColor: "warning",
+    badge: "Live App • Evaluator",
+    badgeColor: "success",
     tagline: "BERT-powered semantic grading and code evaluation engine for academic integrity.",
     desc: "Automated assignment grading engine using contextual embeddings to grade student submissions against reference rubrics with zero human bias. Features code similarity and Dockerized sandboxed execution.",
-    tech: ["Python", "BERT NLP", "FastAPI", "Docker", "PyTorch"],
+    tech: ["Python", "BERT NLP", "FastAPI", "Docker", "PyTorch", "Streamlit"],
     metrics: [
       { label: "Grading Accuracy", val: "92%" },
       { label: "Speedup", val: "85% Less Time" },
       { label: "Concurrent Submissions", val: "500+" }
     ],
     github: "https://github.com/Samrajg/Mr-strict",
-    demo: null,
+    demo: "https://mr-strict-godwin.streamlit.app/",
     featured: true,
     highlights: "Contextual semantic scoring via fine-tuned Transformer embeddings and plagiarism flagging."
   },
